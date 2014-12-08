@@ -65,20 +65,31 @@
      
      cell.textLabel.text = self.listOfStudents[indexPath.row];
      cell.detailTextLabel.text = @"Detail text";
-     cell.delegate = self; //optional
+     //cell.delegate = self; //optional
      cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"👍" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor greenColor]]];
      
-     
-     
      cell.leftExpansion.buttonIndex = 1;
-     
      cell.leftExpansion.fillOnTrigger = YES;
-   //  cell.backgroundColor = [UIColor greenColor];
      cell.leftSwipeSettings.transition = MGSwipeTransition3D;
+     
+     
+     cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"👎" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor redColor]]];
+     
+     cell.rightExpansion.buttonIndex = 1;
+     cell.rightExpansion.fillOnTrigger = YES;
+     cell.rightSwipeSettings.transition = MGSwipeTransitionDrag;
      
      
      return cell;
  }
+
+
+
+
+
+
+/**
+
 
 
 

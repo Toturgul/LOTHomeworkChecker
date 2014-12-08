@@ -15,9 +15,11 @@
 		D44A9CBC1A1CF2810031BD1C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44A9CBA1A1CF2810031BD1C /* LaunchScreen.xib */; };
 		D44A9CC81A1CF2810031BD1C /* HomeworkCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A9CC71A1CF2810031BD1C /* HomeworkCheckerTests.m */; };
 		D49F1CEA1A23B7E9009201F3 /* LOTStudentListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F1CE91A23B7E9009201F3 /* LOTStudentListTableViewController.m */; };
-		D49F1CED1A23C6D5009201F3 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F1CEC1A23C6D5009201F3 /* DemoViewController.m */; };
+		D4B63FDB1A3525650008190D /* LOTClassListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B63FDA1A3525650008190D /* LOTClassListViewController.m */; };
 		D4C8552C1A2A655300A4B435 /* LOTStudentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C8552B1A2A655300A4B435 /* LOTStudentListViewController.m */; };
 		D4C855341A2A6E1100A4B435 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C855331A2A6E1100A4B435 /* Main.storyboard */; };
+		D4D298061A34D31100BA237B /* clipboard.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D4D298051A34D31100BA237B /* clipboard.jpeg */; };
+		D4D298121A3511A400BA237B /* LOTNewClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D298111A3511A400BA237B /* LOTNewClassViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,11 +50,14 @@
 		D44A9CC71A1CF2810031BD1C /* HomeworkCheckerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeworkCheckerTests.m; sourceTree = "<group>"; };
 		D49F1CE81A23B7E9009201F3 /* LOTStudentListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTStudentListTableViewController.h; sourceTree = "<group>"; };
 		D49F1CE91A23B7E9009201F3 /* LOTStudentListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTStudentListTableViewController.m; sourceTree = "<group>"; };
-		D49F1CEB1A23C6D5009201F3 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
-		D49F1CEC1A23C6D5009201F3 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
+		D4B63FD91A3525650008190D /* LOTClassListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTClassListViewController.h; sourceTree = "<group>"; };
+		D4B63FDA1A3525650008190D /* LOTClassListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTClassListViewController.m; sourceTree = "<group>"; };
 		D4C8552A1A2A655300A4B435 /* LOTStudentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTStudentListViewController.h; sourceTree = "<group>"; };
 		D4C8552B1A2A655300A4B435 /* LOTStudentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTStudentListViewController.m; sourceTree = "<group>"; };
 		D4C855331A2A6E1100A4B435 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
+		D4D298051A34D31100BA237B /* clipboard.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = clipboard.jpeg; path = ../clipboard.jpeg; sourceTree = "<group>"; };
+		D4D298101A3511A400BA237B /* LOTNewClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTNewClassViewController.h; sourceTree = "<group>"; };
+		D4D298111A3511A400BA237B /* LOTNewClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTNewClassViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +99,7 @@
 		D44A9C9F1A1CF2810031BD1C = {
 			isa = PBXGroup;
 			children = (
+				D4E0CEF61A34D1D300C7753D /* images */,
 				D44A9CAA1A1CF2810031BD1C /* HomeworkChecker */,
 				D44A9CC41A1CF2810031BD1C /* HomeworkCheckerTests */,
 				D44A9CA91A1CF2810031BD1C /* Products */,
@@ -116,8 +122,6 @@
 			children = (
 				D4C8552A1A2A655300A4B435 /* LOTStudentListViewController.h */,
 				D4C8552B1A2A655300A4B435 /* LOTStudentListViewController.m */,
-				D49F1CEB1A23C6D5009201F3 /* DemoViewController.h */,
-				D49F1CEC1A23C6D5009201F3 /* DemoViewController.m */,
 				D4C855331A2A6E1100A4B435 /* Main.storyboard */,
 				D44A9CAF1A1CF2810031BD1C /* AppDelegate.h */,
 				D44A9CB01A1CF2810031BD1C /* AppDelegate.m */,
@@ -128,6 +132,10 @@
 				D44A9CB81A1CF2810031BD1C /* Images.xcassets */,
 				D44A9CBA1A1CF2810031BD1C /* LaunchScreen.xib */,
 				D44A9CAB1A1CF2810031BD1C /* Supporting Files */,
+				D4D298101A3511A400BA237B /* LOTNewClassViewController.h */,
+				D4D298111A3511A400BA237B /* LOTNewClassViewController.m */,
+				D4B63FD91A3525650008190D /* LOTClassListViewController.h */,
+				D4B63FDA1A3525650008190D /* LOTClassListViewController.m */,
 			);
 			path = HomeworkChecker;
 			sourceTree = "<group>";
@@ -156,6 +164,14 @@
 				D44A9CC61A1CF2810031BD1C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D4E0CEF61A34D1D300C7753D /* images */ = {
+			isa = PBXGroup;
+			children = (
+				D4D298051A34D31100BA237B /* clipboard.jpeg */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +258,7 @@
 			files = (
 				D4C855341A2A6E1100A4B435 /* Main.storyboard in Resources */,
 				D44A9CBC1A1CF2810031BD1C /* LaunchScreen.xib in Resources */,
+				D4D298061A34D31100BA237B /* clipboard.jpeg in Resources */,
 				D44A9CB91A1CF2810031BD1C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,7 +314,8 @@
 				D44A9CB11A1CF2810031BD1C /* AppDelegate.m in Sources */,
 				D4C8552C1A2A655300A4B435 /* LOTStudentListViewController.m in Sources */,
 				D44A9CAE1A1CF2810031BD1C /* main.m in Sources */,
-				D49F1CED1A23C6D5009201F3 /* DemoViewController.m in Sources */,
+				D4B63FDB1A3525650008190D /* LOTClassListViewController.m in Sources */,
+				D4D298121A3511A400BA237B /* LOTNewClassViewController.m in Sources */,
 				D49F1CEA1A23B7E9009201F3 /* LOTStudentListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

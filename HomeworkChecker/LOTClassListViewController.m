@@ -39,7 +39,7 @@
     
     static NSString *cellIdentifier = @"classCell";
     UITableViewCell *cell = [self.classListTableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.textLabel.text = @"Hi";
+    cell.textLabel.text = [NSString stringWithFormat:@"Period %ld",(long)indexPath.row+1];
     
     return cell;
     

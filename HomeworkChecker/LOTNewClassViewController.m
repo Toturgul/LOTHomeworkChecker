@@ -9,6 +9,7 @@
 #import "LOTNewClassViewController.h"
 
 @interface LOTNewClassViewController ()
+@property (nonatomic) NSInteger editNumber;
 @property (weak, nonatomic) IBOutlet UITableView *addStudentsTableView;
 - (IBAction)addStudentButton:(id)sender;
 - (IBAction)editButton:(id)sender;
@@ -23,10 +24,11 @@
     [super viewDidLoad];
     self.addStudentsTableView.delegate = self;
     self.addStudentsTableView.dataSource = self;
-    self.namesArray = [[NSMutableArray alloc] initWithObjects:@"Elisa",@"Levan",@"Summer", nil];
-    
-    NSLog(@"%@",self.namesArray);
-    [self.addStudentsTableView reloadData];
+    self.namesArray = [[NSMutableArray alloc] initWithObjects:@"Joe",@"Tina",@"Jamal",@"Amy", nil];
+    self.editNumber = 2;
+    self.title = @"Students";
+   // NSLog(@"%@",self.namesArray);
+    //[self.addStudentsTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,13 +76,22 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
+    //inits self.namesArray if it is empty
+    if (!self.namesArray) {
+        self.namesArray = [[NSMutableArray alloc]init];
+    }
+    
     // Make sure the button they clicked wasn't Cancel
     if (buttonIndex == alertView.firstOtherButtonIndex) {
         UITextField *textField = [alertView textFieldAtIndex:0];
         self.name = textField.text;
         NSLog(@"%@", textField.text);
+        [self.namesArray insertObject:self.name atIndex:0];
         [self.addStudentsTableView reloadData];
         NSLog(@"%@",self.namesArray);
+        
+        
+        
     }
 }
 
@@ -99,9 +110,7 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
     
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
 //    UITextField *textField = [alert textFieldAtIndex:0];
-//    NSLog(@"%@",[NSString stringWithFormat:@"%@",textField.text]);
-//    NSString *tempName = [NSString stringWithFormat:@"%@",textField.text];
-//    [self.namesArray addObject:tempName];
+
     
 }
 
@@ -131,6 +140,21 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
 
 - (IBAction)editButton:(id)sender {
     
+    
+    
+    if (self.editNumber%2==0) {
+        
+    //[super setEditing:TRUE];
+    //[self.addStudentsTableView setEditing:TRUE];
+    self.editing = YES;
+        self.editNumber++;
+    }
+    else {
+       // [super setEditing:FALSE];
+       // [self.addStudentsTableView setEditing:FALSE];
+        self.editing = NO;
+        self.editNumber++;
+    }
     
 }
 

@@ -7,8 +7,8 @@
 //
 
 #import "LOTDataStore.h"
-#import "Student.h"
-#import "Course.h"
+#import "LOTStudent.h"
+#import "LOTCourse.h"
 
 
 @implementation LOTDataStore
@@ -83,14 +83,14 @@
 
 - (void) sampleData {
     
-    Course *sampleCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.managedObjectContext];
+    LOTCourse *sampleCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.managedObjectContext];
     sampleCourse.courseName = @"(Example) Period 3 Biology";
     
-    Student *student1 = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.managedObjectContext];
+    LOTStudent *student1 = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.managedObjectContext];
     student1.name = @"Summer";
     [sampleCourse addStudentsObject:student1];
     
-    [self sampleData];
+    [self save];
     [self fetchData];
     
 }

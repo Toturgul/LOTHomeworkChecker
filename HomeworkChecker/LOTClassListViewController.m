@@ -7,7 +7,7 @@
 //
 
 #import "LOTClassListViewController.h"
-#import "Course.h"
+#import "LOTCourse.h"
 @interface LOTClassListViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addNewClassButton;
 @property (weak, nonatomic) IBOutlet UITableView *classListTableView;
@@ -38,7 +38,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5; // [self.namesArray count];
+    return [self.dataStore.courseArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -46,7 +46,7 @@
     static NSString *cellIdentifier = @"classCell";
     UITableViewCell *cell = [self.classListTableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    Course *cellFiller = self.dataStore.courseArray[indexPath.row];
+    LOTCourse *cellFiller = self.dataStore.courseArray[indexPath.row];
     cell.textLabel.text = cellFiller.courseName;
     
     

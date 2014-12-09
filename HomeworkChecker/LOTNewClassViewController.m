@@ -7,8 +7,8 @@
 //
 
 #import "LOTNewClassViewController.h"
-
-
+#import "LOTCourse.h"
+#import "LOTStudent.h"
 @interface LOTNewClassViewController ()
 @property (nonatomic) NSInteger editNumber;
 @property (weak, nonatomic) IBOutlet UITableView *addStudentsTableView;
@@ -29,10 +29,12 @@
     self.addStudentsTableView.delegate = self;
     self.addStudentsTableView.dataSource = self;
     
-    self.store = [LOTDataStore sharedHomeworkDataStore];
-    self.namesArray = [[NSMutableArray alloc] initWithObjects:@"Joe",@"Tina",@"Jamal",@"Amy", nil];
+    self.dataStore = [LOTDataStore sharedHomeworkDataStore];
+    [self.dataStore fetchData];
+    //self.namesArray = [[NSMutableArray alloc] init];
+   // self.namesArray = [[NSMutableArray alloc] initWithObjects:@"Joe",@"Tina",@"Jamal",@"Amy", nil];
     self.editNumber = 2;
-    self.title = @"Students";
+    //self.title = @"Students";
    // NSLog(@"%@",self.namesArray);
     //[self.addStudentsTableView reloadData];
 }
@@ -60,7 +62,8 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
     if(cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    cell.textLabel.text = self.namesArray[indexPath.row];
+    LOTStudent *newStudent = self.namesArray[indexPath.row];
+    cell.textLabel.text = newStudent.name;
 
     return cell;
 
@@ -90,11 +93,15 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
     // Make sure the button they clicked wasn't Cancel
     if (buttonIndex == alertView.firstOtherButtonIndex) {
         UITextField *textField = [alertView textFieldAtIndex:0];
-        self.name = textField.text;
-        NSLog(@"%@", textField.text);
-        [self.namesArray insertObject:self.name atIndex:0];
+        
+        LOTStudent *newStudent = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.dataStore.managedObjectContext];
+        newStudent.name = textField.text;
+        
+        self.name = textField.text;     //erase
+        NSLog(@"%@", textField.text); //erase
+        [self.namesArray insertObject:newStudent atIndex:0];
         [self.addStudentsTableView reloadData];
-        NSLog(@"%@",self.namesArray);
+        NSLog(@"%@",self.namesArray); //erase
         
         
         
@@ -147,7 +154,7 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
 - (IBAction)editButton:(id)sender {
     
     
-    
+ //turns on and off edit every other time the button is touched
     if (self.editNumber%2==0) {
         
     //[super setEditing:TRUE];
@@ -165,6 +172,16 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
 }
 
 - (IBAction)doneButton:(id)sender {
+    
+    //create a new LOTCourse ands stores name
+    LOTCourse *newCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
+    newCourse.courseName = self.courseLabel.text;
+    
+    for (LOTStudent *temp in self.namesArray) {
+        [newCourse addStudentsObject:temp];
+    }
+    
+    [self.dataStore save];
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];

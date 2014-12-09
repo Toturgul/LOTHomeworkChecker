@@ -13,6 +13,6 @@
 
 @property (strong, nonatomic) NSMutableArray *namesArray;
 @property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) LOTDataStore *store;
+@property (strong, nonatomic) LOTDataStore *dataStore;
 
 @end

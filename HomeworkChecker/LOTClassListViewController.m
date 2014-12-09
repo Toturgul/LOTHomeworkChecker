@@ -8,7 +8,8 @@
 
 #import "LOTClassListViewController.h"
 #import "LOTCourse.h"
-@interface LOTClassListViewController ()
+#import "LOTStudentListViewController.h"
+@interface LOTClassListViewController () 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addNewClassButton;
 @property (weak, nonatomic) IBOutlet UITableView *classListTableView;
 
@@ -24,9 +25,18 @@
     self.dataStore = [LOTDataStore sharedHomeworkDataStore];
     [self.dataStore fetchData];
     
+    self.view.backgroundColor = [UIColor grayColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
+    self.classListTableView.backgroundColor = [UIColor yellowColor];
     
     
 }
+
+- (void) viewWillAppear:(BOOL)animated{
+    [self.dataStore fetchData];
+    [self.classListTableView reloadData];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -48,7 +58,7 @@
     
     LOTCourse *cellFiller = self.dataStore.courseArray[indexPath.row];
     cell.textLabel.text = cellFiller.courseName;
-    
+    cell.backgroundColor = [UIColor yellowColor];
     
     return cell;
     
@@ -64,14 +74,21 @@
 
 
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier  isEqual:@"goToClass"]) {
+    
+    NSIndexPath *chosenIndexPath = [self.classListTableView indexPathForSelectedRow];
+    LOTCourse *chosenCourse = self.dataStore.courseArray[chosenIndexPath.row];
+    LOTStudentListViewController *studentListVC = segue.destinationViewController;
+    studentListVC.chosenCourse = chosenCourse;
+    }
+    
 }
-*/
+
 
 @end

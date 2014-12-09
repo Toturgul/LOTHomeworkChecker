@@ -89,7 +89,7 @@ typedef NS_ENUM(NSInteger, MGSwipeState) {
  @param state the current Swipe State
  @param gestureIsActive YES if the user swipe gesture is active. No if the uses has already ended the gesture
  **/
--(void) swipeTableCell:(MGSwipeTableCell*) cell didChangeSwipeState:(MGSwipeState) state gestureIsActive:(BOOL) gestureIsActive;
+-(void) swipeTableCell:(MGSwipeTableCell*) cell didChangeSwipeState:(MGSwipeState) state gestureIsActive:(BOOL) gestureIsActive;//
 
 /**
  * Called when the user clicks a swipe button or when a expandable button is automatically triggered

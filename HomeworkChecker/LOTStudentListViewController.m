@@ -7,9 +7,9 @@
 //
 
 #import "LOTStudentListViewController.h"
+#import "LOTStudent.h"
 
-
-@interface LOTStudentListViewController ()
+@interface LOTStudentListViewController () 
 @property (weak, nonatomic) IBOutlet UITableView *studentTableView;
 
 
@@ -25,7 +25,15 @@
     [super viewDidLoad];
     self.studentTableView.delegate = self;
     self.studentTableView.dataSource = self;
-    self.listOfStudents = @[@"Smart Sarah", @"Stupid Sam", @"Burnout Barney", @"Brainy Brian"];
+    
+    self.dataStore = [LOTDataStore sharedHomeworkDataStore];
+    [self.dataStore fetchData];
+    
+    
+    
+    self.listOfStudents = [self.chosenCourse.students allObjects];
+    
+    //self.listOfStudents = @[@"Smart Sarah", @"Stupid Sam", @"Burnout Barney", @"Brainy Brian"];
     
     NSLog(@"hi sir");
     // Uncomment the following line to preserve selection between presentations.
@@ -63,14 +71,19 @@
          cell = [[MGSwipeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
      }
      
-     cell.textLabel.text = self.listOfStudents[indexPath.row];
+     LOTStudent *currentStudent = self.listOfStudents[indexPath.row];
+     cell.textLabel.text = currentStudent.name;
      cell.detailTextLabel.text = @"Detail text";
-     //cell.delegate = self; //optional
+     cell.delegate = self;
      cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"👍" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor greenColor]]];
      
      cell.leftExpansion.buttonIndex = 1;
      cell.leftExpansion.fillOnTrigger = YES;
      cell.leftSwipeSettings.transition = MGSwipeTransition3D;
+     
+    
+     
+     
      
      
      cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"👎" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor redColor]]];
@@ -79,16 +92,27 @@
      cell.rightExpansion.fillOnTrigger = YES;
      cell.rightSwipeSettings.transition = MGSwipeTransitionDrag;
      
-     
+     NSLog(@"swipe state %ld",cell.swipeState);
      return cell;
  }
 
+- (void) swipeTableCell:(MGSwipeTableCell *)cell didChangeSwipeState:(MGSwipeState)state gestureIsActive:(BOOL)gestureIsActive{
+    
+    
+    if (cell.swipeState == 2) {
+    
+    cell.backgroundColor = [UIColor redColor];
+    }
+    else if (cell.swipeState == 1) {
+        cell.backgroundColor = [UIColor greenColor];
+    }
+    
+}
 
 
 
 
 
-/**
 
 
 

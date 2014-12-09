@@ -86,7 +86,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3UD-4W-hJ7">
-                                <rect key="frame" x="0.0" y="378" width="375" height="289"/>
+                                <rect key="frame" x="0.0" y="298" width="375" height="369"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="classCell" textLabel="1we-Q4-jQu" style="IBUITableViewCellStyleDefault" id="Ule-29-jHd">
@@ -103,6 +103,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="F7i-xs-aHZ" kind="show" identifier="goToClass" id="3kd-zR-FZ8"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -112,7 +115,7 @@
                     <navigationItem key="navigationItem" id="igY-Gt-eZQ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="aUW-yk-xhf">
                             <connections>
-                                <segue destination="5hs-t6-hLv" kind="presentation" id="W0a-GQ-2FC"/>
+                                <segue destination="5hs-t6-hLv" kind="presentation" identifier="addClass" id="W0a-GQ-2FC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -142,7 +145,7 @@
                                 <rect key="frame" x="0.0" y="71" width="375" height="616"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="studentCell" id="epD-sV-Fhd">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="studentCell" id="epD-sV-Fhd" customClass="MGSwipeTableCell">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="epD-sV-Fhd" id="MYO-iv-YFQ">

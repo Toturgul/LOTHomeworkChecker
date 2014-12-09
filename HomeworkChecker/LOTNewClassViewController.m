@@ -9,7 +9,7 @@
 #import "LOTNewClassViewController.h"
 #import "LOTCourse.h"
 #import "LOTStudent.h"
-@interface LOTNewClassViewController ()
+@interface LOTNewClassViewController ()<UITextFieldDelegate>
 @property (nonatomic) NSInteger editNumber;
 @property (weak, nonatomic) IBOutlet UITableView *addStudentsTableView;
 - (IBAction)addStudentButton:(id)sender;
@@ -28,6 +28,7 @@
     [super viewDidLoad];
     self.addStudentsTableView.delegate = self;
     self.addStudentsTableView.dataSource = self;
+    self.courseLabel.delegate = self;
     
     self.dataStore = [LOTDataStore sharedHomeworkDataStore];
     [self.dataStore fetchData];
@@ -37,6 +38,11 @@
     //self.title = @"Students";
    // NSLog(@"%@",self.namesArray);
     //[self.addStudentsTableView reloadData];
+    
+    self.view.backgroundColor = [UIColor grayColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
+    self.addStudentsTableView.backgroundColor = [UIColor yellowColor];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,6 +70,7 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
     }
     LOTStudent *newStudent = self.namesArray[indexPath.row];
     cell.textLabel.text = newStudent.name;
+    cell.backgroundColor = [UIColor yellowColor];
 
     return cell;
 
@@ -186,6 +193,11 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
         
     }];
     
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.view endEditing:YES];
+    return YES;
 }
 
 @end

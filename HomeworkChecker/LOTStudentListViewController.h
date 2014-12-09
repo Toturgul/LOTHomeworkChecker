@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <MGSwipeTableCell.h>
 #import <MGSwipeButton.h>
+#import "LOTCourse.h"
+#import "LOTDataStore.h"
+
 
 @interface LOTStudentListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) NSArray * listOfStudents;
-
+@property (strong, nonatomic) LOTCourse *chosenCourse;
+@property (strong, nonatomic) LOTDataStore *dataStore;
 
 @end

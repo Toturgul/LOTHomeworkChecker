@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LOTDataStore.h"
 
 @interface LOTNewClassViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *namesArray;
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) LOTDataStore *store;
 
 @end

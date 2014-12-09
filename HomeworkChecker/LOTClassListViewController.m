@@ -7,7 +7,7 @@
 //
 
 #import "LOTClassListViewController.h"
-
+#import "Course.h"
 @interface LOTClassListViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addNewClassButton;
 @property (weak, nonatomic) IBOutlet UITableView *classListTableView;
@@ -20,6 +20,12 @@
     [super viewDidLoad];
     self.classListTableView.delegate = self;
     self.classListTableView.dataSource = self;
+    
+    self.dataStore = [LOTDataStore sharedHomeworkDataStore];
+    [self.dataStore fetchData];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,7 +45,10 @@
     
     static NSString *cellIdentifier = @"classCell";
     UITableViewCell *cell = [self.classListTableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"Period %ld",(long)indexPath.row+1];
+    
+    Course *cellFiller = self.dataStore.courseArray[indexPath.row];
+    cell.textLabel.text = cellFiller.courseName;
+    
     
     return cell;
     

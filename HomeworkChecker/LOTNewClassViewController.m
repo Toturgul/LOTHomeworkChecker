@@ -8,11 +8,15 @@
 
 #import "LOTNewClassViewController.h"
 
+
 @interface LOTNewClassViewController ()
 @property (nonatomic) NSInteger editNumber;
 @property (weak, nonatomic) IBOutlet UITableView *addStudentsTableView;
 - (IBAction)addStudentButton:(id)sender;
 - (IBAction)editButton:(id)sender;
+- (IBAction)doneButton:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UITextField *courseLabel;
 
 
 @end
@@ -24,6 +28,8 @@
     [super viewDidLoad];
     self.addStudentsTableView.delegate = self;
     self.addStudentsTableView.dataSource = self;
+    
+    self.store = [LOTDataStore sharedHomeworkDataStore];
     self.namesArray = [[NSMutableArray alloc] initWithObjects:@"Joe",@"Tina",@"Jamal",@"Amy", nil];
     self.editNumber = 2;
     self.title = @"Students";
@@ -155,6 +161,13 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
         self.editing = NO;
         self.editNumber++;
     }
+    
+}
+
+- (IBAction)doneButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
     
 }
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="13F34" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="LOTCourse" representedClassName="Course" syncable="YES">
+        <attribute name="assignment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="courseName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LOTStudent" inverseName="course" inverseEntity="LOTStudent" syncable="YES"/>
+    </entity>
+    <entity name="LOTStudent" representedClassName="Student" syncable="YES">
+        <attribute name="assignment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="course" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LOTCourse" inverseName="students" inverseEntity="LOTCourse" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="LOTCourse" positionX="-360" positionY="18" width="128" height="103"/>
+        <element name="LOTStudent" positionX="-54" positionY="18" width="128" height="103"/>
+    </elements>
+</model>

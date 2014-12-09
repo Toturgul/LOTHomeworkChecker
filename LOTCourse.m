@@ -1,20 +1,20 @@
 //
-//  Course.m
+//  LOTCourse.m
 //  HomeworkChecker
 //
-//  Created by Levan Toturgul on 12/8/14.
+//  Created by Levan Toturgul on 12/9/14.
 //  Copyright (c) 2014 LevanPractice. All rights reserved.
 //
 
-#import "Course.h"
-#import "Student.h"
+#import "LOTCourse.h"
+#import "LOTStudent.h"
 
 
-@implementation Course
+@implementation LOTCourse
 
+@dynamic assignment;
 @dynamic courseName;
 @dynamic date;
-@dynamic assignment;
 @dynamic students;
 
 @end

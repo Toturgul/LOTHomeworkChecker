@@ -1,28 +1,28 @@
 //
-//  Course.h
+//  LOTCourse.h
 //  HomeworkChecker
 //
-//  Created by Levan Toturgul on 12/8/14.
+//  Created by Levan Toturgul on 12/9/14.
 //  Copyright (c) 2014 LevanPractice. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Student;
+@class LOTStudent;
 
-@interface Course : NSManagedObject
+@interface LOTCourse : NSManagedObject
 
+@property (nonatomic, retain) NSString * assignment;
 @property (nonatomic, retain) NSString * courseName;
 @property (nonatomic, retain) NSDate * date;
-@property (nonatomic, retain) NSString * assignment;
 @property (nonatomic, retain) NSSet *students;
 @end
 
-@interface Course (CoreDataGeneratedAccessors)
+@interface LOTCourse (CoreDataGeneratedAccessors)
 
-- (void)addStudentsObject:(Student *)value;
-- (void)removeStudentsObject:(Student *)value;
+- (void)addStudentsObject:(LOTStudent *)value;
+- (void)removeStudentsObject:(LOTStudent *)value;
 - (void)addStudents:(NSSet *)values;
 - (void)removeStudents:(NSSet *)values;
 

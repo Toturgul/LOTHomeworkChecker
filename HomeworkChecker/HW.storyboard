@@ -58,7 +58,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Class Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fv8-v4-L1l">
                                 <rect key="frame" x="31" y="162" width="185" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6Q-2x-Wke">
                                 <rect key="frame" x="176" y="101" width="49" height="46"/>
@@ -155,7 +155,7 @@
             </objects>
             <point key="canvasLocation" x="918.5" y="205.5"/>
         </scene>
-        <!--Title-->
+        <!--Homework Completion-->
         <scene sceneID="6by-PA-vVi">
             <objects>
                 <viewController id="F7i-xs-aHZ" customClass="LOTStudentListViewController" sceneMemberID="viewController">
@@ -167,9 +167,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clipboard-34693_1280.png" translatesAutoresizingMaskIntoConstraints="NO" id="QCI-YW-SRm">
-                                <rect key="frame" x="0.0" y="122" width="375" height="545"/>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5Cy-Jj-pdS">
                                 <rect key="frame" x="16" y="192" width="343" height="424"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -186,18 +183,21 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Assignment Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8nY-Pk-cSH">
                                 <rect key="frame" x="16" y="84" width="188" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nyi-fV-Mft">
                                 <rect key="frame" x="237" y="84" width="122" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clipboard-34693_1280.png" translatesAutoresizingMaskIntoConstraints="NO" id="QCI-YW-SRm">
+                                <rect key="frame" x="0.0" y="122" width="375" height="545"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="k80-N0-TTI">
+                    <navigationItem key="navigationItem" title="Homework Completion" id="k80-N0-TTI">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="xW7-Qg-MDj"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>

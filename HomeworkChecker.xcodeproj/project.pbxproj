@@ -14,6 +14,8 @@
 		D44A9CB91A1CF2810031BD1C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44A9CB81A1CF2810031BD1C /* Images.xcassets */; };
 		D44A9CBC1A1CF2810031BD1C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44A9CBA1A1CF2810031BD1C /* LaunchScreen.xib */; };
 		D44A9CC81A1CF2810031BD1C /* HomeworkCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A9CC71A1CF2810031BD1C /* HomeworkCheckerTests.m */; };
+		D4592C811A38A53C00C2EDDD /* FINAL_PNG_SQUARED.png in Resources */ = {isa = PBXBuildFile; fileRef = D4592C801A38A53C00C2EDDD /* FINAL_PNG_SQUARED.png */; };
+		D4592C831A38ABEC00C2EDDD /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4592C821A38ABEC00C2EDDD /* splash@2x.png */; };
 		D49F1CEA1A23B7E9009201F3 /* LOTStudentListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F1CE91A23B7E9009201F3 /* LOTStudentListTableViewController.m */; };
 		D4B5711D1A373C15009F7C64 /* HW.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B5711C1A373C15009F7C64 /* HW.storyboard */; };
 		D4B571201A37599A009F7C64 /* LOTCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B5711F1A37599A009F7C64 /* LOTCourse.m */; };
@@ -22,7 +24,6 @@
 		D4B571271A37D947009F7C64 /* chalkboard-152414_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B571261A37D947009F7C64 /* chalkboard-152414_1280.png */; };
 		D4B571291A37D9AA009F7C64 /* clipboard-34693_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B571281A37D9AA009F7C64 /* clipboard-34693_1280.png */; };
 		D4B5712B1A37DC8F009F7C64 /* eraser-309830_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B5712A1A37DC8F009F7C64 /* eraser-309830_1280.png */; };
-		D4B5712F1A37E40E009F7C64 /* books-157688_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B5712E1A37E40E009F7C64 /* books-157688_1280.png */; };
 		D4B571311A37EB8D009F7C64 /* backdrop-72250_1280.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4B571301A37EB8D009F7C64 /* backdrop-72250_1280.jpg */; };
 		D4B571331A37EB99009F7C64 /* note-34687_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B571321A37EB99009F7C64 /* note-34687_1280.png */; };
 		D4B571351A37EBA0009F7C64 /* pencils-21186_1280.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4B571341A37EBA0009F7C64 /* pencils-21186_1280.jpg */; };
@@ -65,6 +66,8 @@
 		D44A9CC11A1CF2810031BD1C /* HomeworkCheckerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeworkCheckerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44A9CC61A1CF2810031BD1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D44A9CC71A1CF2810031BD1C /* HomeworkCheckerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeworkCheckerTests.m; sourceTree = "<group>"; };
+		D4592C801A38A53C00C2EDDD /* FINAL_PNG_SQUARED.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FINAL_PNG_SQUARED.png; path = ../FINAL_PNG_SQUARED.png; sourceTree = "<group>"; };
+		D4592C821A38ABEC00C2EDDD /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "splash@2x.png"; path = "../Download/app/assets/iphone/splash@2x.png"; sourceTree = "<group>"; };
 		D49F1CE81A23B7E9009201F3 /* LOTStudentListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTStudentListTableViewController.h; sourceTree = "<group>"; };
 		D49F1CE91A23B7E9009201F3 /* LOTStudentListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTStudentListTableViewController.m; sourceTree = "<group>"; };
 		D4B5711C1A373C15009F7C64 /* HW.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HW.storyboard; sourceTree = "<group>"; };
@@ -76,7 +79,6 @@
 		D4B571261A37D947009F7C64 /* chalkboard-152414_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chalkboard-152414_1280.png"; path = "../App Images/chalkboard-152414_1280.png"; sourceTree = "<group>"; };
 		D4B571281A37D9AA009F7C64 /* clipboard-34693_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clipboard-34693_1280.png"; path = "../App Images/clipboard-34693_1280.png"; sourceTree = "<group>"; };
 		D4B5712A1A37DC8F009F7C64 /* eraser-309830_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "eraser-309830_1280.png"; path = "../App Images/eraser-309830_1280.png"; sourceTree = "<group>"; };
-		D4B5712E1A37E40E009F7C64 /* books-157688_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "books-157688_1280.png"; path = "../App Images/books-157688_1280.png"; sourceTree = "<group>"; };
 		D4B571301A37EB8D009F7C64 /* backdrop-72250_1280.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "backdrop-72250_1280.jpg"; path = "../App Images/backdrop-72250_1280.jpg"; sourceTree = "<group>"; };
 		D4B571321A37EB99009F7C64 /* note-34687_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "note-34687_1280.png"; path = "../App Images/note-34687_1280.png"; sourceTree = "<group>"; };
 		D4B571341A37EBA0009F7C64 /* pencils-21186_1280.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "pencils-21186_1280.jpg"; path = "../App Images/pencils-21186_1280.jpg"; sourceTree = "<group>"; };
@@ -211,6 +213,8 @@
 		D4E0CEF61A34D1D300C7753D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D4592C821A38ABEC00C2EDDD /* splash@2x.png */,
+				D4592C801A38A53C00C2EDDD /* FINAL_PNG_SQUARED.png */,
 				D4B571261A37D947009F7C64 /* chalkboard-152414_1280.png */,
 				D4B571341A37EBA0009F7C64 /* pencils-21186_1280.jpg */,
 				D4B571321A37EB99009F7C64 /* note-34687_1280.png */,
@@ -221,7 +225,6 @@
 				D4B571361A37EEDD009F7C64 /* frame-422371_1280.png */,
 				D4B5712A1A37DC8F009F7C64 /* eraser-309830_1280.png */,
 				D4B571301A37EB8D009F7C64 /* backdrop-72250_1280.jpg */,
-				D4B5712E1A37E40E009F7C64 /* books-157688_1280.png */,
 				D4B571281A37D9AA009F7C64 /* clipboard-34693_1280.png */,
 				D4B571241A37D3F4009F7C64 /* badge-150755_1280.png */,
 			);
@@ -334,13 +337,14 @@
 				D4B5713E1A38104B009F7C64 /* journal-152157_1280.png in Resources */,
 				D4B5711D1A373C15009F7C64 /* HW.storyboard in Resources */,
 				D4B571371A37EEDD009F7C64 /* frame-422371_1280.png in Resources */,
-				D4B5712F1A37E40E009F7C64 /* books-157688_1280.png in Resources */,
 				D4B5712B1A37DC8F009F7C64 /* eraser-309830_1280.png in Resources */,
 				D44A9CBC1A1CF2810031BD1C /* LaunchScreen.xib in Resources */,
 				D44A9CB91A1CF2810031BD1C /* Images.xcassets in Resources */,
 				D4B571391A380E33009F7C64 /* badge-red.png in Resources */,
 				D4B5713B1A380E3E009F7C64 /* badge-orange.png in Resources */,
+				D4592C831A38ABEC00C2EDDD /* splash@2x.png in Resources */,
 				D4B571251A37D3F4009F7C64 /* badge-150755_1280.png in Resources */,
+				D4592C811A38A53C00C2EDDD /* FINAL_PNG_SQUARED.png in Resources */,
 				D4B5713F1A38104B009F7C64 /* notebook-151261_1280.png in Resources */,
 				D4B571291A37D9AA009F7C64 /* clipboard-34693_1280.png in Resources */,
 				D4B571351A37EBA0009F7C64 /* pencils-21186_1280.jpg in Resources */,
@@ -521,6 +525,7 @@
 			baseConfigurationReference = 219CFE935488EFD78E60B032 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = HomeworkChecker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -532,6 +537,7 @@
 			baseConfigurationReference = 5266B1D444B35D6522FE9A6E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = HomeworkChecker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

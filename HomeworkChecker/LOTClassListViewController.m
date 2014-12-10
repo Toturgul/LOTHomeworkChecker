@@ -27,7 +27,7 @@
     
     self.view.backgroundColor = [UIColor grayColor];
     self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
-    self.classListTableView.backgroundColor = [UIColor yellowColor];
+    self.classListTableView.backgroundColor = [UIColor whiteColor];
     
     
 }
@@ -58,7 +58,7 @@
     
     LOTCourse *cellFiller = self.dataStore.courseArray[indexPath.row];
     cell.textLabel.text = cellFiller.courseName;
-    cell.backgroundColor = [UIColor yellowColor];
+    cell.backgroundColor = [UIColor whiteColor];
     
     return cell;
     

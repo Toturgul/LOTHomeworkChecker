@@ -9,8 +9,11 @@
 #import "LOTStudentListViewController.h"
 #import "LOTStudent.h"
 
-@interface LOTStudentListViewController () 
+@interface LOTStudentListViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *studentTableView;
+@property (weak, nonatomic) IBOutlet UITextField *assignmentTextField;
+@property (weak, nonatomic) IBOutlet UITextField *dateTextField;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 
 
@@ -25,15 +28,18 @@
     [super viewDidLoad];
     self.studentTableView.delegate = self;
     self.studentTableView.dataSource = self;
+    self.assignmentTextField.delegate = self;
+    self.dateTextField.delegate = self;
     
     self.dataStore = [LOTDataStore sharedHomeworkDataStore];
     [self.dataStore fetchData];
     
+    self.dateTextField.text = [NSString stringWithFormat:@"%@",[NSDate date]];
     
     
     self.listOfStudents = [self.chosenCourse.students allObjects];
     
-    //self.listOfStudents = @[@"Smart Sarah", @"Stupid Sam", @"Burnout Barney", @"Brainy Brian"];
+    
     
     NSLog(@"hi sir");
     // Uncomment the following line to preserve selection between presentations.
@@ -64,7 +70,7 @@
 
 
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-// UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"studentCell" forIndexPath:indexPath];
+
     static NSString * reuseIdentifier = @"studentCell";
      MGSwipeTableCell * cell = [self.studentTableView dequeueReusableCellWithIdentifier:reuseIdentifier];
      if (!cell) {

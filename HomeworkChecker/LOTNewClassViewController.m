@@ -15,6 +15,7 @@
 - (IBAction)addStudentButton:(id)sender;
 - (IBAction)editButton:(id)sender;
 - (IBAction)doneButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *numOfStudentsLabel;
 
 @property (weak, nonatomic) IBOutlet UITextField *courseLabel;
 
@@ -22,7 +23,7 @@
 @end
 
 @implementation LOTNewClassViewController
-//@synthesize addStudentsTableView, namesArray;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,12 +33,9 @@
     
     self.dataStore = [LOTDataStore sharedHomeworkDataStore];
     [self.dataStore fetchData];
-    //self.namesArray = [[NSMutableArray alloc] init];
-   // self.namesArray = [[NSMutableArray alloc] initWithObjects:@"Joe",@"Tina",@"Jamal",@"Amy", nil];
+    
     self.editNumber = 2;
-    //self.title = @"Students";
-   // NSLog(@"%@",self.namesArray);
-    //[self.addStudentsTableView reloadData];
+    
     
     self.view.backgroundColor = [UIColor grayColor];
     self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
@@ -47,7 +45,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -104,12 +102,11 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
         LOTStudent *newStudent = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.dataStore.managedObjectContext];
         newStudent.name = textField.text;
         
-        self.name = textField.text;     //erase
-        NSLog(@"%@", textField.text); //erase
+        
         [self.namesArray insertObject:newStudent atIndex:0];
         [self.addStudentsTableView reloadData];
-        NSLog(@"%@",self.namesArray); //erase
         
+        self.numOfStudentsLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)[self.namesArray count]];
         
         
     }
@@ -129,7 +126,7 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
     [alert show];
     
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-//    UITextField *textField = [alert textFieldAtIndex:0];
+
 
     
 }
@@ -163,15 +160,10 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
     
  //turns on and off edit every other time the button is touched
     if (self.editNumber%2==0) {
-        
-    //[super setEditing:TRUE];
-    //[self.addStudentsTableView setEditing:TRUE];
     self.editing = YES;
         self.editNumber++;
     }
     else {
-       // [super setEditing:FALSE];
-       // [self.addStudentsTableView setEditing:FALSE];
         self.editing = NO;
         self.editNumber++;
     }

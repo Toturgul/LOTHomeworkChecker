@@ -18,9 +18,21 @@
 		D4B5711D1A373C15009F7C64 /* HW.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B5711C1A373C15009F7C64 /* HW.storyboard */; };
 		D4B571201A37599A009F7C64 /* LOTCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B5711F1A37599A009F7C64 /* LOTCourse.m */; };
 		D4B571231A37599B009F7C64 /* LOTStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B571221A37599B009F7C64 /* LOTStudent.m */; };
+		D4B571251A37D3F4009F7C64 /* badge-150755_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B571241A37D3F4009F7C64 /* badge-150755_1280.png */; };
+		D4B571271A37D947009F7C64 /* chalkboard-152414_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B571261A37D947009F7C64 /* chalkboard-152414_1280.png */; };
+		D4B571291A37D9AA009F7C64 /* clipboard-34693_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B571281A37D9AA009F7C64 /* clipboard-34693_1280.png */; };
+		D4B5712B1A37DC8F009F7C64 /* eraser-309830_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B5712A1A37DC8F009F7C64 /* eraser-309830_1280.png */; };
+		D4B5712F1A37E40E009F7C64 /* books-157688_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B5712E1A37E40E009F7C64 /* books-157688_1280.png */; };
+		D4B571311A37EB8D009F7C64 /* backdrop-72250_1280.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4B571301A37EB8D009F7C64 /* backdrop-72250_1280.jpg */; };
+		D4B571331A37EB99009F7C64 /* note-34687_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B571321A37EB99009F7C64 /* note-34687_1280.png */; };
+		D4B571351A37EBA0009F7C64 /* pencils-21186_1280.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4B571341A37EBA0009F7C64 /* pencils-21186_1280.jpg */; };
+		D4B571371A37EEDD009F7C64 /* frame-422371_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B571361A37EEDD009F7C64 /* frame-422371_1280.png */; };
+		D4B571391A380E33009F7C64 /* badge-red.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B571381A380E33009F7C64 /* badge-red.png */; };
+		D4B5713B1A380E3E009F7C64 /* badge-orange.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B5713A1A380E3E009F7C64 /* badge-orange.png */; };
+		D4B5713E1A38104B009F7C64 /* journal-152157_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B5713C1A38104B009F7C64 /* journal-152157_1280.png */; };
+		D4B5713F1A38104B009F7C64 /* notebook-151261_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B5713D1A38104B009F7C64 /* notebook-151261_1280.png */; };
 		D4B63FDB1A3525650008190D /* LOTClassListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B63FDA1A3525650008190D /* LOTClassListViewController.m */; };
 		D4C8552C1A2A655300A4B435 /* LOTStudentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C8552B1A2A655300A4B435 /* LOTStudentListViewController.m */; };
-		D4D298061A34D31100BA237B /* clipboard.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D4D298051A34D31100BA237B /* clipboard.jpeg */; };
 		D4D298121A3511A400BA237B /* LOTNewClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D298111A3511A400BA237B /* LOTNewClassViewController.m */; };
 		D4FA238E1A3634CB004C3BE1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FA238D1A3634CB004C3BE1 /* CoreData.framework */; };
 		D4FA23911A363558004C3BE1 /* HomeworkCheck.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4FA238F1A363558004C3BE1 /* HomeworkCheck.xcdatamodeld */; };
@@ -60,11 +72,23 @@
 		D4B5711F1A37599A009F7C64 /* LOTCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTCourse.m; sourceTree = "<group>"; };
 		D4B571211A37599B009F7C64 /* LOTStudent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTStudent.h; sourceTree = "<group>"; };
 		D4B571221A37599B009F7C64 /* LOTStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTStudent.m; sourceTree = "<group>"; };
+		D4B571241A37D3F4009F7C64 /* badge-150755_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "badge-150755_1280.png"; path = "../App Images/badge-150755_1280.png"; sourceTree = "<group>"; };
+		D4B571261A37D947009F7C64 /* chalkboard-152414_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chalkboard-152414_1280.png"; path = "../App Images/chalkboard-152414_1280.png"; sourceTree = "<group>"; };
+		D4B571281A37D9AA009F7C64 /* clipboard-34693_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clipboard-34693_1280.png"; path = "../App Images/clipboard-34693_1280.png"; sourceTree = "<group>"; };
+		D4B5712A1A37DC8F009F7C64 /* eraser-309830_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "eraser-309830_1280.png"; path = "../App Images/eraser-309830_1280.png"; sourceTree = "<group>"; };
+		D4B5712E1A37E40E009F7C64 /* books-157688_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "books-157688_1280.png"; path = "../App Images/books-157688_1280.png"; sourceTree = "<group>"; };
+		D4B571301A37EB8D009F7C64 /* backdrop-72250_1280.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "backdrop-72250_1280.jpg"; path = "../App Images/backdrop-72250_1280.jpg"; sourceTree = "<group>"; };
+		D4B571321A37EB99009F7C64 /* note-34687_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "note-34687_1280.png"; path = "../App Images/note-34687_1280.png"; sourceTree = "<group>"; };
+		D4B571341A37EBA0009F7C64 /* pencils-21186_1280.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "pencils-21186_1280.jpg"; path = "../App Images/pencils-21186_1280.jpg"; sourceTree = "<group>"; };
+		D4B571361A37EEDD009F7C64 /* frame-422371_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "frame-422371_1280.png"; path = "../App Images/frame-422371_1280.png"; sourceTree = "<group>"; };
+		D4B571381A380E33009F7C64 /* badge-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "badge-red.png"; path = "../App Images/badge-red.png"; sourceTree = "<group>"; };
+		D4B5713A1A380E3E009F7C64 /* badge-orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "badge-orange.png"; path = "../App Images/badge-orange.png"; sourceTree = "<group>"; };
+		D4B5713C1A38104B009F7C64 /* journal-152157_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "journal-152157_1280.png"; path = "../App Images/journal-152157_1280.png"; sourceTree = "<group>"; };
+		D4B5713D1A38104B009F7C64 /* notebook-151261_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "notebook-151261_1280.png"; path = "../App Images/notebook-151261_1280.png"; sourceTree = "<group>"; };
 		D4B63FD91A3525650008190D /* LOTClassListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LOTClassListViewController.h; path = HomeworkChecker/LOTClassListViewController.h; sourceTree = "<group>"; };
 		D4B63FDA1A3525650008190D /* LOTClassListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LOTClassListViewController.m; path = HomeworkChecker/LOTClassListViewController.m; sourceTree = "<group>"; };
 		D4C8552A1A2A655300A4B435 /* LOTStudentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LOTStudentListViewController.h; path = HomeworkChecker/LOTStudentListViewController.h; sourceTree = "<group>"; };
 		D4C8552B1A2A655300A4B435 /* LOTStudentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LOTStudentListViewController.m; path = HomeworkChecker/LOTStudentListViewController.m; sourceTree = "<group>"; };
-		D4D298051A34D31100BA237B /* clipboard.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = clipboard.jpeg; path = ../clipboard.jpeg; sourceTree = "<group>"; };
 		D4D298101A3511A400BA237B /* LOTNewClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LOTNewClassViewController.h; path = HomeworkChecker/LOTNewClassViewController.h; sourceTree = "<group>"; };
 		D4D298111A3511A400BA237B /* LOTNewClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LOTNewClassViewController.m; path = HomeworkChecker/LOTNewClassViewController.m; sourceTree = "<group>"; };
 		D4FA238D1A3634CB004C3BE1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -187,7 +211,19 @@
 		D4E0CEF61A34D1D300C7753D /* images */ = {
 			isa = PBXGroup;
 			children = (
-				D4D298051A34D31100BA237B /* clipboard.jpeg */,
+				D4B571261A37D947009F7C64 /* chalkboard-152414_1280.png */,
+				D4B571341A37EBA0009F7C64 /* pencils-21186_1280.jpg */,
+				D4B571321A37EB99009F7C64 /* note-34687_1280.png */,
+				D4B5713A1A380E3E009F7C64 /* badge-orange.png */,
+				D4B5713C1A38104B009F7C64 /* journal-152157_1280.png */,
+				D4B5713D1A38104B009F7C64 /* notebook-151261_1280.png */,
+				D4B571381A380E33009F7C64 /* badge-red.png */,
+				D4B571361A37EEDD009F7C64 /* frame-422371_1280.png */,
+				D4B5712A1A37DC8F009F7C64 /* eraser-309830_1280.png */,
+				D4B571301A37EB8D009F7C64 /* backdrop-72250_1280.jpg */,
+				D4B5712E1A37E40E009F7C64 /* books-157688_1280.png */,
+				D4B571281A37D9AA009F7C64 /* clipboard-34693_1280.png */,
+				D4B571241A37D3F4009F7C64 /* badge-150755_1280.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -294,10 +330,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4B571271A37D947009F7C64 /* chalkboard-152414_1280.png in Resources */,
+				D4B5713E1A38104B009F7C64 /* journal-152157_1280.png in Resources */,
 				D4B5711D1A373C15009F7C64 /* HW.storyboard in Resources */,
+				D4B571371A37EEDD009F7C64 /* frame-422371_1280.png in Resources */,
+				D4B5712F1A37E40E009F7C64 /* books-157688_1280.png in Resources */,
+				D4B5712B1A37DC8F009F7C64 /* eraser-309830_1280.png in Resources */,
 				D44A9CBC1A1CF2810031BD1C /* LaunchScreen.xib in Resources */,
-				D4D298061A34D31100BA237B /* clipboard.jpeg in Resources */,
 				D44A9CB91A1CF2810031BD1C /* Images.xcassets in Resources */,
+				D4B571391A380E33009F7C64 /* badge-red.png in Resources */,
+				D4B5713B1A380E3E009F7C64 /* badge-orange.png in Resources */,
+				D4B571251A37D3F4009F7C64 /* badge-150755_1280.png in Resources */,
+				D4B5713F1A38104B009F7C64 /* notebook-151261_1280.png in Resources */,
+				D4B571291A37D9AA009F7C64 /* clipboard-34693_1280.png in Resources */,
+				D4B571351A37EBA0009F7C64 /* pencils-21186_1280.jpg in Resources */,
+				D4B571331A37EB99009F7C64 /* note-34687_1280.png in Resources */,
+				D4B571311A37EB8D009F7C64 /* backdrop-72250_1280.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

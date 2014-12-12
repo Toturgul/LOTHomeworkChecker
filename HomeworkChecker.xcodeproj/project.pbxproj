@@ -19,6 +19,9 @@
 		D4592C871A38D10600C2EDDD /* LOTRecordCourseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D4592C861A38D10600C2EDDD /* LOTRecordCourseVC.m */; };
 		D4592C8A1A38D12700C2EDDD /* LOTRecordAssignmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D4592C891A38D12700C2EDDD /* LOTRecordAssignmentVC.m */; };
 		D4592C8D1A38D14900C2EDDD /* LOTRecordStudentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D4592C8C1A38D14900C2EDDD /* LOTRecordStudentVC.m */; };
+		D4592C941A3BAF5400C2EDDD /* hwHWChecked.PNG in Resources */ = {isa = PBXBuildFile; fileRef = D4592C911A3BAF5400C2EDDD /* hwHWChecked.PNG */; };
+		D4592C951A3BAF5400C2EDDD /* hwAddStudents.PNG in Resources */ = {isa = PBXBuildFile; fileRef = D4592C921A3BAF5400C2EDDD /* hwAddStudents.PNG */; };
+		D4592C961A3BAF5400C2EDDD /* hwClassList.PNG in Resources */ = {isa = PBXBuildFile; fileRef = D4592C931A3BAF5400C2EDDD /* hwClassList.PNG */; };
 		D4B5711D1A373C15009F7C64 /* HW.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B5711C1A373C15009F7C64 /* HW.storyboard */; };
 		D4B571201A37599A009F7C64 /* LOTCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B5711F1A37599A009F7C64 /* LOTCourse.m */; };
 		D4B571231A37599B009F7C64 /* LOTStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B571221A37599B009F7C64 /* LOTStudent.m */; };
@@ -28,12 +31,9 @@
 		D4B5712B1A37DC8F009F7C64 /* eraser-309830_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B5712A1A37DC8F009F7C64 /* eraser-309830_1280.png */; };
 		D4B571311A37EB8D009F7C64 /* backdrop-72250_1280.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4B571301A37EB8D009F7C64 /* backdrop-72250_1280.jpg */; };
 		D4B571331A37EB99009F7C64 /* note-34687_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B571321A37EB99009F7C64 /* note-34687_1280.png */; };
-		D4B571351A37EBA0009F7C64 /* pencils-21186_1280.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4B571341A37EBA0009F7C64 /* pencils-21186_1280.jpg */; };
-		D4B571371A37EEDD009F7C64 /* frame-422371_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B571361A37EEDD009F7C64 /* frame-422371_1280.png */; };
 		D4B571391A380E33009F7C64 /* badge-red.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B571381A380E33009F7C64 /* badge-red.png */; };
 		D4B5713B1A380E3E009F7C64 /* badge-orange.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B5713A1A380E3E009F7C64 /* badge-orange.png */; };
 		D4B5713E1A38104B009F7C64 /* journal-152157_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B5713C1A38104B009F7C64 /* journal-152157_1280.png */; };
-		D4B5713F1A38104B009F7C64 /* notebook-151261_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4B5713D1A38104B009F7C64 /* notebook-151261_1280.png */; };
 		D4B63FDB1A3525650008190D /* LOTClassListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B63FDA1A3525650008190D /* LOTClassListViewController.m */; };
 		D4C8552C1A2A655300A4B435 /* LOTStudentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C8552B1A2A655300A4B435 /* LOTStudentListViewController.m */; };
 		D4D298121A3511A400BA237B /* LOTNewClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D298111A3511A400BA237B /* LOTNewClassViewController.m */; };
@@ -76,6 +76,9 @@
 		D4592C891A38D12700C2EDDD /* LOTRecordAssignmentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTRecordAssignmentVC.m; sourceTree = "<group>"; };
 		D4592C8B1A38D14900C2EDDD /* LOTRecordStudentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTRecordStudentVC.h; sourceTree = "<group>"; };
 		D4592C8C1A38D14900C2EDDD /* LOTRecordStudentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTRecordStudentVC.m; sourceTree = "<group>"; };
+		D4592C911A3BAF5400C2EDDD /* hwHWChecked.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hwHWChecked.PNG; path = ../hwHWChecked.PNG; sourceTree = "<group>"; };
+		D4592C921A3BAF5400C2EDDD /* hwAddStudents.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hwAddStudents.PNG; path = ../hwAddStudents.PNG; sourceTree = "<group>"; };
+		D4592C931A3BAF5400C2EDDD /* hwClassList.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hwClassList.PNG; path = ../hwClassList.PNG; sourceTree = "<group>"; };
 		D4B5711C1A373C15009F7C64 /* HW.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HW.storyboard; sourceTree = "<group>"; };
 		D4B5711E1A37599A009F7C64 /* LOTCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTCourse.h; sourceTree = "<group>"; };
 		D4B5711F1A37599A009F7C64 /* LOTCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTCourse.m; sourceTree = "<group>"; };
@@ -87,12 +90,9 @@
 		D4B5712A1A37DC8F009F7C64 /* eraser-309830_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "eraser-309830_1280.png"; path = "../App Images/eraser-309830_1280.png"; sourceTree = "<group>"; };
 		D4B571301A37EB8D009F7C64 /* backdrop-72250_1280.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "backdrop-72250_1280.jpg"; path = "../App Images/backdrop-72250_1280.jpg"; sourceTree = "<group>"; };
 		D4B571321A37EB99009F7C64 /* note-34687_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "note-34687_1280.png"; path = "../App Images/note-34687_1280.png"; sourceTree = "<group>"; };
-		D4B571341A37EBA0009F7C64 /* pencils-21186_1280.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "pencils-21186_1280.jpg"; path = "../App Images/pencils-21186_1280.jpg"; sourceTree = "<group>"; };
-		D4B571361A37EEDD009F7C64 /* frame-422371_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "frame-422371_1280.png"; path = "../App Images/frame-422371_1280.png"; sourceTree = "<group>"; };
 		D4B571381A380E33009F7C64 /* badge-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "badge-red.png"; path = "../App Images/badge-red.png"; sourceTree = "<group>"; };
 		D4B5713A1A380E3E009F7C64 /* badge-orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "badge-orange.png"; path = "../App Images/badge-orange.png"; sourceTree = "<group>"; };
 		D4B5713C1A38104B009F7C64 /* journal-152157_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "journal-152157_1280.png"; path = "../App Images/journal-152157_1280.png"; sourceTree = "<group>"; };
-		D4B5713D1A38104B009F7C64 /* notebook-151261_1280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "notebook-151261_1280.png"; path = "../App Images/notebook-151261_1280.png"; sourceTree = "<group>"; };
 		D4B63FD91A3525650008190D /* LOTClassListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LOTClassListViewController.h; path = HomeworkChecker/LOTClassListViewController.h; sourceTree = "<group>"; };
 		D4B63FDA1A3525650008190D /* LOTClassListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LOTClassListViewController.m; path = HomeworkChecker/LOTClassListViewController.m; sourceTree = "<group>"; };
 		D4C8552A1A2A655300A4B435 /* LOTStudentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LOTStudentListViewController.h; path = HomeworkChecker/LOTStudentListViewController.h; sourceTree = "<group>"; };
@@ -234,13 +234,13 @@
 				D4592C821A38ABEC00C2EDDD /* splash@2x.png */,
 				D4592C801A38A53C00C2EDDD /* FINAL_PNG_SQUARED.png */,
 				D4B571261A37D947009F7C64 /* chalkboard-152414_1280.png */,
-				D4B571341A37EBA0009F7C64 /* pencils-21186_1280.jpg */,
 				D4B571321A37EB99009F7C64 /* note-34687_1280.png */,
 				D4B5713A1A380E3E009F7C64 /* badge-orange.png */,
 				D4B5713C1A38104B009F7C64 /* journal-152157_1280.png */,
-				D4B5713D1A38104B009F7C64 /* notebook-151261_1280.png */,
+				D4592C911A3BAF5400C2EDDD /* hwHWChecked.PNG */,
+				D4592C921A3BAF5400C2EDDD /* hwAddStudents.PNG */,
+				D4592C931A3BAF5400C2EDDD /* hwClassList.PNG */,
 				D4B571381A380E33009F7C64 /* badge-red.png */,
-				D4B571361A37EEDD009F7C64 /* frame-422371_1280.png */,
 				D4B5712A1A37DC8F009F7C64 /* eraser-309830_1280.png */,
 				D4B571301A37EB8D009F7C64 /* backdrop-72250_1280.jpg */,
 				D4B571281A37D9AA009F7C64 /* clipboard-34693_1280.png */,
@@ -354,19 +354,19 @@
 				D4B571271A37D947009F7C64 /* chalkboard-152414_1280.png in Resources */,
 				D4B5713E1A38104B009F7C64 /* journal-152157_1280.png in Resources */,
 				D4B5711D1A373C15009F7C64 /* HW.storyboard in Resources */,
-				D4B571371A37EEDD009F7C64 /* frame-422371_1280.png in Resources */,
 				D4B5712B1A37DC8F009F7C64 /* eraser-309830_1280.png in Resources */,
 				D44A9CBC1A1CF2810031BD1C /* LaunchScreen.xib in Resources */,
 				D44A9CB91A1CF2810031BD1C /* Images.xcassets in Resources */,
+				D4592C951A3BAF5400C2EDDD /* hwAddStudents.PNG in Resources */,
 				D4B571391A380E33009F7C64 /* badge-red.png in Resources */,
 				D4B5713B1A380E3E009F7C64 /* badge-orange.png in Resources */,
 				D4592C831A38ABEC00C2EDDD /* splash@2x.png in Resources */,
 				D4B571251A37D3F4009F7C64 /* badge-150755_1280.png in Resources */,
 				D4592C811A38A53C00C2EDDD /* FINAL_PNG_SQUARED.png in Resources */,
-				D4B5713F1A38104B009F7C64 /* notebook-151261_1280.png in Resources */,
+				D4592C961A3BAF5400C2EDDD /* hwClassList.PNG in Resources */,
 				D4B571291A37D9AA009F7C64 /* clipboard-34693_1280.png in Resources */,
-				D4B571351A37EBA0009F7C64 /* pencils-21186_1280.jpg in Resources */,
 				D4B571331A37EB99009F7C64 /* note-34687_1280.png in Resources */,
+				D4592C941A3BAF5400C2EDDD /* hwHWChecked.PNG in Resources */,
 				D4B571311A37EB8D009F7C64 /* backdrop-72250_1280.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

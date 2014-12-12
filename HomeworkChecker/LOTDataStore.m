@@ -107,7 +107,7 @@
 - (void) sampleData {
     
     LOTCourse *sampleCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.managedObjectContext];
-    sampleCourse.courseName = @"(Example) Period 3 Biology";
+    sampleCourse.courseName = @"Period 1 U.S. History";
     
     LOTStudent *student1 = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.managedObjectContext];
     student1.name = @"Summer";
@@ -146,7 +146,7 @@
     [sampleCourse addStudentsObject:student9];
     
     LOTStudent *student10 = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.managedObjectContext];
-    student10.name = @"Karen";
+    student10.name = @"Elisa";
     [sampleCourse addStudentsObject:student10];
     
     LOTStudent *student11 = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.managedObjectContext];

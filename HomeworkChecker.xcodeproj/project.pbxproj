@@ -16,7 +16,9 @@
 		D44A9CC81A1CF2810031BD1C /* HomeworkCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A9CC71A1CF2810031BD1C /* HomeworkCheckerTests.m */; };
 		D4592C811A38A53C00C2EDDD /* FINAL_PNG_SQUARED.png in Resources */ = {isa = PBXBuildFile; fileRef = D4592C801A38A53C00C2EDDD /* FINAL_PNG_SQUARED.png */; };
 		D4592C831A38ABEC00C2EDDD /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4592C821A38ABEC00C2EDDD /* splash@2x.png */; };
-		D49F1CEA1A23B7E9009201F3 /* LOTStudentListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F1CE91A23B7E9009201F3 /* LOTStudentListTableViewController.m */; };
+		D4592C871A38D10600C2EDDD /* LOTRecordCourseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D4592C861A38D10600C2EDDD /* LOTRecordCourseVC.m */; };
+		D4592C8A1A38D12700C2EDDD /* LOTRecordAssignmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D4592C891A38D12700C2EDDD /* LOTRecordAssignmentVC.m */; };
+		D4592C8D1A38D14900C2EDDD /* LOTRecordStudentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D4592C8C1A38D14900C2EDDD /* LOTRecordStudentVC.m */; };
 		D4B5711D1A373C15009F7C64 /* HW.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B5711C1A373C15009F7C64 /* HW.storyboard */; };
 		D4B571201A37599A009F7C64 /* LOTCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B5711F1A37599A009F7C64 /* LOTCourse.m */; };
 		D4B571231A37599B009F7C64 /* LOTStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B571221A37599B009F7C64 /* LOTStudent.m */; };
@@ -68,8 +70,12 @@
 		D44A9CC71A1CF2810031BD1C /* HomeworkCheckerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeworkCheckerTests.m; sourceTree = "<group>"; };
 		D4592C801A38A53C00C2EDDD /* FINAL_PNG_SQUARED.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FINAL_PNG_SQUARED.png; path = ../FINAL_PNG_SQUARED.png; sourceTree = "<group>"; };
 		D4592C821A38ABEC00C2EDDD /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "splash@2x.png"; path = "../Download/app/assets/iphone/splash@2x.png"; sourceTree = "<group>"; };
-		D49F1CE81A23B7E9009201F3 /* LOTStudentListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTStudentListTableViewController.h; sourceTree = "<group>"; };
-		D49F1CE91A23B7E9009201F3 /* LOTStudentListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTStudentListTableViewController.m; sourceTree = "<group>"; };
+		D4592C851A38D10600C2EDDD /* LOTRecordCourseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTRecordCourseVC.h; sourceTree = "<group>"; };
+		D4592C861A38D10600C2EDDD /* LOTRecordCourseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTRecordCourseVC.m; sourceTree = "<group>"; };
+		D4592C881A38D12700C2EDDD /* LOTRecordAssignmentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTRecordAssignmentVC.h; sourceTree = "<group>"; };
+		D4592C891A38D12700C2EDDD /* LOTRecordAssignmentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTRecordAssignmentVC.m; sourceTree = "<group>"; };
+		D4592C8B1A38D14900C2EDDD /* LOTRecordStudentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTRecordStudentVC.h; sourceTree = "<group>"; };
+		D4592C8C1A38D14900C2EDDD /* LOTRecordStudentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTRecordStudentVC.m; sourceTree = "<group>"; };
 		D4B5711C1A373C15009F7C64 /* HW.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HW.storyboard; sourceTree = "<group>"; };
 		D4B5711E1A37599A009F7C64 /* LOTCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTCourse.h; sourceTree = "<group>"; };
 		D4B5711F1A37599A009F7C64 /* LOTCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTCourse.m; sourceTree = "<group>"; };
@@ -140,6 +146,7 @@
 		D44A9C9F1A1CF2810031BD1C = {
 			isa = PBXGroup;
 			children = (
+				D4592C841A38D0A700C2EDDD /* RecordViewControllers */,
 				D4FA23AB1A363B76004C3BE1 /* ViewControllers */,
 				D4FA239E1A36394A004C3BE1 /* Models */,
 				D4FA238F1A363558004C3BE1 /* HomeworkCheck.xcdatamodeld */,
@@ -173,8 +180,6 @@
 				D44A9CB21A1CF2810031BD1C /* ViewController.h */,
 				D4B5711C1A373C15009F7C64 /* HW.storyboard */,
 				D44A9CB31A1CF2810031BD1C /* ViewController.m */,
-				D49F1CE81A23B7E9009201F3 /* LOTStudentListTableViewController.h */,
-				D49F1CE91A23B7E9009201F3 /* LOTStudentListTableViewController.m */,
 				D44A9CB81A1CF2810031BD1C /* Images.xcassets */,
 				D44A9CBA1A1CF2810031BD1C /* LaunchScreen.xib */,
 				D44A9CAB1A1CF2810031BD1C /* Supporting Files */,
@@ -208,6 +213,19 @@
 				D44A9CC61A1CF2810031BD1C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D4592C841A38D0A700C2EDDD /* RecordViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4592C851A38D10600C2EDDD /* LOTRecordCourseVC.h */,
+				D4592C861A38D10600C2EDDD /* LOTRecordCourseVC.m */,
+				D4592C881A38D12700C2EDDD /* LOTRecordAssignmentVC.h */,
+				D4592C891A38D12700C2EDDD /* LOTRecordAssignmentVC.m */,
+				D4592C8B1A38D14900C2EDDD /* LOTRecordStudentVC.h */,
+				D4592C8C1A38D14900C2EDDD /* LOTRecordStudentVC.m */,
+			);
+			name = RecordViewControllers;
 			sourceTree = "<group>";
 		};
 		D4E0CEF61A34D1D300C7753D /* images */ = {
@@ -409,8 +427,10 @@
 				D4FA23911A363558004C3BE1 /* HomeworkCheck.xcdatamodeld in Sources */,
 				D4B63FDB1A3525650008190D /* LOTClassListViewController.m in Sources */,
 				D4D298121A3511A400BA237B /* LOTNewClassViewController.m in Sources */,
+				D4592C871A38D10600C2EDDD /* LOTRecordCourseVC.m in Sources */,
+				D4592C8D1A38D14900C2EDDD /* LOTRecordStudentVC.m in Sources */,
+				D4592C8A1A38D12700C2EDDD /* LOTRecordAssignmentVC.m in Sources */,
 				D4FA23AE1A363CCE004C3BE1 /* LOTDataStore.m in Sources */,
-				D49F1CEA1A23B7E9009201F3 /* LOTStudentListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

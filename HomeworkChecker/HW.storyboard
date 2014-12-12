@@ -135,6 +135,22 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="note-34687_1280.png" translatesAutoresizingMaskIntoConstraints="NO" id="T3u-Y2-Orr">
                                 <rect key="frame" x="40" y="93" width="114" height="85"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIB-hd-NWD">
+                                <rect key="frame" x="199" y="109" width="151" height="141"/>
+                                <state key="normal" title="Record" image="journal-152157_1280.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="NYb-o4-8nD" kind="show" identifier="goToRecord" id="fFT-0o-UI9"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Record" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBL-tN-VMt">
+                                <rect key="frame" x="255" y="158" width="66" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -154,6 +170,120 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMf-Rq-6zy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="918.5" y="205.5"/>
+        </scene>
+        <!--Record CourseVC-->
+        <scene sceneID="AYo-hd-jXn">
+            <objects>
+                <viewController id="NYb-o4-8nD" customClass="LOTRecordCourseVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U6f-kF-fUE"/>
+                        <viewControllerLayoutGuide type="bottom" id="q1K-Kv-2hF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dky-Qk-U8e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SMU-Em-VN2">
+                                <rect key="frame" x="0.0" y="137" width="375" height="530"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recordCourse" id="OMu-kA-2YW">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OMu-kA-2YW" id="fIq-pk-BAY">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="hBd-yA-g5H" kind="show" id="gCd-Wi-q8f"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="recordTableView" destination="SMU-Em-VN2" id="Zim-hH-Gru"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E0U-Ji-7ez" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="918.5" y="950.5"/>
+        </scene>
+        <!--Record AssignmentVC-->
+        <scene sceneID="Onp-nP-KIy">
+            <objects>
+                <viewController id="hBd-yA-g5H" customClass="LOTRecordAssignmentVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BDp-Y5-6Zr"/>
+                        <viewControllerLayoutGuide type="bottom" id="dJ6-KA-ugF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sHV-vE-oCx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="C5K-Ry-xvI">
+                                <rect key="frame" x="0.0" y="137" width="375" height="530"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recordAssignment" id="I39-eV-xeD">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I39-eV-xeD" id="Msi-qt-ND5">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="recordTableView" destination="C5K-Ry-xvI" id="WZe-7b-LZf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qOz-iR-4Y3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1380.5" y="950.5"/>
+        </scene>
+        <!--Record StudentVC-->
+        <scene sceneID="vGx-zm-eSs">
+            <objects>
+                <viewController id="oAa-bu-ndP" customClass="LOTRecordStudentVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TtK-Ht-ReZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="yoE-vf-oLf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4hO-QV-Lf4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="pUM-uY-bWG">
+                                <rect key="frame" x="0.0" y="139" width="375" height="528"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recordStudent" id="yZK-z3-FDq">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yZK-z3-FDq" id="f1R-dg-2SV">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="recordTableView" destination="pUM-uY-bWG" id="K8X-Bb-hat"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="meh-T6-jE4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1872.5" y="950.5"/>
         </scene>
         <!--Homework Completion-->
         <scene sceneID="6by-PA-vVi">
@@ -198,7 +328,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Homework Completion" id="k80-N0-TTI">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="xW7-Qg-MDj"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="xW7-Qg-MDj">
+                            <connections>
+                                <segue destination="Ikk-p5-7p7" kind="show" id="xbh-U5-bae"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -238,6 +372,10 @@
         <image name="badge-150755_1280.png" width="1280" height="1280"/>
         <image name="chalkboard-152414_1280.png" width="1280" height="877"/>
         <image name="clipboard-34693_1280.png" width="874" height="1280"/>
+        <image name="journal-152157_1280.png" width="1107" height="1280"/>
         <image name="note-34687_1280.png" width="1280" height="912"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="xbh-U5-bae"/>
+    </inferredMetricsTieBreakers>
 </document>

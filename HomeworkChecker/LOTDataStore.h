@@ -19,6 +19,7 @@
 
 - (void) sampleData;
 - (void) fetchData;
+- (void) fetchCoursesWithNoAssignments;
 
 
 @end

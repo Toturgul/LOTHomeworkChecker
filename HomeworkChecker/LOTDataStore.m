@@ -76,9 +76,32 @@
     if ([self.courseArray count] == 0) {
         [self sampleData];
     }
-    
-    
 }
+
+-(void) fetchCoursesWithNoAssignments{
+        NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"LOTCourse"];
+    
+    
+        NSArray *temp = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    NSMutableArray *holdsBlankAssignments = [[NSMutableArray alloc] init];
+    for (LOTCourse *tempCourse in temp) {
+        if (!tempCourse.assignment) {
+            [holdsBlankAssignments addObject:tempCourse];
+    }
+    }
+    [self.courseArray arrayByAddingObjectsFromArray:holdsBlankAssignments];
+    
+    
+    
+        if ([self.courseArray count] == 0) {
+            [self sampleData];
+        }
+    }
+    
+    
+    
+
 
 
 - (void) sampleData {

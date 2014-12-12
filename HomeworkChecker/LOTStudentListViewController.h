@@ -15,7 +15,7 @@
 
 @interface LOTStudentListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate, UIActionSheetDelegate>
 
-@property (strong, nonatomic) NSArray * listOfStudents;
+@property (strong, nonatomic) NSMutableArray * listOfStudents;
 @property (strong, nonatomic) LOTCourse *chosenCourse;
 @property (strong, nonatomic) LOTDataStore *dataStore;
 

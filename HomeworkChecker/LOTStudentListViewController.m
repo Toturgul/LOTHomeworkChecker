@@ -36,8 +36,8 @@
     
     self.dateTextField.text = [NSString stringWithFormat:@"%@",[NSDate date]];
     
-    
-    self.listOfStudents = [self.chosenCourse.students allObjects];
+    self.listOfStudents = [[NSMutableArray alloc] init];
+    [self.listOfStudents addObjectsFromArray:[self.chosenCourse.students allObjects]];
     
     
     
@@ -54,16 +54,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return true;
+}
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
+
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
     return [self.listOfStudents count];
 }
@@ -99,6 +105,7 @@
      cell.rightSwipeSettings.transition = MGSwipeTransitionDrag;
      
      NSLog(@"swipe state %ld",cell.swipeState);
+     
      return cell;
  }
 
@@ -106,12 +113,22 @@
     
     
     if (cell.swipeState == 2) {
-    
+        NSIndexPath *swipedCell = [self.studentTableView indexPathForCell:cell];
+        LOTStudent *tempStudent = self.listOfStudents[swipedCell.row];
+        tempStudent.assignment = @"yes";
+        [self.listOfStudents replaceObjectAtIndex:swipedCell.row withObject:tempStudent];
+        NSLog(@"cell number %@",[NSString stringWithFormat:@"%ld",swipedCell.row]);
     cell.backgroundColor = [UIColor redColor];
     }
     else if (cell.swipeState == 1) {
+        NSIndexPath *swipedCell = [self.studentTableView indexPathForCell:cell];
+        LOTStudent *tempStudent = self.listOfStudents[swipedCell.row];
+        tempStudent.assignment = @"no";
+        [self.listOfStudents replaceObjectAtIndex:swipedCell.row withObject:tempStudent];
+        NSLog(@"cell number %@",[NSString stringWithFormat:@"%ld",swipedCell.row]);
         cell.backgroundColor = [UIColor greenColor];
     }
+    
     
 }
 
@@ -157,15 +174,30 @@
  }
  */
 
-/*
+
  #pragma mark - Navigation
  
- // In a storyboard-based application, you will often want to do a little preparation before navigation
+
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
+//     LOTCourse *newCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
+//     newCourse.courseName = self.chosenCourse.courseName;
+//     newCourse.assignment = self.assignmentTextField.text;
+//     //Date won't reflect what people type in
+//     newCourse.date = [NSDate date];
+//     
+//     for (LOTStudent *temp in self.listOfStudents) {
+//         NSLog(@"name %@  did hw %@",temp.name, temp.assignment);
+//         [newCourse addStudentsObject:temp];
+//     }
+//     
+//     [self.dataStore save];
+     
+     
+     
+     
+     
  }
- */
+ 
 
 @end
 

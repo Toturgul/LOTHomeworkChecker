@@ -14,7 +14,6 @@
 		D44A9CB91A1CF2810031BD1C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44A9CB81A1CF2810031BD1C /* Images.xcassets */; };
 		D44A9CBC1A1CF2810031BD1C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44A9CBA1A1CF2810031BD1C /* LaunchScreen.xib */; };
 		D44A9CC81A1CF2810031BD1C /* HomeworkCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A9CC71A1CF2810031BD1C /* HomeworkCheckerTests.m */; };
-		D4592C831A38ABEC00C2EDDD /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4592C821A38ABEC00C2EDDD /* splash@2x.png */; };
 		D4592C871A38D10600C2EDDD /* LOTRecordCourseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D4592C861A38D10600C2EDDD /* LOTRecordCourseVC.m */; };
 		D4592C8A1A38D12700C2EDDD /* LOTRecordAssignmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D4592C891A38D12700C2EDDD /* LOTRecordAssignmentVC.m */; };
 		D4592C8D1A38D14900C2EDDD /* LOTRecordStudentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D4592C8C1A38D14900C2EDDD /* LOTRecordStudentVC.m */; };
@@ -67,7 +66,6 @@
 		D44A9CC11A1CF2810031BD1C /* HomeworkCheckerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeworkCheckerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44A9CC61A1CF2810031BD1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D44A9CC71A1CF2810031BD1C /* HomeworkCheckerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeworkCheckerTests.m; sourceTree = "<group>"; };
-		D4592C821A38ABEC00C2EDDD /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "splash@2x.png"; path = "../Download/app/assets/iphone/splash@2x.png"; sourceTree = "<group>"; };
 		D4592C851A38D10600C2EDDD /* LOTRecordCourseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTRecordCourseVC.h; sourceTree = "<group>"; };
 		D4592C861A38D10600C2EDDD /* LOTRecordCourseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTRecordCourseVC.m; sourceTree = "<group>"; };
 		D4592C881A38D12700C2EDDD /* LOTRecordAssignmentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTRecordAssignmentVC.h; sourceTree = "<group>"; };
@@ -229,7 +227,6 @@
 		D4E0CEF61A34D1D300C7753D /* images */ = {
 			isa = PBXGroup;
 			children = (
-				D4592C821A38ABEC00C2EDDD /* splash@2x.png */,
 				D4F0D2B21A3E01D00093FAD7 /* FINAL_PNG_SQUARED.png */,
 				D4F0D2B01A3E01CB0093FAD7 /* chalkboard-152414_1280.png */,
 				D4F0D2AC1A3E01B50093FAD7 /* badge-orange.png */,
@@ -359,7 +356,6 @@
 				D4F0D29D1A3E01120093FAD7 /* backdrop-72250_1280.jpg in Resources */,
 				D4F0D2A11A3E01470093FAD7 /* badge-150755_1280.png in Resources */,
 				D4F0D2AA1A3E019A0093FAD7 /* hwClassList.PNG in Resources */,
-				D4592C831A38ABEC00C2EDDD /* splash@2x.png in Resources */,
 				D4F0D2A31A3E015E0093FAD7 /* badge-red.png in Resources */,
 				D4F0D2B11A3E01CB0093FAD7 /* chalkboard-152414_1280.png in Resources */,
 				D4F0D2A91A3E019A0093FAD7 /* hwAddStudents.PNG in Resources */,

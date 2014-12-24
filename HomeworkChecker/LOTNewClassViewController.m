@@ -172,6 +172,13 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
 
 - (IBAction)doneButton:(id)sender {
     
+    if ([self.courseLabel.text length] == 0) {
+        NSLog(@"No class created");
+        [self dismissViewControllerAnimated:YES completion:^{
+            }];
+    }
+    else {
+    
     //create a new LOTCourse ands stores name
     LOTCourse *newCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
     newCourse.courseName = self.courseLabel.text;
@@ -184,7 +191,7 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
-    
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{

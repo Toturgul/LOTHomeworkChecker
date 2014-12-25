@@ -179,18 +179,18 @@
  
 
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//     LOTCourse *newCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
-//     newCourse.courseName = self.chosenCourse.courseName;
-//     newCourse.assignment = self.assignmentTextField.text;
-//     //Date won't reflect what people type in
-//     newCourse.date = [NSDate date];
-//     
-//     for (LOTStudent *temp in self.listOfStudents) {
-//         NSLog(@"name %@  did hw %@",temp.name, temp.assignment);
-//         [newCourse addStudentsObject:temp];
-//     }
-//     
-//     [self.dataStore save];
+     LOTCourse *newCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
+     newCourse.courseName = self.chosenCourse.courseName;
+     newCourse.assignment = self.assignmentTextField.text;
+     //Date won't reflect what people type in
+     newCourse.date = [NSDate date];
+     
+     for (LOTStudent *temp in self.listOfStudents) {
+         NSLog(@"name %@  did hw %@",temp.name, temp.assignment);
+         [newCourse addStudentsObject:temp];
+     }
+     
+     [self.dataStore save];
      
      
      

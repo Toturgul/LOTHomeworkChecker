@@ -67,19 +67,12 @@
 
 
 
-
-
-
-
-
-
-
-
 #pragma mark - Navigation
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+
+//  ***  seque as a push instead of modal
     if ([segue.identifier  isEqual:@"goToClass"]) {
     
     NSIndexPath *chosenIndexPath = [self.classListTableView indexPathForSelectedRow];

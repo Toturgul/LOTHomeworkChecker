@@ -13,7 +13,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *studentTableView;
 @property (weak, nonatomic) IBOutlet UITextField *assignmentTextField;
 @property (weak, nonatomic) IBOutlet UITextField *dateTextField;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+- (IBAction)doneButton:(id)sender;
+
+
 
 
 
@@ -191,13 +193,27 @@
      }
      
      [self.dataStore save];
-     
-     
-     
-     
+     [self.navigationController popViewControllerAnimated:YES];
      
  }
  
+
+- (IBAction)doneButton:(id)sender {
+    LOTCourse *newCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
+    newCourse.courseName = self.chosenCourse.courseName;
+    newCourse.assignment = self.assignmentTextField.text;
+    //Date won't reflect what people type in
+    newCourse.date = [NSDate date];
+    
+    for (LOTStudent *temp in self.listOfStudents) {
+        NSLog(@"name %@  did hw %@",temp.name, temp.assignment);
+        [newCourse addStudentsObject:temp];
+    }
+    
+    [self.dataStore save];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 @end
 

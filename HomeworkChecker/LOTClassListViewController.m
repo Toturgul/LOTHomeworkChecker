@@ -24,7 +24,7 @@
     
     self.dataStore = [LOTDataStore sharedHomeworkDataStore];
     [self.dataStore fetchData];
-    
+    NSLog(@"viewDidLoad");
     self.view.backgroundColor = [UIColor grayColor];
     self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
     self.classListTableView.backgroundColor = [UIColor whiteColor];
@@ -33,8 +33,10 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated{
-    [self.dataStore fetchData];
+    [self.dataStore fetchData];//may need shareHomeworkDataStore?
     [self.classListTableView reloadData];
+    NSLog(@"data reloaded array count is %lu",(unsigned long)[self.dataStore.courseArray count]);
+    
 }
 
 
@@ -79,7 +81,9 @@
     LOTCourse *chosenCourse = self.dataStore.courseArray[chosenIndexPath.row];
     LOTStudentListViewController *studentListVC = segue.destinationViewController;
     studentListVC.chosenCourse = chosenCourse;
+    //NSLog(@"array of students: %@",chosenCourse.students);
     }
+    
     
 }
 

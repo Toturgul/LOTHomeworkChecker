@@ -182,6 +182,7 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
     //create a new LOTCourse ands stores name
     LOTCourse *newCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
     newCourse.courseName = self.courseLabel.text;
+        newCourse.assignment = @"keeperCourse";
     
     for (LOTStudent *temp in self.namesArray) {
         [newCourse addStudentsObject:temp];

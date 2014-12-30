@@ -78,29 +78,45 @@
     }
 }
 
--(void) fetchCoursesWithNoAssignments{
-        NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"LOTCourse"];
+//-(void) fetchKeeperCourse{
+//        NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"LOTCourse"];
+//    
+//    
+//        NSArray *temp = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+//    
+//    NSMutableArray *holdsBlankAssignments = [[NSMutableArray alloc] init];
+//    for (LOTCourse *tempCourse in temp) {
+//        if ([tempCourse.assignment isEqualToString:@"keeperCourse"]) {
+//            [holdsBlankAssignments addObject:tempCourse];
+//    }
+//    }
+//    self.courseArray = [[NSArray alloc] init];
+//    [self.courseArray arrayByAddingObjectsFromArray:holdsBlankAssignments];
+//    
+//
+//        if ([self.courseArray count] == 0) {
+//            [self sampleData];
+//        }
+//    }
+
+-(void) fetchKeeperCourse{
     
     
-        NSArray *temp = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    
-    NSMutableArray *holdsBlankAssignments = [[NSMutableArray alloc] init];
-    for (LOTCourse *tempCourse in temp) {
-        if (!tempCourse.assignment) {
-            [holdsBlankAssignments addObject:tempCourse];
-    }
-    }
-    [self.courseArray arrayByAddingObjectsFromArray:holdsBlankAssignments];
     
     
+        //use this to write over an existing entity, I can probably use this somewhere else
+        NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"LOTCourse" inManagedObjectContext:self.managedObjectContext];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:entitydesc];
     
-        if ([self.courseArray count] == 0) {
-            [self sampleData];
-        }
-    }
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"assignment like keeperCourse"];
+        [request setPredicate:predicate];
     
-    
-    
+        NSError *error;
+        self.courseArray = [self.managedObjectContext executeFetchRequest:request error:&error];
+        NSLog(@"matchingData %@",self.courseArray);
+}
+
 
 
 
@@ -108,6 +124,7 @@
     
     LOTCourse *sampleCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.managedObjectContext];
     sampleCourse.courseName = @"Period 1 U.S. History";
+    sampleCourse.assignment = @"keeperCourse";
     
     LOTStudent *student1 = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.managedObjectContext];
     student1.name = @"Summer";

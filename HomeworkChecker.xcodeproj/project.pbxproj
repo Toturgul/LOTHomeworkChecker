@@ -17,6 +17,7 @@
 		D4592C871A38D10600C2EDDD /* LOTRecordCourseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D4592C861A38D10600C2EDDD /* LOTRecordCourseVC.m */; };
 		D4592C8A1A38D12700C2EDDD /* LOTRecordAssignmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D4592C891A38D12700C2EDDD /* LOTRecordAssignmentVC.m */; };
 		D4592C8D1A38D14900C2EDDD /* LOTRecordStudentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D4592C8C1A38D14900C2EDDD /* LOTRecordStudentVC.m */; };
+		D45F32001A50853600D7CF68 /* LOTRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = D45F31FF1A50853600D7CF68 /* LOTRecord.m */; };
 		D4B5711D1A373C15009F7C64 /* HW.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B5711C1A373C15009F7C64 /* HW.storyboard */; };
 		D4B571201A37599A009F7C64 /* LOTCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B5711F1A37599A009F7C64 /* LOTCourse.m */; };
 		D4B571231A37599B009F7C64 /* LOTStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B571221A37599B009F7C64 /* LOTStudent.m */; };
@@ -72,6 +73,8 @@
 		D4592C891A38D12700C2EDDD /* LOTRecordAssignmentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTRecordAssignmentVC.m; sourceTree = "<group>"; };
 		D4592C8B1A38D14900C2EDDD /* LOTRecordStudentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTRecordStudentVC.h; sourceTree = "<group>"; };
 		D4592C8C1A38D14900C2EDDD /* LOTRecordStudentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTRecordStudentVC.m; sourceTree = "<group>"; };
+		D45F31FE1A50853600D7CF68 /* LOTRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTRecord.h; sourceTree = "<group>"; };
+		D45F31FF1A50853600D7CF68 /* LOTRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTRecord.m; sourceTree = "<group>"; };
 		D4B5711C1A373C15009F7C64 /* HW.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HW.storyboard; sourceTree = "<group>"; };
 		D4B5711E1A37599A009F7C64 /* LOTCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTCourse.h; sourceTree = "<group>"; };
 		D4B5711F1A37599A009F7C64 /* LOTCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTCourse.m; sourceTree = "<group>"; };
@@ -146,6 +149,8 @@
 				D4FA23AB1A363B76004C3BE1 /* ViewControllers */,
 				D4FA239E1A36394A004C3BE1 /* Models */,
 				D4FA238F1A363558004C3BE1 /* HomeworkCheck.xcdatamodeld */,
+				D45F31FE1A50853600D7CF68 /* LOTRecord.h */,
+				D45F31FF1A50853600D7CF68 /* LOTRecord.m */,
 				D4B571211A37599B009F7C64 /* LOTStudent.h */,
 				D4B571221A37599B009F7C64 /* LOTStudent.m */,
 				D4B5711E1A37599A009F7C64 /* LOTCourse.h */,
@@ -422,6 +427,7 @@
 				D4592C871A38D10600C2EDDD /* LOTRecordCourseVC.m in Sources */,
 				D4592C8D1A38D14900C2EDDD /* LOTRecordStudentVC.m in Sources */,
 				D4592C8A1A38D12700C2EDDD /* LOTRecordAssignmentVC.m in Sources */,
+				D45F32001A50853600D7CF68 /* LOTRecord.m in Sources */,
 				D4FA23AE1A363CCE004C3BE1 /* LOTDataStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

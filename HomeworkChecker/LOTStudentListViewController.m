@@ -41,11 +41,14 @@
     self.listOfStudents = [[NSMutableArray alloc] init];
     [self.listOfStudents addObjectsFromArray:[self.chosenCourse.students allObjects]];
     
+    NSLog(@"viewdidload, students in array: %li",[self.chosenCourse.students count]);
+    
+
     
     
-    NSLog(@"hi sir");
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    
+//     Uncomment the following line to preserve selection between presentations.
+//     self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -79,6 +82,7 @@
 
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
+     
     static NSString * reuseIdentifier = @"studentCell";
      MGSwipeTableCell * cell = [self.studentTableView dequeueReusableCellWithIdentifier:reuseIdentifier];
      if (!cell) {
@@ -97,16 +101,13 @@
      
     
      
-     
-     
-     
      cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"👎" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor redColor]]];
      
      cell.rightExpansion.buttonIndex = 1;
      cell.rightExpansion.fillOnTrigger = YES;
      cell.rightSwipeSettings.transition = MGSwipeTransitionDrag;
      
-     NSLog(@"swipe state %ld",cell.swipeState);
+    // NSLog(@"swipe state %ld",cell.swipeState);
      
      return cell;
  }
@@ -119,7 +120,7 @@
         LOTStudent *tempStudent = self.listOfStudents[swipedCell.row];
         tempStudent.assignment = @"yes";
         [self.listOfStudents replaceObjectAtIndex:swipedCell.row withObject:tempStudent];
-        NSLog(@"cell number %@",[NSString stringWithFormat:@"%ld",swipedCell.row]);
+   //     NSLog(@"cell number %@",[NSString stringWithFormat:@"%ld",swipedCell.row]);
     cell.backgroundColor = [UIColor redColor];
     }
     else if (cell.swipeState == 1) {
@@ -127,7 +128,7 @@
         LOTStudent *tempStudent = self.listOfStudents[swipedCell.row];
         tempStudent.assignment = @"no";
         [self.listOfStudents replaceObjectAtIndex:swipedCell.row withObject:tempStudent];
-        NSLog(@"cell number %@",[NSString stringWithFormat:@"%ld",swipedCell.row]);
+    //    NSLog(@"cell number %@",[NSString stringWithFormat:@"%ld",swipedCell.row]);
         cell.backgroundColor = [UIColor greenColor];
     }
     
@@ -179,41 +180,86 @@
 
  #pragma mark - Navigation
  
-
+/*
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-     LOTCourse *newCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
-     newCourse.courseName = self.chosenCourse.courseName;
-     newCourse.assignment = self.assignmentTextField.text;
-     //Date won't reflect what people type in
-     newCourse.date = [NSDate date];
-     
-     for (LOTStudent *temp in self.listOfStudents) {
-         NSLog(@"name %@  did hw %@",temp.name, temp.assignment);
-         [newCourse addStudentsObject:temp];
-     }
-     
-     [self.dataStore save];
-     [self.navigationController popViewControllerAnimated:YES];
-     
+
  }
- 
+*/
 
 - (IBAction)doneButton:(id)sender {
+  //  NSLog(@"done button, beginning: students in array: %li",[self.chosenCourse.students count]);
+    
+    
+    LOTRecord *thisAssignmentInfo = [NSEntityDescription insertNewObjectForEntityForName:@"LOTRecord" inManagedObjectContext:self.dataStore.managedObjectContext];
+    
+    
     LOTCourse *newCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
     newCourse.courseName = self.chosenCourse.courseName;
     newCourse.assignment = self.assignmentTextField.text;
+ 
     //Date won't reflect what people type in
     newCourse.date = [NSDate date];
     
+    
     for (LOTStudent *temp in self.listOfStudents) {
-        NSLog(@"name %@  did hw %@",temp.name, temp.assignment);
+        //   NSLog(@"name %@  did hw %@",temp.name, temp.assignment);
+        NSLog(@"done button, inloop: students in array: %li",[self.chosenCourse.students count]);
         [newCourse addStudentsObject:temp];
     }
     
+
+    
+    [thisAssignmentInfo addCoursesObject:newCourse];
+    
+    
+    
+    [self.dataStore.managedObjectContext deleteObject:newCourse];
+    
     [self.dataStore save];
+    
     [self.navigationController popViewControllerAnimated:YES];
+    
+    
+    // //This will find and fetch a specific object in core data
+    //    NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
+    //    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    //    [request setEntity:entitydesc];
+    //    NSString *temp = @"temp";
+    //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"assignment like %@",temp];
+    //    [request setPredicate:predicate];
+    //    NSError *error;
+    //    NSArray *matchingData = [self.dataStore.managedObjectContext executeFetchRequest:request error:&error];
+
+    
+    
+    
+
+    
+//    LOTCourse *newCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
+//    newCourse.courseName = self.chosenCourse.courseName;
+//    newCourse.assignment = self.assignmentTextField.text;
+//    NSLog(@"assignment is: %@",newCourse.assignment);
+//    //Date won't reflect what people type in
+//    newCourse.date = [NSDate date];
+//    
+//    for (LOTStudent *temp in self.listOfStudents) {
+//     //   NSLog(@"name %@  did hw %@",temp.name, temp.assignment);
+//        [newCourse addStudentsObject:temp];
+//    }
+//    NSLog(@"newcourse: %@",newCourse.courseName);
+    
+    
+//    [self.dataStore save];
+//    [self.navigationController popViewControllerAnimated:YES];
 }
 
+
+-(void) createTempCourseForRecord{
+    LOTCourse *tempCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
+    tempCourse.assignment = @"temp";
+    [self.dataStore save];
+    
+}
 
 @end
 

@@ -38,11 +38,11 @@
     
     self.dateTextField.text = [NSString stringWithFormat:@"%@",[NSDate date]];
     
-    self.listOfStudents = [[NSMutableArray alloc] init];
-
-    [self.listOfStudents addObjectsFromArray:[self.chosenCourse.students allObjects]];
+    [self createDuplicateCourseWithStudentsForRecord];
     
-    NSLog(@"viewdidload, students in array: %li",[self.chosenCourse.students count]);
+
+    
+    //NSLog(@"viewdidload, students in array: %li",[self.chosenCourse.students count]);
     
 
     
@@ -191,13 +191,20 @@
   //  NSLog(@"done button, beginning: students in array: %li",[self.chosenCourse.students count]);
     
     
-    LOTRecord *thisAssignmentInfo = [NSEntityDescription insertNewObjectForEntityForName:@"LOTRecord" inManagedObjectContext:self.dataStore.managedObjectContext];
+    //This will find and fetch a specific object in core data
+    NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entitydesc];
+    NSString *dupCourseAssignment = @"id";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"assignment like %@",dupCourseAssignment];
+    [request setPredicate:predicate];
+    NSError *error;
+    NSArray *matchingData = [self.dataStore.managedObjectContext executeFetchRequest:request error:&error];
     
     
-    LOTCourse *newCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
-    newCourse.courseName = self.chosenCourse.courseName;
+    
+    LOTCourse *newCourse = matchingData[0];
     newCourse.assignment = self.assignmentTextField.text;
- 
     //Date won't reflect what people type in
     newCourse.date = [NSDate date];
     
@@ -210,11 +217,7 @@
     
 
     
-    [thisAssignmentInfo addCoursesObject:newCourse];
-    
-    
-    
-    [self.dataStore.managedObjectContext deleteObject:newCourse];
+ //   [self.dataStore.managedObjectContext deleteObject:newCourse];
     
     [self.dataStore save];
     
@@ -261,6 +264,26 @@
     [self.dataStore save];
     
 }
+
+-(void) createDuplicateCourseWithStudentsForRecord{
+    LOTCourse *dupCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
+    dupCourse.courseName = self.chosenCourse.courseName;
+    dupCourse.assignment = @"id";
+    
+    for (LOTStudent *tempStudent in self.chosenCourse.students) {
+        LOTStudent *duplicatedStudent = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.dataStore.managedObjectContext];
+        duplicatedStudent.name = tempStudent.name;
+        [dupCourse addStudentsObject:duplicatedStudent];
+    }
+    
+    [self.dataStore save];
+    
+    self.listOfStudents = [[NSMutableArray alloc] init];
+    [self.listOfStudents addObjectsFromArray:[dupCourse.students allObjects]];
+    
+    
+}
+
 
 @end
 

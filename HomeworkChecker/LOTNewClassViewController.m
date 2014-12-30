@@ -122,7 +122,7 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"You clicked %li",buttonIndex);
+ //   NSLog(@"You clicked %li",buttonIndex);
     
 }
 
@@ -194,7 +194,7 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
 
         for (LOTStudent *temp in self.namesArray) {
             [courseForClassList addStudentsObject:temp];
-            NSLog(@"courseForClassList: %lu",(unsigned long)[courseForClassList.students count]);
+//            NSLog(@"courseForClassList: %lu",(unsigned long)[courseForClassList.students count]);
         }
     
     //create a new LOTCourse and adds students to be used in Records and LOTStudentListVC
@@ -203,7 +203,7 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
     
         for (LOTStudent *temp in self.namesForRecordArray) {
             [courseForRecords addStudentsObject:temp];
-            NSLog(@"courseForRecord: %lu %lu",(unsigned long)[courseForRecords.students count],(unsigned long)[courseForClassList.students count]);
+//            NSLog(@"courseForRecord: %lu %lu",(unsigned long)[courseForRecords.students count],(unsigned long)[courseForClassList.students count]);
         }
         
         

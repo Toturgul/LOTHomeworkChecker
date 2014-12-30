@@ -21,7 +21,7 @@
 
 
 -(void)createTempCourseForRecord;
-
+-(void)createDuplicateCourseWithStudentsForRecord;
 
 
 @end

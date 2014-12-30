@@ -70,8 +70,19 @@
 
 
 - (void) fetchData {
-    NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"LOTCourse"];
-    self.classListArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+//    NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"LOTCourse"];
+//    self.classListArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"LOTCourse" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entitydesc];
+    NSString *match = @"justForClassList";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"assignment like %@",match];
+    [request setPredicate:predicate];
+    
+    NSError *error;
+    self.classListArray = [self.managedObjectContext executeFetchRequest:request error:&error];
+    //NSLog(@"matchingData %@",self.classListArray);
     
     if ([self.classListArray count] == 0) {
         [self sampleData];
@@ -124,7 +135,7 @@
     
     LOTCourse *sampleCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.managedObjectContext];
     sampleCourse.courseName = @"Period 1 U.S. History";
-    sampleCourse.assignment = @"keeperCourse";
+    sampleCourse.assignment = @"justForClassList";
     
     LOTStudent *student1 = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.managedObjectContext];
     student1.name = @"Summer";

@@ -71,9 +71,9 @@
 
 - (void) fetchData {
     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"LOTCourse"];
-    self.courseArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    self.classListArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
     
-    if ([self.courseArray count] == 0) {
+    if ([self.classListArray count] == 0) {
         [self sampleData];
     }
 }
@@ -113,8 +113,8 @@
         [request setPredicate:predicate];
     
         NSError *error;
-        self.courseArray = [self.managedObjectContext executeFetchRequest:request error:&error];
-        NSLog(@"matchingData %@",self.courseArray);
+        self.classListArray = [self.managedObjectContext executeFetchRequest:request error:&error];
+        NSLog(@"matchingData %@",self.classListArray);
 }
 
 

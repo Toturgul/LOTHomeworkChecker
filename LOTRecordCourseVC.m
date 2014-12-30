@@ -40,7 +40,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return [self.dataStore.courseArray count];
+    return [self.dataStore.classListArray count];
 }
 
 
@@ -50,7 +50,7 @@
      static NSString *cellIdentifier = @"recordCourse";
      UITableViewCell *cell = [self.recordTableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
      
-     LOTCourse *cellFiller = self.dataStore.courseArray[indexPath.row];
+     LOTCourse *cellFiller = self.dataStore.classListArray[indexPath.row];
      cell.textLabel.text = cellFiller.courseName;
  
  return cell;
@@ -69,7 +69,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     NSIndexPath *chosenIndexPath = [self.recordTableView indexPathForSelectedRow];
-    LOTCourse *chosenCourse = self.dataStore.courseArray[chosenIndexPath.row];
+    LOTCourse *chosenCourse = self.dataStore.classListArray[chosenIndexPath.row];
     LOTRecordAssignmentVC *recordVC = segue.destinationViewController;
     recordVC.chosenCourse = chosenCourse;
     

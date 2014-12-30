@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HomeworkChecker/LOTNewClassViewController.m"
-            timestampString = "439865940.235467"
+            timestampString = "441657550.013466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "-addStudentButton:"
             landmarkType = "5">
          </BreakpointContent>
@@ -100,23 +100,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HomeworkChecker/LOTStudentListViewController.m"
-            timestampString = "441593584.21491"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
-            landmarkName = "-doneButton:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HomeworkChecker/LOTStudentListViewController.m"
-            timestampString = "441593584.21491"
+            timestampString = "441656867.630641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "251"
@@ -132,11 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HomeworkChecker/LOTStudentListViewController.m"
-            timestampString = "441593584.21491"
+            timestampString = "441656867.630641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "-doneButton:"
             landmarkType = "5">
          </BreakpointContent>
@@ -148,11 +132,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HomeworkChecker/LOTStudentListViewController.m"
-            timestampString = "441593584.21491"
+            timestampString = "441656867.630641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
+            landmarkName = "-doneButton:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HomeworkChecker/LOTStudentListViewController.m"
+            timestampString = "441656867.630641"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -164,11 +164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HomeworkChecker/LOTStudentListViewController.m"
-            timestampString = "441593584.21491"
+            timestampString = "441656867.630641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>

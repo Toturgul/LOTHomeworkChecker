@@ -10,8 +10,8 @@
 #import <CoreData/CoreData.h>
 @interface LOTDataStore : NSObject
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (strong, nonatomic) NSArray *courseArray;
-
+@property (strong, nonatomic) NSArray *classListArray;
+@property (strong, nonatomic) NSArray *coursesForRecordArray;
 
 + (instancetype)sharedHomeworkDataStore;
 - (NSURL *)applicationDocumentsDirectory;

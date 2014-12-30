@@ -93,17 +93,24 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
     //inits self.namesArray if it is empty
     if (!self.namesArray) {
         self.namesArray = [[NSMutableArray alloc]init];
+        self.namesForRecordArray = [[NSMutableArray alloc] init];
     }
     
     // Make sure the button they clicked wasn't Cancel
     if (buttonIndex == alertView.firstOtherButtonIndex) {
         UITextField *textField = [alertView textFieldAtIndex:0];
         
-        LOTStudent *newStudent = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.dataStore.managedObjectContext];
-        newStudent.name = textField.text;
+        //create student for array used in this table view and LOTClassList table view
+        LOTStudent *newStudentForList = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.dataStore.managedObjectContext];
+        newStudentForList.name = textField.text;
+        [self.namesArray insertObject:newStudentForList atIndex:0];
+        
+        //create student for array to be used in Records and LOTStudentList
+        LOTStudent *newStudentForRecord = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.dataStore.managedObjectContext];
+        newStudentForRecord.name = textField.text;
+        [self.namesForRecordArray insertObject:newStudentForRecord atIndex:0];
         
         
-        [self.namesArray insertObject:newStudent atIndex:0];
         [self.addStudentsTableView reloadData];
         
         self.numOfStudentsLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)[self.namesArray count]];
@@ -150,6 +157,7 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.namesArray removeObjectAtIndex:indexPath.row];
+        [self.namesForRecordArray removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
     
@@ -179,15 +187,26 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
     }
     else {
     
-    //create a new LOTCourse ands stores name
-    LOTCourse *newCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
-    newCourse.courseName = self.courseLabel.text;
-        newCourse.assignment = @"keeperCourse";
+    //create a new LOTCourse and adds students only to be used to display courses on LOTClassList
+    LOTCourse *courseForClassList = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
+        courseForClassList.courseName = self.courseLabel.text;
+        courseForClassList.assignment = @"justForClassList";
+
+        for (LOTStudent *temp in self.namesArray) {
+            [courseForClassList addStudentsObject:temp];
+            NSLog(@"courseForClassList: %lu",(unsigned long)[courseForClassList.students count]);
+        }
     
-    for (LOTStudent *temp in self.namesArray) {
-        [newCourse addStudentsObject:temp];
-    }
+    //create a new LOTCourse and adds students to be used in Records and LOTStudentListVC
+    LOTCourse *courseForRecords = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
+        courseForRecords.courseName = self.courseLabel.text;
     
+        for (LOTStudent *temp in self.namesForRecordArray) {
+            [courseForRecords addStudentsObject:temp];
+            NSLog(@"courseForRecord: %lu %lu",(unsigned long)[courseForRecords.students count],(unsigned long)[courseForClassList.students count]);
+        }
+        
+        
     [self.dataStore save];
     [self dismissViewControllerAnimated:YES completion:^{
         

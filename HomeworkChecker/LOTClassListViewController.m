@@ -35,7 +35,7 @@
 - (void) viewWillAppear:(BOOL)animated{
     [self.dataStore fetchData];//may need shareHomeworkDataStore?
     [self.classListTableView reloadData];
-    NSLog(@"data reloaded array count is %lu",(unsigned long)[self.dataStore.courseArray count]);
+    NSLog(@"data reloaded array count is %lu",(unsigned long)[self.dataStore.classListArray count]);
     
 }
 
@@ -50,7 +50,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.dataStore.courseArray count];
+    return [self.dataStore.classListArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -58,7 +58,7 @@
     static NSString *cellIdentifier = @"classCell";
     UITableViewCell *cell = [self.classListTableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    LOTCourse *cellFiller = self.dataStore.courseArray[indexPath.row];
+    LOTCourse *cellFiller = self.dataStore.classListArray[indexPath.row];
     cell.textLabel.text = cellFiller.courseName;
     cell.backgroundColor = [UIColor whiteColor];
     
@@ -78,7 +78,7 @@
     if ([segue.identifier  isEqual:@"goToClass"]) {
     
     NSIndexPath *chosenIndexPath = [self.classListTableView indexPathForSelectedRow];
-    LOTCourse *chosenCourse = self.dataStore.courseArray[chosenIndexPath.row];
+    LOTCourse *chosenCourse = self.dataStore.classListArray[chosenIndexPath.row];
     LOTStudentListViewController *studentListVC = segue.destinationViewController;
     studentListVC.chosenCourse = chosenCourse;
     //NSLog(@"array of students: %@",chosenCourse.students);

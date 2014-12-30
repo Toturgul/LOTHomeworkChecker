@@ -39,6 +39,7 @@
     self.dateTextField.text = [NSString stringWithFormat:@"%@",[NSDate date]];
     
     self.listOfStudents = [[NSMutableArray alloc] init];
+
     [self.listOfStudents addObjectsFromArray:[self.chosenCourse.students allObjects]];
     
     NSLog(@"viewdidload, students in array: %li",[self.chosenCourse.students count]);

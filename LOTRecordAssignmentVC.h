@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "LOTDataStore.h"
-#import "LOTCourse.h"
+@class LOTRecord;
+
 @interface LOTRecordAssignmentVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) LOTDataStore *dataStore;
-@property (strong, nonatomic) LOTCourse *chosenCourse;
+@property (strong, nonatomic) LOTRecord *chosenRecord;
 @property (strong, nonatomic) NSArray *recordArray;
 @end

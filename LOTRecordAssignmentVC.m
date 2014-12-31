@@ -7,7 +7,8 @@
 //
 
 #import "LOTRecordAssignmentVC.h"
-
+#import "LOTRecord.h"
+#import "LOTCourse.h"
 @interface LOTRecordAssignmentVC ()
 @property (weak, nonatomic) IBOutlet UITableView *recordTableView;
 
@@ -19,7 +20,11 @@
     [super viewDidLoad];
     self.recordTableView.delegate = self;
     self.recordTableView.dataSource = self;
-    self.recordArray = [self.chosenCourse.students allObjects];
+    
+    self.dataStore = [LOTDataStore sharedHomeworkDataStore];
+    [self.dataStore fetchRecord];
+    
+    
     
 }
 

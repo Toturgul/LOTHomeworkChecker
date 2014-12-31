@@ -9,6 +9,7 @@
 #import "LOTRecordCourseVC.h"
 #import "LOTCourse.h"
 #import "LOTRecordAssignmentVC.h"
+#import "LOTRecord.h"
 @interface LOTRecordCourseVC ()
 @property (weak, nonatomic) IBOutlet UITableView *recordTableView;
 
@@ -23,7 +24,9 @@
     self.recordTableView.dataSource = self;
     
     self.dataStore = [LOTDataStore sharedHomeworkDataStore];
-    [self.dataStore fetchData];
+    [self.dataStore fetchRecord];
+    
+    
     
     
 }
@@ -40,7 +43,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return [self.dataStore.classListArray count];
+    return [self.dataStore.coursesForRecordArray count];
 }
 
 
@@ -50,7 +53,7 @@
      static NSString *cellIdentifier = @"recordCourse";
      UITableViewCell *cell = [self.recordTableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
      
-     LOTCourse *cellFiller = self.dataStore.classListArray[indexPath.row];
+     LOTRecord *cellFiller = self.dataStore.coursesForRecordArray[indexPath.row];
      cell.textLabel.text = cellFiller.courseName;
  
  return cell;
@@ -69,9 +72,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     NSIndexPath *chosenIndexPath = [self.recordTableView indexPathForSelectedRow];
-    LOTCourse *chosenCourse = self.dataStore.classListArray[chosenIndexPath.row];
+    LOTRecord *chosenRecord = self.dataStore.coursesForRecordArray[chosenIndexPath.row];
     LOTRecordAssignmentVC *recordVC = segue.destinationViewController;
-    recordVC.chosenCourse = chosenCourse;
+    recordVC.chosenRecord = chosenRecord;
     
 }
 

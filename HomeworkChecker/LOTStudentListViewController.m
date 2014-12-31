@@ -8,6 +8,7 @@
 
 #import "LOTStudentListViewController.h"
 #import "LOTStudent.h"
+#import "LOTRecord.h"
 
 @interface LOTStudentListViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *studentTableView;
@@ -215,55 +216,28 @@
         [newCourse addStudentsObject:temp];
     }
     
-
+   //Calls up LOTrecord that goes with this course. ***TURN THIS INTO A METHOD, get rid of the "2"s
+    NSEntityDescription *entitydesc2 = [NSEntityDescription entityForName:@"LOTRecord" inManagedObjectContext:self.dataStore.managedObjectContext];
+    NSFetchRequest *request2 = [[NSFetchRequest alloc] init];
+    [request2 setEntity:entitydesc2];
+    NSPredicate *predicate2 = [NSPredicate predicateWithFormat:@"courseName like %@",newCourse.courseName];
+    [request2 setPredicate:predicate2];
+    NSError *error2;
+    NSArray *matchingData2 = [self.dataStore.managedObjectContext executeFetchRequest:request2 error:&error2];
     
- //   [self.dataStore.managedObjectContext deleteObject:newCourse];
-    
+    LOTRecord *recordForThisClass = matchingData2[0];
+    recordForThisClass.courseName = newCourse.courseName;
+    [recordForThisClass addCoursesObject:newCourse];
+    NSLog(@"recordForThisClass coursename: %@ and rest of stuff %@", recordForThisClass.courseName, recordForThisClass.courses);
     [self.dataStore save];
     
     [self.navigationController popViewControllerAnimated:YES];
     
     
-    // //This will find and fetch a specific object in core data
-    //    NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
-    //    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    //    [request setEntity:entitydesc];
-    //    NSString *temp = @"temp";
-    //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"assignment like %@",temp];
-    //    [request setPredicate:predicate];
-    //    NSError *error;
-    //    NSArray *matchingData = [self.dataStore.managedObjectContext executeFetchRequest:request error:&error];
 
-    
-    
-    
-
-    
-//    LOTCourse *newCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
-//    newCourse.courseName = self.chosenCourse.courseName;
-//    newCourse.assignment = self.assignmentTextField.text;
-//    NSLog(@"assignment is: %@",newCourse.assignment);
-//    //Date won't reflect what people type in
-//    newCourse.date = [NSDate date];
-//    
-//    for (LOTStudent *temp in self.listOfStudents) {
-//     //   NSLog(@"name %@  did hw %@",temp.name, temp.assignment);
-//        [newCourse addStudentsObject:temp];
-//    }
-//    NSLog(@"newcourse: %@",newCourse.courseName);
-    
-    
-//    [self.dataStore save];
-//    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
--(void) createTempCourseForRecord{
-    LOTCourse *tempCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
-    tempCourse.assignment = @"temp";
-    [self.dataStore save];
-    
-}
 
 -(void) createDuplicateCourseWithStudentsForRecord{
     LOTCourse *dupCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];

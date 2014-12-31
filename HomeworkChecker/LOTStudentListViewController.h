@@ -20,7 +20,7 @@
 @property (strong, nonatomic) LOTDataStore *dataStore;
 
 
--(void)createTempCourseForRecord;
+
 -(void)createDuplicateCourseWithStudentsForRecord;
 
 

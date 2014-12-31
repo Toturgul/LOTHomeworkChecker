@@ -8,6 +8,7 @@
         <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LOTStudent" inverseName="course" inverseEntity="LOTStudent" syncable="YES"/>
     </entity>
     <entity name="LOTRecord" representedClassName="LOTRecord" syncable="YES">
+        <attribute name="courseName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="courses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LOTCourse" inverseName="newRelationship" inverseEntity="LOTCourse" syncable="YES"/>
     </entity>
     <entity name="LOTStudent" representedClassName="LOTStudent" syncable="YES">
@@ -18,7 +19,7 @@
     </entity>
     <elements>
         <element name="LOTCourse" positionX="-360" positionY="18" width="128" height="118"/>
+        <element name="LOTRecord" positionX="-360" positionY="-90" width="128" height="73"/>
         <element name="LOTStudent" positionX="-54" positionY="18" width="128" height="105"/>
-        <element name="LOTRecord" positionX="-360" positionY="-90" width="128" height="58"/>
     </elements>
 </model>

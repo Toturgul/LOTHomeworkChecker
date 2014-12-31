@@ -19,7 +19,7 @@
 
 - (void) sampleData;
 - (void) fetchData;
-- (void) fetchKeeperCourse;
+- (void) fetchRecord;
 
 
 @end

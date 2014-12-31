@@ -9,6 +9,7 @@
 #import "LOTNewClassViewController.h"
 #import "LOTCourse.h"
 #import "LOTStudent.h"
+#import "LOTRecord.h"
 @interface LOTNewClassViewController ()<UITextFieldDelegate>
 @property (nonatomic) NSInteger editNumber;
 @property (weak, nonatomic) IBOutlet UITableView *addStudentsTableView;
@@ -197,7 +198,11 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
 //            NSLog(@"courseForClassList: %lu",(unsigned long)[courseForClassList.students count]);
         }
     
-    //create a new LOTCourse and adds students to be used in Records and LOTStudentListVC
+    //create a new LOTRecord and LOTCourse and adds students to be used in Records and LOTStudentListVC
+
+    LOTRecord *newRecord = [NSEntityDescription insertNewObjectForEntityForName:@"LOTRecord" inManagedObjectContext:self.dataStore.managedObjectContext];
+        newRecord.courseName = self.courseLabel.text;
+        
     LOTCourse *courseForRecords = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
         courseForRecords.courseName = self.courseLabel.text;
     
@@ -206,6 +211,7 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
 //            NSLog(@"courseForRecord: %lu %lu",(unsigned long)[courseForRecords.students count],(unsigned long)[courseForClassList.students count]);
         }
         
+        [newRecord addCoursesObject:courseForRecords]; //may need to erase this
         
     [self.dataStore save];
     [self dismissViewControllerAnimated:YES completion:^{

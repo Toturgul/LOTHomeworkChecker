@@ -2,7 +2,7 @@
 //  LOTRecord.h
 //  HomeworkChecker
 //
-//  Created by Levan Toturgul on 12/28/14.
+//  Created by Levan Toturgul on 12/31/14.
 //  Copyright (c) 2014 LevanPractice. All rights reserved.
 //
 
@@ -13,6 +13,7 @@
 
 @interface LOTRecord : NSManagedObject
 
+@property (nonatomic, retain) NSString * courseName;
 @property (nonatomic, retain) NSSet *courses;
 @end
 

@@ -2,7 +2,7 @@
 //  LOTRecord.m
 //  HomeworkChecker
 //
-//  Created by Levan Toturgul on 12/28/14.
+//  Created by Levan Toturgul on 12/31/14.
 //  Copyright (c) 2014 LevanPractice. All rights reserved.
 //
 
@@ -12,6 +12,7 @@
 
 @implementation LOTRecord
 
+@dynamic courseName;
 @dynamic courses;
 
 @end

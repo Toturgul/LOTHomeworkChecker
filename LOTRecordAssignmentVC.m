@@ -24,6 +24,7 @@
     self.dataStore = [LOTDataStore sharedHomeworkDataStore];
     [self.dataStore fetchRecord];
     
+    self.assignmentArray = [self.chosenRecord.courses allObjects];
     
     
 }
@@ -36,23 +37,27 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 0;
+    return [self.assignmentArray count];
 }
 
-/*
+
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+ UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"recordAssignment" forIndexPath:indexPath];
  
- // Configure the cell...
+     LOTCourse *cellFiller = self.assignmentArray[indexPath.row];
+     cell.textLabel.text = cellFiller.assignment;
+     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",cellFiller.date];
+     
+     
  
  return cell;
  }
- */
+ 
 
 
 

@@ -75,6 +75,7 @@
     LOTRecord *chosenRecord = self.dataStore.coursesForRecordArray[chosenIndexPath.row];
     LOTRecordAssignmentVC *recordVC = segue.destinationViewController;
     recordVC.chosenRecord = chosenRecord;
+    [self.dataStore save];
     
 }
 

@@ -117,21 +117,21 @@
 - (void) swipeTableCell:(MGSwipeTableCell *)cell didChangeSwipeState:(MGSwipeState)state gestureIsActive:(BOOL)gestureIsActive{
     
     
-    if (cell.swipeState == 2) {
+    if (cell.swipeState == 1) {
         NSIndexPath *swipedCell = [self.studentTableView indexPathForCell:cell];
         LOTStudent *tempStudent = self.listOfStudents[swipedCell.row];
         tempStudent.assignment = @"yes";
         [self.listOfStudents replaceObjectAtIndex:swipedCell.row withObject:tempStudent];
    //     NSLog(@"cell number %@",[NSString stringWithFormat:@"%ld",swipedCell.row]);
-    cell.backgroundColor = [UIColor redColor];
+    cell.backgroundColor = [UIColor greenColor];
     }
-    else if (cell.swipeState == 1) {
+    else if (cell.swipeState == 2) {
         NSIndexPath *swipedCell = [self.studentTableView indexPathForCell:cell];
         LOTStudent *tempStudent = self.listOfStudents[swipedCell.row];
         tempStudent.assignment = @"no";
         [self.listOfStudents replaceObjectAtIndex:swipedCell.row withObject:tempStudent];
     //    NSLog(@"cell number %@",[NSString stringWithFormat:@"%ld",swipedCell.row]);
-        cell.backgroundColor = [UIColor greenColor];
+        cell.backgroundColor = [UIColor redColor];
     }
     
     

@@ -10,5 +10,7 @@
 #import "LOTDataStore.h"
 @interface LOTRecordCourseVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) LOTDataStore *dataStore;
-@property (strong, nonatomic) NSArray *recordArray;
+
 @end
+
+

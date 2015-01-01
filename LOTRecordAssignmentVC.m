@@ -9,6 +9,7 @@
 #import "LOTRecordAssignmentVC.h"
 #import "LOTRecord.h"
 #import "LOTCourse.h"
+#import "LOTRecordStudentVC.h"
 @interface LOTRecordAssignmentVC ()
 @property (weak, nonatomic) IBOutlet UITableView *recordTableView;
 
@@ -63,14 +64,18 @@
 
 
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+    NSIndexPath *chosenIndexPath = [self.recordTableView indexPathForSelectedRow];
+    LOTCourse *chosenAssignment = self.assignmentArray[chosenIndexPath.row];
+    LOTRecordStudentVC *studentsVC = segue.destinationViewController;
+    studentsVC.chosenAssignment = chosenAssignment;
+    [self.dataStore save];
+    
+
+}
 @end

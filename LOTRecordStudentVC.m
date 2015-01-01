@@ -7,7 +7,8 @@
 //
 
 #import "LOTRecordStudentVC.h"
-
+#import "LOTCourse.h"
+#import "LOTStudent.h"
 @interface LOTRecordStudentVC ()
 @property (weak, nonatomic) IBOutlet UITableView *recordTableView;
 
@@ -19,6 +20,12 @@
     [super viewDidLoad];
     self.recordTableView.delegate = self;
     self.recordTableView.dataSource = self;
+    self.dataStore = [LOTDataStore sharedHomeworkDataStore];
+    [self.dataStore fetchRecord];
+    self.studentsArray = [self.chosenAssignment.students allObjects];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,23 +36,33 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 0;
+    return [self.studentsArray count];
 }
 
-/*
+
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+ UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"recordStudent" forIndexPath:indexPath];
  
- // Configure the cell...
+     LOTStudent *cellFiller = self.studentsArray[indexPath.row];
+     cell.textLabel.text = cellFiller.name;
+     
+     if ([cellFiller.assignment isEqual: @"no"]) {
+         cell.backgroundColor = [UIColor redColor];
+         cell.detailTextLabel.text = cellFiller.assignment;
+     }
+     if ([cellFiller.assignment isEqual:@"yes"]) {
+         cell.backgroundColor = [UIColor greenColor];
+         cell.detailTextLabel.text = cellFiller.assignment;
+     }
  
  return cell;
  }
- */
+ 
 
 
 

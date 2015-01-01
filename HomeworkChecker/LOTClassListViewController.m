@@ -81,6 +81,7 @@
     LOTCourse *chosenCourse = self.dataStore.classListArray[chosenIndexPath.row];
     LOTStudentListViewController *studentListVC = segue.destinationViewController;
     studentListVC.chosenCourse = chosenCourse;
+        [self.dataStore save];
     //NSLog(@"array of students: %@",chosenCourse.students);
     }
     

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "LOTDataStore.h"
-
 @interface LOTNewClassViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 //array for LOTStudent objects to be used in this table view and LOTClassList table
 @property (strong, nonatomic) NSMutableArray *namesArray;

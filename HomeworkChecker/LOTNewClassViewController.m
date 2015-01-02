@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 LevanPractice. All rights reserved.
 //
 
+
 #import "LOTNewClassViewController.h"
 #import "LOTCourse.h"
 #import "LOTStudent.h"
@@ -195,7 +196,7 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
 
         for (LOTStudent *temp in self.namesArray) {
             [courseForClassList addStudentsObject:temp];
-//            NSLog(@"courseForClassList: %lu",(unsigned long)[courseForClassList.students count]);
+
         }
     
     //create a new LOTRecord and LOTCourse and adds students to be used in Records and LOTStudentListVC
@@ -208,10 +209,9 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
     
         for (LOTStudent *temp in self.namesForRecordArray) {
             [courseForRecords addStudentsObject:temp];
-//            NSLog(@"courseForRecord: %lu %lu",(unsigned long)[courseForRecords.students count],(unsigned long)[courseForClassList.students count]);
         }
         
-        [newRecord addCoursesObject:courseForRecords]; //may need to erase this
+        [newRecord addCoursesObject:courseForRecords];
         
     [self.dataStore save];
     [self dismissViewControllerAnimated:YES completion:^{

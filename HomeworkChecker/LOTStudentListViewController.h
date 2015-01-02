@@ -9,18 +9,20 @@
 #import <UIKit/UIKit.h>
 #import <MGSwipeTableCell.h>
 #import <MGSwipeButton.h>
-#import "LOTCourse.h"
 #import "LOTDataStore.h"
-#import "LOTRecord.h"
+@class LOTCourse;
+
 
 @interface LOTStudentListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) NSMutableArray * listOfStudents;
 @property (strong, nonatomic) LOTCourse *chosenCourse;
+@property (strong, nonatomic) LOTCourse *thisAssignment;
 @property (strong, nonatomic) LOTDataStore *dataStore;
 
 
-
+-(void)fetchAssignment;
+-(void)fetchCorrectRecord;
 -(void)createDuplicateCourseWithStudentsForRecord;
 
 

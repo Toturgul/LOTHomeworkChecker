@@ -35,7 +35,7 @@
 - (void) viewWillAppear:(BOOL)animated{
     [self.dataStore fetchData];//may need shareHomeworkDataStore?
     [self.classListTableView reloadData];
-    NSLog(@"data reloaded array count is %lu",(unsigned long)[self.dataStore.classListArray count]);
+    
     
 }
 
@@ -82,7 +82,6 @@
     LOTStudentListViewController *studentListVC = segue.destinationViewController;
     studentListVC.chosenCourse = chosenCourse;
         [self.dataStore save];
-    //NSLog(@"array of students: %@",chosenCourse.students);
     }
     
     

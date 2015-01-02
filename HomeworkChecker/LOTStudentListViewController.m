@@ -9,6 +9,7 @@
 #import "LOTStudentListViewController.h"
 #import "LOTStudent.h"
 #import "LOTRecord.h"
+#import "LOTCourse.h"
 
 @interface LOTStudentListViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *studentTableView;
@@ -71,13 +72,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    // Return the number of rows in the section.
     return [self.listOfStudents count];
 }
 
@@ -205,10 +204,11 @@
     
     
     LOTCourse *newCourse = matchingData[0];
+    NSLog(@"stuff in matchingData %@",matchingData);
     newCourse.assignment = self.assignmentTextField.text;
     //Date won't reflect what people type in
     newCourse.date = [NSDate date];
-    
+    NSLog(@"newcourse %@ and matchingdata count %lu",newCourse.courseName, [matchingData count]);
     
     for (LOTStudent *temp in self.listOfStudents) {
         //   NSLog(@"name %@  did hw %@",temp.name, temp.assignment);
@@ -226,9 +226,10 @@
     NSArray *matchingData2 = [self.dataStore.managedObjectContext executeFetchRequest:request2 error:&error2];
     
     LOTRecord *recordForThisClass = matchingData2[0];
+    NSLog(@"coursename: %@ ... recordCoursename %@",newCourse.courseName, recordForThisClass.courseName);
     recordForThisClass.courseName = newCourse.courseName;
     [recordForThisClass addCoursesObject:newCourse];
-    NSLog(@"recordForThisClass coursename: %@ and rest of stuff %@", recordForThisClass.courseName, recordForThisClass.courses);
+    //NSLog(@"recordForThisClass coursename: %@ and rest of stuff %@", recordForThisClass.courseName, recordForThisClass.courses);
     [self.dataStore save];
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -239,11 +240,25 @@
 
 
 
+//-(void)fetchAssignment{
+//    NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
+//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+//    [request setEntity:entitydesc];
+//    NSString *dupCourseAssignment = @"id";
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"assignment like %@",dupCourseAssignment];
+//    [request setPredicate:predicate];
+//    NSError *error;
+//    NSArray *matchingData = [self.dataStore.managedObjectContext executeFetchRequest:request error:&error];
+//    
+//}
+
+
 -(void) createDuplicateCourseWithStudentsForRecord{
     LOTCourse *dupCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
     dupCourse.courseName = self.chosenCourse.courseName;
     dupCourse.assignment = @"id";
-    
+    NSLog(@"createDup method... courseName: %@",dupCourse.courseName);
+    NSLog(@"chosenCourse assignment: %@", self.chosenCourse.assignment);
     for (LOTStudent *tempStudent in self.chosenCourse.students) {
         LOTStudent *duplicatedStudent = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.dataStore.managedObjectContext];
         duplicatedStudent.name = tempStudent.name;
@@ -254,7 +269,6 @@
     
     self.listOfStudents = [[NSMutableArray alloc] init];
     [self.listOfStudents addObjectsFromArray:[dupCourse.students allObjects]];
-    
     
 }
 

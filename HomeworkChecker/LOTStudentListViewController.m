@@ -35,6 +35,8 @@
     self.assignmentTextField.delegate = self;
     self.dateTextField.delegate = self;
     
+    
+    
     self.dataStore = [LOTDataStore sharedHomeworkDataStore];
     [self.dataStore fetchData];
     
@@ -43,11 +45,7 @@
     [self createDuplicateCourseWithStudentsForRecord];
     
 
-    
-    //NSLog(@"viewdidload, students in array: %li",[self.chosenCourse.students count]);
-    
-
-    
+//    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     
 //     Uncomment the following line to preserve selection between presentations.
@@ -56,6 +54,10 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

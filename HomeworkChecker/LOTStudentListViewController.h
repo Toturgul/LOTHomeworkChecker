@@ -13,7 +13,7 @@
 @class LOTCourse;
 
 
-@interface LOTStudentListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate, UIActionSheetDelegate>
+@interface LOTStudentListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, MGSwipeTableCellDelegate, UIActionSheetDelegate, UINavigationBarDelegate>
 
 @property (strong, nonatomic) NSMutableArray * listOfStudents;
 @property (strong, nonatomic) LOTCourse *chosenCourse;
@@ -21,8 +21,8 @@
 @property (strong, nonatomic) LOTDataStore *dataStore;
 
 
--(void)fetchAssignment;
--(void)fetchCorrectRecord;
+//-(void)fetchAssignment;
+//-(void)fetchCorrectRecord;
 -(void)createDuplicateCourseWithStudentsForRecord;
 
 

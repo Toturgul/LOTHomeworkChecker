@@ -95,7 +95,6 @@
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"LOTRecord"];
     self.coursesForRecordArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    NSLog(@"number of records in record array)
     
 
 }

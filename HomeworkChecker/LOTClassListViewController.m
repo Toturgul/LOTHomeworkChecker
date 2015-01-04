@@ -29,8 +29,23 @@
     self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
     self.classListTableView.backgroundColor = [UIColor whiteColor];
     
+//This will keep the view controllers from being dismissed when you swipe from left to right on the screen.
+// This also required uinavigationcontrollerdelegate in the h file
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+        self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    }
+    
+    
     
 }
+
+//This keeps view controllers from being dismissed when swiping from left to right.
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    return NO;
+}
+
 
 - (void) viewWillAppear:(BOOL)animated{
     [self.dataStore fetchData];//may need shareHomeworkDataStore?

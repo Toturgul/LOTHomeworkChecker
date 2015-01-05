@@ -359,6 +359,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Homework Completion" id="k80-N0-TTI">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="lJu-zW-k0H">
+                            <connections>
+                                <action selector="cancelButton:" destination="F7i-xs-aHZ" id="2KM-T6-jyJ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="xW7-Qg-MDj">
                             <connections>
                                 <action selector="doneButton:" destination="F7i-xs-aHZ" id="hCM-qg-qOz"/>

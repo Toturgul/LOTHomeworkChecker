@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *assignmentTextField;
 @property (weak, nonatomic) IBOutlet UITextField *dateTextField;
 - (IBAction)doneButton:(id)sender;
+- (IBAction)cancelButton:(id)sender;
 
 
 
@@ -238,6 +239,22 @@
     
     
 
+}
+
+- (IBAction)cancelButton:(id)sender {
+    //retrieves LOTCourse created upon ViewDidLoad and erases it
+    NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entitydesc];
+    NSString *dupCourseAssignment = @"id";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"assignment like %@",dupCourseAssignment];
+    [request setPredicate:predicate];
+    NSError *error;
+    NSArray *matchingData = [self.dataStore.managedObjectContext executeFetchRequest:request error:&error];
+    for (LOTCourse *courseToDelete in matchingData) {
+        [self.dataStore.managedObjectContext deleteObject:courseToDelete];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

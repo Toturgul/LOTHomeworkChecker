@@ -7,11 +7,16 @@
 //
 
 #import "LOTNewCourseViewController.h"
+#import "LOTCourse.h"
+#import "LOTRecord.h"
+#import "LOTStudent.h"
 
 @interface LOTNewCourseViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *studentListTableView;
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *subjectTextField;
+- (IBAction)doneNamesButton:(id)sender;
 
 
 
@@ -29,7 +34,8 @@
     self.firstNameTextField.delegate = self;
     self.lastNameTextField.delegate = self;
     
-    
+    self.dataStore = [LOTDataStore sharedHomeworkDataStore];
+    [self.dataStore fetchData];
     
     
     // Do any additional setup after loading the view.
@@ -45,7 +51,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.namesArray count];
+    return [self.namesForListArray count];
 }
 
 
@@ -53,8 +59,10 @@
     
     static NSString *cellIdentifier = @"studentCell";
     UITableViewCell *cell = [self.studentListTableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-
-
+    
+    LOTStudent *studentOnList = self.namesForListArray[indexPath.row];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",studentOnList.firstName, studentOnList.lastName];
     
     return cell;
     
@@ -75,22 +83,48 @@
 */
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    //inits self.namesArray if it is empty
+    if (!self.namesForListArray) {
+        self.namesForListArray = [[NSMutableArray alloc]init];
+        self.namesForRecordArray = [[NSMutableArray alloc] init];
+    }
+    
+    
     if (textField == self.firstNameTextField) {
         [self.lastNameTextField becomeFirstResponder];
     }
     if (textField == self.lastNameTextField) {
+        [self createAndSaveStudent];
+        textField.text = @"";
         [self.firstNameTextField becomeFirstResponder];
+        
     }
-
     
+
     
     return YES;
 }
 
+-(void)createAndSaveStudent{
+    LOTStudent *newStudentForList = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.dataStore.managedObjectContext];
+    newStudentForList.firstName = self.firstNameTextField.text;
+    newStudentForList.lastName = self.lastNameTextField.text;
+    [self.namesForListArray insertObject:newStudentForList atIndex:0];
+    
+    LOTStudent *newStudentForRecord = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.dataStore.managedObjectContext];
+    newStudentForRecord.firstName = self.firstNameTextField.text;
+    newStudentForRecord.lastName = self.lastNameTextField.text;
+    [self.namesForRecordArray insertObject:newStudentForRecord atIndex:0];
+    
+    [self.studentListTableView reloadData];
+    
+}
 
 
-
-
-
+- (IBAction)doneNamesButton:(id)sender {
+    NSLog(@"button touched");
+    UITextField *abc = [[UITextField alloc] init];
+    [abc resignFirstResponder];
+}
 
 @end

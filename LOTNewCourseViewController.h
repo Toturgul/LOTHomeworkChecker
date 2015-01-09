@@ -11,11 +11,14 @@
 @interface LOTNewCourseViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 //array for LOTStudent objects to be used in this table view and LOTClassList table
-@property (strong, nonatomic) NSMutableArray *namesArray;
+@property (strong, nonatomic) NSMutableArray *namesForListArray;
 //array for LOTStudent objects to be used in Records and LOTStudentList VC
 @property (strong, nonatomic) NSMutableArray *namesForRecordArray;
 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) LOTDataStore *dataStore;
+
+
+-(void)createAndSaveStudent;
 
 @end

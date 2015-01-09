@@ -109,47 +109,47 @@
     sampleCourse.assignment = @"justForClassList";
     
     LOTStudent *student1 = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.managedObjectContext];
-    student1.name = @"Summer";
+    student1.firstName = @"Summer";
     [sampleCourse addStudentsObject:student1];
     
     LOTStudent *student2 = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.managedObjectContext];
-    student2.name = @"Alison";
+    student2.firstName = @"Alison";
     [sampleCourse addStudentsObject:student2];
     
     LOTStudent *student3 = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.managedObjectContext];
-    student3.name = @"Fatima";
+    student3.firstName = @"Fatima";
     [sampleCourse addStudentsObject:student3];
     
     LOTStudent *student4 = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.managedObjectContext];
-    student4.name = @"Frank";
+    student4.firstName = @"Frank";
     [sampleCourse addStudentsObject:student4];
     
     LOTStudent *student5 = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.managedObjectContext];
-    student5.name = @"Juan";
+    student5.firstName = @"Juan";
     [sampleCourse addStudentsObject:student5];
     
     LOTStudent *student6 = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.managedObjectContext];
-    student6.name = @"Jamal";
+    student6.firstName = @"Jamal";
     [sampleCourse addStudentsObject:student6];
     
     LOTStudent *student7 = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.managedObjectContext];
-    student7.name = @"Kim";
+    student7.firstName = @"Kim";
     [sampleCourse addStudentsObject:student7];
     
     LOTStudent *student8 = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.managedObjectContext];
-    student8.name = @"Leo";
+    student8.firstName = @"Leo";
     [sampleCourse addStudentsObject:student8];
     
     LOTStudent *student9 = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.managedObjectContext];
-    student9.name = @"Diane";
+    student9.firstName = @"Diane";
     [sampleCourse addStudentsObject:student9];
     
     LOTStudent *student10 = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.managedObjectContext];
-    student10.name = @"Elisa";
+    student10.firstName = @"Elisa";
     [sampleCourse addStudentsObject:student10];
     
     LOTStudent *student11 = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.managedObjectContext];
-    student11.name = @"David";
+    student11.firstName = @"David";
     [sampleCourse addStudentsObject:student11];
     
     

@@ -49,7 +49,7 @@
  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"recordStudent" forIndexPath:indexPath];
  
      LOTStudent *cellFiller = self.studentsArray[indexPath.row];
-     cell.textLabel.text = cellFiller.name;
+     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",cellFiller.firstName, cellFiller.lastName];
      
      if ([cellFiller.assignment isEqual: @"no"]) {
          cell.backgroundColor = [UIColor redColor];

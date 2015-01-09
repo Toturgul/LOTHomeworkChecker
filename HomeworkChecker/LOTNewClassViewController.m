@@ -69,7 +69,7 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     LOTStudent *newStudent = self.namesArray[indexPath.row];
-    cell.textLabel.text = newStudent.name;
+    cell.textLabel.text = newStudent.firstName;
     cell.backgroundColor = [UIColor yellowColor];
 
     return cell;
@@ -104,12 +104,14 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
         
         //create student for array used in this table view and LOTClassList table view
         LOTStudent *newStudentForList = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.dataStore.managedObjectContext];
-        newStudentForList.name = textField.text;
+        newStudentForList.firstName = textField.text;
+        newStudentForList.lastName = @"Smith";
         [self.namesArray insertObject:newStudentForList atIndex:0];
         
         //create student for array to be used in Records and LOTStudentList
         LOTStudent *newStudentForRecord = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.dataStore.managedObjectContext];
-        newStudentForRecord.name = textField.text;
+        newStudentForRecord.firstName = textField.text;
+        newStudentForRecord.lastName = @"Smith";
         [self.namesForRecordArray insertObject:newStudentForRecord atIndex:0];
         
         

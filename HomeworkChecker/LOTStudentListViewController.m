@@ -94,7 +94,7 @@
      }
      
      LOTStudent *currentStudent = self.listOfStudents[indexPath.row];
-     cell.textLabel.text = currentStudent.name;
+     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",currentStudent.firstName, currentStudent.lastName];
      cell.detailTextLabel.text = @"Detail text";
      cell.delegate = self;
      cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"👍" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor greenColor]]];
@@ -280,7 +280,8 @@
     NSLog(@"chosenCourse assignment: %@", self.chosenCourse.assignment);
     for (LOTStudent *tempStudent in self.chosenCourse.students) {
         LOTStudent *duplicatedStudent = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.dataStore.managedObjectContext];
-        duplicatedStudent.name = tempStudent.name;
+        duplicatedStudent.firstName = tempStudent.firstName;
+        duplicatedStudent.lastName = tempStudent.lastName;
         [dupCourse addStudentsObject:duplicatedStudent];
     }
     

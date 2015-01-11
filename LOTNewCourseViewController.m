@@ -12,12 +12,14 @@
 #import "LOTStudent.h"
 
 @interface LOTNewCourseViewController ()
+@property (nonatomic) NSInteger editNumber;
 @property (weak, nonatomic) IBOutlet UITableView *studentListTableView;
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *subjectTextField;
 - (IBAction)doneNamesButton:(id)sender;
 - (IBAction)allDoneButton:(id)sender;
+- (IBAction)editButton:(id)sender;
 
 
 
@@ -38,6 +40,7 @@
     self.dataStore = [LOTDataStore sharedHomeworkDataStore];
     [self.dataStore fetchData];
     [self.subjectTextField becomeFirstResponder];
+    self.editNumber = 2;
     
     
     // Do any additional setup after loading the view.
@@ -141,6 +144,44 @@
                                  }];
     
 }
+
+- (IBAction)editButton:(id)sender {
+    //turns on and off edit every other time the button is touched
+    if (self.editNumber%2==0) {
+        self.editing = YES;
+        self.editNumber++;
+    }
+    else {
+        self.editing = NO;
+        self.editNumber++;
+    }
+}
+
+//Puts view controller in edit mode
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated{
+    [super setEditing:editing animated:animated];
+    [self.studentListTableView setEditing:editing animated:animated ];
+}
+
+
+//Next two methods allow for editing of cells in the table
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.namesForListArray removeObjectAtIndex:indexPath.row];
+        [self.namesForRecordArray removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+    
+}
+
+
+
+
 
 - (void)completeNewCourse{
     LOTRecord *newRecord = [NSEntityDescription insertNewObjectForEntityForName:@"LOTRecord" inManagedObjectContext:self.dataStore.managedObjectContext];

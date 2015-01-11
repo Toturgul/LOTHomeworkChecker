@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LOTDataStore.h"
-@interface LOTNewCourseViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface LOTNewCourseViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 //array for LOTStudent objects to be used in this table view and LOTClassList table
 @property (strong, nonatomic) NSMutableArray *namesForListArray;
@@ -20,5 +20,6 @@
 
 
 -(void)createAndSaveStudent;
+-(void)completeNewCourse;
 
 @end

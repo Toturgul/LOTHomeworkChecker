@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *subjectTextField;
 - (IBAction)doneNamesButton:(id)sender;
+- (IBAction)allDoneButton:(id)sender;
 
 
 
@@ -33,9 +34,10 @@
     self.studentListTableView.dataSource = self;
     self.firstNameTextField.delegate = self;
     self.lastNameTextField.delegate = self;
-    
+    self.subjectTextField.delegate = self;
     self.dataStore = [LOTDataStore sharedHomeworkDataStore];
     [self.dataStore fetchData];
+    [self.subjectTextField becomeFirstResponder];
     
     
     // Do any additional setup after loading the view.
@@ -89,6 +91,9 @@
         self.namesForRecordArray = [[NSMutableArray alloc] init];
     }
     
+    if (textField == self.subjectTextField) {
+        [self.firstNameTextField becomeFirstResponder];
+    }
     
     if (textField == self.firstNameTextField) {
         [self.lastNameTextField becomeFirstResponder];
@@ -123,8 +128,36 @@
 
 - (IBAction)doneNamesButton:(id)sender {
     NSLog(@"button touched");
-    UITextField *abc = [[UITextField alloc] init];
-    [abc resignFirstResponder];
+    [self.subjectTextField resignFirstResponder];
+    [self.firstNameTextField resignFirstResponder];
+    [self.lastNameTextField resignFirstResponder];
+    
+}
+
+- (IBAction)allDoneButton:(id)sender {
+    [self completeNewCourse];
+    [self dismissViewControllerAnimated:YES
+                             completion:^{
+                                 }];
+    
+}
+
+- (void)completeNewCourse{
+    LOTRecord *newRecord = [NSEntityDescription insertNewObjectForEntityForName:@"LOTRecord" inManagedObjectContext:self.dataStore.managedObjectContext];
+    newRecord.courseName = self.subjectTextField.text;
+    
+    LOTCourse *courseForRecord = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
+    courseForRecord.courseName = self.subjectTextField.text;
+    [courseForRecord addStudents:[NSSet setWithArray:self.namesForRecordArray]];
+    [newRecord addCoursesObject:courseForRecord];
+    
+    LOTCourse *courseForList = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
+    [courseForList addStudents:[NSSet setWithArray:self.namesForListArray]];
+    courseForList.courseName = self.subjectTextField.text;
+    courseForList.assignment = @"justForClassList";
+    
+    [self.dataStore save];
+    
 }
 
 @end

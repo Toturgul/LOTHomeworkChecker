@@ -179,8 +179,30 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
         self.editing = NO;
         self.editNumber++;
     }
-    
+    NSLog(@"nameArray: %@",self.namesArray);
 }
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    NSString *stringToMove = self.namesArray[sourceIndexPath.row];
+    [self.namesArray removeObjectAtIndex:sourceIndexPath.row];
+    [self.namesArray insertObject:stringToMove atIndex:destinationIndexPath.row];
+}
+
+
+
+
+
+
+
+
+
+
 
 - (IBAction)doneButton:(id)sender {
     

@@ -17,13 +17,17 @@
 
 @property (strong, nonatomic) NSMutableArray * listOfStudents;
 @property (strong, nonatomic) LOTCourse *chosenCourse;
-@property (strong, nonatomic) LOTCourse *thisAssignment;
 @property (strong, nonatomic) LOTDataStore *dataStore;
+@property (strong, nonatomic) LOTCourse *courseSavedToCoreData;
 
 
-//-(void)fetchAssignment;
-//-(void)fetchCorrectRecord;
+
+//Whatever attibute I give a student in LOTNewCourse, I need to give it in this method
 -(void)createDuplicateCourseWithStudentsForRecord;
+
+-(void)findSpecificCourseInCoreData:(NSString*)entity matchingString:(NSString*)matchingString;
+-(void)findSpecificRecordInCoreData:(NSString*)entity matchingString:(NSString*)matchingString;
+
 
 
 @end

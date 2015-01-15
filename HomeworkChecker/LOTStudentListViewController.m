@@ -169,6 +169,8 @@
         LOTStudent *duplicatedStudent = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.dataStore.managedObjectContext];
         duplicatedStudent.firstName = tempStudent.firstName;
         duplicatedStudent.lastName = tempStudent.lastName;
+        duplicatedStudent.courseName = tempStudent.courseName;
+        NSLog(@"student: %@",duplicatedStudent);
         [dupCourse addStudentsObject:duplicatedStudent];
     }
     

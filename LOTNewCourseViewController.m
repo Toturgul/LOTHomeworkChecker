@@ -175,6 +175,17 @@
 
 
 - (void)completeNewCourse{
+    
+    //add the courseName to each student
+    NSArray *tempArray = [[NSArray alloc] initWithArray:self.namesForListArray];
+    int i = 0;
+    for (LOTStudent *courseNameStudent in tempArray) {
+        courseNameStudent.courseName = self.subjectTextField.text;
+        [self.namesForListArray replaceObjectAtIndex:i withObject:courseNameStudent];
+        i++;
+    }
+
+    
     LOTRecord *newRecord = [NSEntityDescription insertNewObjectForEntityForName:@"LOTRecord" inManagedObjectContext:self.dataStore.managedObjectContext];
     newRecord.courseName = self.subjectTextField.text;
     

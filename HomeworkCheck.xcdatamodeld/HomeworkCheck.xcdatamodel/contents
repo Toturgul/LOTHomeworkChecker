@@ -23,6 +23,7 @@
     </entity>
     <entity name="LOTStudent" representedClassName="LOTStudent" syncable="YES">
         <attribute name="assignment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="courseName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="extraBoolean" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="extraFloat" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -38,6 +39,6 @@
     <elements>
         <element name="LOTCourse" positionX="-360" positionY="18" width="128" height="195"/>
         <element name="LOTRecord" positionX="-360" positionY="-151" width="128" height="150"/>
-        <element name="LOTStudent" positionX="-54" positionY="18" width="128" height="223"/>
+        <element name="LOTStudent" positionX="-54" positionY="18" width="128" height="240"/>
     </elements>
 </model>

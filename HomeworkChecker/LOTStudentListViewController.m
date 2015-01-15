@@ -8,9 +8,6 @@
 
 
 
-//Areas of concern:
-//I didn't "InsertNewObject..." when I created courseSavedToCoreData. It seems to save it to the LOTRecord entity, but maybe it saves it differently somewhere.
-
 
 #import "LOTStudentListViewController.h"
 #import "LOTStudent.h"
@@ -99,8 +96,6 @@
      cell.rightExpansion.fillOnTrigger = YES;
      cell.rightSwipeSettings.transition = MGSwipeTransitionDrag;
      
-    // NSLog(@"swipe state %ld",cell.swipeState);
-     
      return cell;
  }
 
@@ -111,17 +106,15 @@
     if (cell.swipeState == 1) {
         NSIndexPath *swipedCell = [self.studentTableView indexPathForCell:cell];
         LOTStudent *tempStudent = self.listOfStudents[swipedCell.row];
-        tempStudent.assignment = @"yes";
+        tempStudent.hwCompletion = @"yes";
         [self.listOfStudents replaceObjectAtIndex:swipedCell.row withObject:tempStudent];
-   //     NSLog(@"cell number %@",[NSString stringWithFormat:@"%ld",swipedCell.row]);
     cell.backgroundColor = [UIColor greenColor];
     }
     else if (cell.swipeState == 2) {
         NSIndexPath *swipedCell = [self.studentTableView indexPathForCell:cell];
         LOTStudent *tempStudent = self.listOfStudents[swipedCell.row];
-        tempStudent.assignment = @"no";
+        tempStudent.hwCompletion = @"no";
         [self.listOfStudents replaceObjectAtIndex:swipedCell.row withObject:tempStudent];
-    //    NSLog(@"cell number %@",[NSString stringWithFormat:@"%ld",swipedCell.row]);
         cell.backgroundColor = [UIColor redColor];
     }
     
@@ -183,7 +176,7 @@
     
     self.listOfStudents = [[NSMutableArray alloc] init];
     [self.listOfStudents addObjectsFromArray:[dupCourse.students allObjects]];
-    
+
 }
 
 
@@ -200,14 +193,19 @@
     
     
     self.courseSavedToCoreData = matchingData[0];
-    NSLog(@"stuff in matchingData %@",matchingData);
+    //NSLog(@"stuff in matchingData %@",matchingData);
     self.courseSavedToCoreData.assignment = self.assignmentTextField.text;
     //Date won't reflect what people type in
     self.courseSavedToCoreData.date = [NSDate date];
     
     for (LOTStudent *temp in self.listOfStudents) {
+        NSLog(@"# students courseSavedToCoreData: %lu",[self.courseSavedToCoreData.students count]);
+        temp.assignment = self.assignmentTextField.text;
+        temp.date = [NSDate date];
+        
         [self.courseSavedToCoreData addStudentsObject:temp];
     }
+
 }
 
 -(void)findSpecificRecordInCoreData:(NSString *)entity matchingString:(NSString *)matchingString{
@@ -222,10 +220,11 @@
     NSArray *matchingData = [self.dataStore.managedObjectContext executeFetchRequest:request error:&error];
     
     LOTRecord *recordForThisClass = matchingData[0];
+
     
     recordForThisClass.courseName = self.courseSavedToCoreData.courseName;
     [recordForThisClass addCoursesObject:self.courseSavedToCoreData];
-    
+
     
     
     

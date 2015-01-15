@@ -42,13 +42,12 @@
     [self.subjectTextField becomeFirstResponder];
     self.editNumber = 2;
     
-    
-    // Do any additional setup after loading the view.
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -91,7 +90,6 @@
     //inits self.namesArray if it is empty
     if (!self.namesForListArray) {
         self.namesForListArray = [[NSMutableArray alloc]init];
-        self.namesForRecordArray = [[NSMutableArray alloc] init];
     }
     
     if (textField == self.subjectTextField) {
@@ -118,12 +116,6 @@
     newStudentForList.firstName = self.firstNameTextField.text;
     newStudentForList.lastName = self.lastNameTextField.text;
     [self.namesForListArray insertObject:newStudentForList atIndex:0];
-    
-    LOTStudent *newStudentForRecord = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.dataStore.managedObjectContext];
-    newStudentForRecord.firstName = self.firstNameTextField.text;
-    newStudentForRecord.lastName = self.lastNameTextField.text;
-    [self.namesForRecordArray insertObject:newStudentForRecord atIndex:0];
-    
     [self.studentListTableView reloadData];
     
 }
@@ -173,7 +165,6 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.namesForListArray removeObjectAtIndex:indexPath.row];
-        [self.namesForRecordArray removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
     
@@ -187,10 +178,6 @@
     LOTRecord *newRecord = [NSEntityDescription insertNewObjectForEntityForName:@"LOTRecord" inManagedObjectContext:self.dataStore.managedObjectContext];
     newRecord.courseName = self.subjectTextField.text;
     
-    LOTCourse *courseForRecord = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
-    courseForRecord.courseName = self.subjectTextField.text;
-    [courseForRecord addStudents:[NSSet setWithArray:self.namesForRecordArray]];
-    [newRecord addCoursesObject:courseForRecord];
     
     LOTCourse *courseForList = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
     [courseForList addStudents:[NSSet setWithArray:self.namesForListArray]];

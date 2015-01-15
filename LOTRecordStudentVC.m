@@ -51,13 +51,13 @@
      LOTStudent *cellFiller = self.studentsArray[indexPath.row];
      cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",cellFiller.firstName, cellFiller.lastName];
      
-     if ([cellFiller.assignment isEqual: @"no"]) {
+     if ([cellFiller.hwCompletion isEqual: @"no"]) {
          cell.backgroundColor = [UIColor redColor];
-         cell.detailTextLabel.text = cellFiller.assignment;
+         cell.detailTextLabel.text = cellFiller.hwCompletion;
      }
-     if ([cellFiller.assignment isEqual:@"yes"]) {
+     if ([cellFiller.hwCompletion isEqual:@"yes"]) {
          cell.backgroundColor = [UIColor greenColor];
-         cell.detailTextLabel.text = cellFiller.assignment;
+         cell.detailTextLabel.text = cellFiller.hwCompletion;
      }
  
  return cell;

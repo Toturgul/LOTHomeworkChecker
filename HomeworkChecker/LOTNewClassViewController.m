@@ -108,11 +108,11 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
         newStudentForList.lastName = @"Smith";
         [self.namesArray insertObject:newStudentForList atIndex:0];
         
-        //create student for array to be used in Records and LOTStudentList
-        LOTStudent *newStudentForRecord = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.dataStore.managedObjectContext];
-        newStudentForRecord.firstName = textField.text;
-        newStudentForRecord.lastName = @"Smith";
-        [self.namesForRecordArray insertObject:newStudentForRecord atIndex:0];
+//        //create student for array to be used in Records and LOTStudentList
+//        LOTStudent *newStudentForRecord = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.dataStore.managedObjectContext];
+//        newStudentForRecord.firstName = textField.text;
+//        newStudentForRecord.lastName = @"Smith";
+//        [self.namesForRecordArray insertObject:newStudentForRecord atIndex:0];
         
         
         [self.addStudentsTableView reloadData];
@@ -161,7 +161,7 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.namesArray removeObjectAtIndex:indexPath.row];
-        [self.namesForRecordArray removeObjectAtIndex:indexPath.row];
+   //     [self.namesForRecordArray removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
     
@@ -228,14 +228,14 @@ UITableViewCell *cell = [self.addStudentsTableView dequeueReusableCellWithIdenti
     LOTRecord *newRecord = [NSEntityDescription insertNewObjectForEntityForName:@"LOTRecord" inManagedObjectContext:self.dataStore.managedObjectContext];
         newRecord.courseName = self.courseLabel.text;
         
-    LOTCourse *courseForRecords = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
-        courseForRecords.courseName = self.courseLabel.text;
-    
-        for (LOTStudent *temp in self.namesForRecordArray) {
-            [courseForRecords addStudentsObject:temp];
-        }
-        
-        [newRecord addCoursesObject:courseForRecords];
+//    LOTCourse *courseForRecords = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
+//        courseForRecords.courseName = self.courseLabel.text;
+//    
+//        for (LOTStudent *temp in self.namesForRecordArray) {
+//            [courseForRecords addStudentsObject:temp];
+//        }
+//        
+//        [newRecord addCoursesObject:courseForRecords];
         
     [self.dataStore save];
     [self dismissViewControllerAnimated:YES completion:^{

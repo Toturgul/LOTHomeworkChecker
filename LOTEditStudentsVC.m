@@ -112,9 +112,17 @@
 
 
 - (IBAction)aZButton:(id)sender {
+    NSSortDescriptor *lastNameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:YES];
+    NSSortDescriptor *firstNameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"firstName" ascending:YES];
+    [self.namesForListArray sortUsingDescriptors:@[lastNameSortDescriptor,firstNameSortDescriptor]];
+    [self.studentTableView reloadData];
 }
 
 - (IBAction)zAButton:(id)sender {
+    NSSortDescriptor *lastNameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:NO];
+    NSSortDescriptor *firstNameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"firstName" ascending:NO];
+    [self.namesForListArray sortUsingDescriptors:@[lastNameSortDescriptor, firstNameSortDescriptor]];
+    [self.studentTableView reloadData];
 }
 
 - (IBAction)addButton:(id)sender {

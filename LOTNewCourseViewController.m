@@ -10,6 +10,7 @@
 #import "LOTCourse.h"
 #import "LOTRecord.h"
 #import "LOTStudent.h"
+#import "LOTEditStudentsVC.h"
 
 @interface LOTNewCourseViewController ()
 @property (nonatomic) NSInteger editNumber;
@@ -20,6 +21,7 @@
 - (IBAction)doneNamesButton:(id)sender;
 - (IBAction)allDoneButton:(id)sender;
 - (IBAction)editButton:(id)sender;
+- (IBAction)editVCButton:(id)sender;
 
 
 
@@ -74,18 +76,6 @@
 }
 
 
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     //inits self.namesArray if it is empty
     if (!self.namesForListArray) {
@@ -122,10 +112,8 @@
 
 
 - (IBAction)doneNamesButton:(id)sender {
-    NSLog(@"button touched");
-    [self.subjectTextField resignFirstResponder];
-    [self.firstNameTextField resignFirstResponder];
-    [self.lastNameTextField resignFirstResponder];
+    [self.view endEditing:YES];
+
     
 }
 
@@ -147,6 +135,10 @@
         self.editing = NO;
         self.editNumber++;
     }
+}
+
+- (IBAction)editVCButton:(id)sender {
+    
 }
 
 //Puts view controller in edit mode
@@ -198,5 +190,24 @@
     [self.dataStore save];
     
 }
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
+
+
+
+ #pragma mark - Navigation
+ 
+
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+     LOTEditStudentsVC *editVC = segue.destinationViewController;
+     editVC.namesForListArray = self.namesForListArray;
+     
+     
+ }
+ 
+
+
 
 @end

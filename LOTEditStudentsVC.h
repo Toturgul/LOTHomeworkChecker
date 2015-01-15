@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LOTEditStudentsVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
-
+@property (strong, nonatomic) NSMutableArray * namesForListArray;
 
 @end

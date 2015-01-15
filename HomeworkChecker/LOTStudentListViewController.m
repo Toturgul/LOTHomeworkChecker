@@ -164,17 +164,16 @@
     LOTCourse *dupCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
     dupCourse.courseName = self.chosenCourse.courseName;
     dupCourse.assignment = @"id";
+    NSLog(@"dupcourse name: %@",dupCourse.courseName);
 
     for (LOTStudent *tempStudent in self.chosenCourse.students) {
         LOTStudent *duplicatedStudent = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.dataStore.managedObjectContext];
         duplicatedStudent.firstName = tempStudent.firstName;
         duplicatedStudent.lastName = tempStudent.lastName;
         duplicatedStudent.courseName = tempStudent.courseName;
-        NSLog(@"student: %@",duplicatedStudent);
+       // NSLog(@"student: %@",duplicatedStudent);
         [dupCourse addStudentsObject:duplicatedStudent];
     }
-    
-    [self.dataStore save];
     
     self.listOfStudents = [[NSMutableArray alloc] init];
     [self.listOfStudents addObjectsFromArray:[dupCourse.students allObjects]];
@@ -193,9 +192,9 @@
     NSError *error;
     NSArray *matchingData = [self.dataStore.managedObjectContext executeFetchRequest:request error:&error];
     
-    
     self.courseSavedToCoreData = matchingData[0];
-    //NSLog(@"stuff in matchingData %@",matchingData);
+    NSLog(@"courseSavedToCoreDate name: %@",self.courseSavedToCoreData.courseName);
+    NSLog(@"# in matchingData %lu",[matchingData count]);
     self.courseSavedToCoreData.assignment = self.assignmentTextField.text;
     //Date won't reflect what people type in
     self.courseSavedToCoreData.date = [NSDate date];
@@ -220,7 +219,8 @@
     [request setPredicate:predicate];
     NSError *error;
     NSArray *matchingData = [self.dataStore.managedObjectContext executeFetchRequest:request error:&error];
-    
+    NSLog(@"self.courseSavedToCoreData.coursename is:%@",self.courseSavedToCoreData.courseName);
+    NSLog(@"# in matchingData %lu",[matchingData count]);
     LOTRecord *recordForThisClass = matchingData[0];
 
     

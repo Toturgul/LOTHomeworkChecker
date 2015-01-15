@@ -7,8 +7,10 @@
 //
 
 #import "LOTEditStudentsVC.h"
+#import "LOTStudent.h"
 
 @interface LOTEditStudentsVC ()
+@property (nonatomic) NSInteger editNumber;
 @property (weak, nonatomic) IBOutlet UITableView *studentTableView;
 - (IBAction)deleteButton:(id)sender;
 - (IBAction)aZButton:(id)sender;
@@ -16,6 +18,7 @@
 - (IBAction)addButton:(id)sender;
 - (IBAction)rearrangeButton:(id)sender;
 - (IBAction)doneButton:(id)sender;
+
 
 
 
@@ -43,11 +46,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 1;
+    return [self.namesForListArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"studentCell" forIndexPath:indexPath];
+    LOTStudent *studentOnList = self.namesForListArray[indexPath.row];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",studentOnList.firstName, studentOnList.lastName];
+    
+    
     return cell;
 }
 
@@ -55,7 +63,53 @@
 
 
 - (IBAction)deleteButton:(id)sender {
+    //turns on and off edit every other time the button is touched
+    if (self.editNumber%2==0) {
+        self.editing = YES;
+        self.editNumber++;
+    }
+    else {
+        self.editing = NO;
+        self.editNumber++;
+    }
+    
 }
+
+//Puts view controller in edit mode
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated{
+    [super setEditing:editing animated:animated];
+    [self.studentTableView setEditing:editing animated:animated ];
+}
+
+
+//Next two methods allow for editing of cells in the table
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.namesForListArray removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+    
+}
+
+
+//Next two methods allow cells to be rearranged
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    NSString *stringToMove = self.namesForListArray[sourceIndexPath.row];
+    [self.namesForListArray removeObjectAtIndex:sourceIndexPath.row];
+    [self.namesForListArray insertObject:stringToMove atIndex:destinationIndexPath.row];
+}
+
 
 - (IBAction)aZButton:(id)sender {
 }
@@ -70,6 +124,9 @@
 }
 
 - (IBAction)doneButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 

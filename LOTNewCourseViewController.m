@@ -67,7 +67,6 @@
     UITableViewCell *cell = [self.studentListTableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     LOTStudent *studentOnList = self.namesForListArray[indexPath.row];
-    
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",studentOnList.firstName, studentOnList.lastName];
     
     return cell;
@@ -173,6 +172,7 @@
     int i = 0;
     for (LOTStudent *courseNameStudent in tempArray) {
         courseNameStudent.courseName = self.subjectTextField.text;
+        courseNameStudent.order = [NSNumber numberWithInteger:i+1];//this may be temporary
         [self.namesForListArray replaceObjectAtIndex:i withObject:courseNameStudent];
         i++;
     }

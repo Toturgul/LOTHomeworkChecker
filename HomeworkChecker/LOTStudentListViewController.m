@@ -43,6 +43,11 @@
     self.dateTextField.text = [NSString stringWithFormat:@"%@",[NSDate date]];
     [self createDuplicateCourseWithStudentsForRecord];
     
+    
+    
+    NSSortDescriptor *numberOrder = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
+    [self.listOfStudents sortUsingDescriptors:@[numberOrder]];
+    
 }
 
 
@@ -171,6 +176,7 @@
         duplicatedStudent.firstName = tempStudent.firstName;
         duplicatedStudent.lastName = tempStudent.lastName;
         duplicatedStudent.courseName = tempStudent.courseName;
+        duplicatedStudent.order = tempStudent.order;
        // NSLog(@"student: %@",duplicatedStudent);
         [dupCourse addStudentsObject:duplicatedStudent];
     }
@@ -187,7 +193,8 @@
     NSEntityDescription *entitydesc = [NSEntityDescription entityForName:entity inManagedObjectContext:self.dataStore.managedObjectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entitydesc];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"assignment like %@",matchingString];
+    NSString *attribute = @"assignment";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@",attribute, matchingString];
     [request setPredicate:predicate];
     NSError *error;
     NSArray *matchingData = [self.dataStore.managedObjectContext executeFetchRequest:request error:&error];

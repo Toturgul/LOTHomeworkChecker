@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+@class LOTDataStore;
 
 @interface LOTCustomClass : NSObject
 
+@property (strong, nonatomic) LOTDataStore *dataStore;
 
-+(void)findSpecificEntity:(NSString *)entity byMatchingThisAttribute:(NSString *)attribute withThisTerm:(NSString *)term;
+-(NSArray *)findSpecificEntity:(NSString *)entity byMatchingThisAttribute:(NSString *)attribute withThisTerm:(NSString *)term;
 
 
 @end

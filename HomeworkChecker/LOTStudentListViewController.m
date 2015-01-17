@@ -13,6 +13,7 @@
 #import "LOTStudent.h"
 #import "LOTRecord.h"
 #import "LOTCourse.h"
+#import "LOTCustomClass.h"
 
 @interface LOTStudentListViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *studentTableView;
@@ -140,39 +141,58 @@
 
 - (IBAction)doneButton:(id)sender {
 
-    [self findSpecificCourseInCoreData:@"LOTCourse" matchingString:@"id"];
-    [self findSpecificRecordInCoreData:@"LOTRecord" matchingString:self.courseSavedToCoreData.courseName];
+    
+    LOTCustomClass *matchingData = [[LOTCustomClass alloc] init];
+    self.courseSavedToCoreData = [[matchingData findSpecificEntity:@"LOTCourse"
+                                           byMatchingThisAttribute:@"assignment"
+                                                      withThisTerm:@"id"] lastObject];
+    
+    self.courseSavedToCoreData.assignment = self.assignmentTextField.text;
+    self.courseSavedToCoreData.date = [NSDate date]; //date won't reflect what people put in
+    
+    for (LOTStudent *temp in self.listOfStudents) {
+        temp.assignment = self.assignmentTextField.text;
+        temp.date = [NSDate date];
+        [self.courseSavedToCoreData addStudentsObject:temp];
+    }
+    
+    LOTRecord *recordForThisClass = [[matchingData findSpecificEntity:@"LOTRecord"
+                                              byMatchingThisAttribute:@"courseName"
+                                                         withThisTerm:self.courseSavedToCoreData.courseName] lastObject];
+    
+    recordForThisClass.courseName = self.courseSavedToCoreData.courseName;
+    [recordForThisClass addCoursesObject:self.courseSavedToCoreData];
+
     [self.dataStore save];
     [self.navigationController popViewControllerAnimated:YES];
     
 }
 
 - (IBAction)cancelButton:(id)sender {
+    
     //retrieves LOTCourse created upon ViewDidLoad and erases it
-    NSEntityDescription *entitydesc = [NSEntityDescription entityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entitydesc];
-    NSString *dupCourseAssignment = @"id";
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"assignment like %@",dupCourseAssignment];
-    [request setPredicate:predicate];
-    NSError *error;
-    NSArray *matchingData = [self.dataStore.managedObjectContext executeFetchRequest:request error:&error];
-    for (LOTCourse *courseToDelete in matchingData) {
+    LOTCustomClass *matchingData = [[LOTCustomClass alloc] init];
+    for (LOTCourse *courseToDelete in [matchingData findSpecificEntity:@"LOTCourse"
+                                               byMatchingThisAttribute:@"assignment"
+                                                          withThisTerm:@"id"]) {
         [self.dataStore.managedObjectContext deleteObject:courseToDelete];
     }
     [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 
 
 -(void) createDuplicateCourseWithStudentsForRecord{
-    LOTCourse *dupCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse" inManagedObjectContext:self.dataStore.managedObjectContext];
+    LOTCourse *dupCourse = [NSEntityDescription insertNewObjectForEntityForName:@"LOTCourse"
+                                                         inManagedObjectContext:self.dataStore.managedObjectContext];
     dupCourse.courseName = self.chosenCourse.courseName;
     dupCourse.assignment = @"id";
     NSLog(@"dupcourse name: %@",dupCourse.courseName);
 
     for (LOTStudent *tempStudent in self.chosenCourse.students) {
-        LOTStudent *duplicatedStudent = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent" inManagedObjectContext:self.dataStore.managedObjectContext];
+        LOTStudent *duplicatedStudent = [NSEntityDescription insertNewObjectForEntityForName:@"LOTStudent"
+                                                                      inManagedObjectContext:self.dataStore.managedObjectContext];
         duplicatedStudent.firstName = tempStudent.firstName;
         duplicatedStudent.lastName = tempStudent.lastName;
         duplicatedStudent.courseName = tempStudent.courseName;
@@ -187,58 +207,7 @@
 }
 
 
--(void)findSpecificCourseInCoreData:(NSString *)entity matchingString:(NSString *)matchingString{
-    
-    //This will find and fetch a specific object in core data
-    NSEntityDescription *entitydesc = [NSEntityDescription entityForName:entity inManagedObjectContext:self.dataStore.managedObjectContext];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entitydesc];
-    NSString *attribute = @"assignment";
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@",attribute, matchingString];
-    [request setPredicate:predicate];
-    NSError *error;
-    NSArray *matchingData = [self.dataStore.managedObjectContext executeFetchRequest:request error:&error];
-    
-    self.courseSavedToCoreData = matchingData[0];
-    NSLog(@"courseSavedToCoreDate name: %@",self.courseSavedToCoreData.courseName);
-    NSLog(@"# in matchingData %lu",[matchingData count]);
-    self.courseSavedToCoreData.assignment = self.assignmentTextField.text;
-    //Date won't reflect what people type in
-    self.courseSavedToCoreData.date = [NSDate date];
-    
-    for (LOTStudent *temp in self.listOfStudents) {
-        NSLog(@"# students courseSavedToCoreData: %lu",[self.courseSavedToCoreData.students count]);
-        temp.assignment = self.assignmentTextField.text;
-        temp.date = [NSDate date];
-        
-        [self.courseSavedToCoreData addStudentsObject:temp];
-    }
 
-}
-
--(void)findSpecificRecordInCoreData:(NSString *)entity matchingString:(NSString *)matchingString{
-    
-    
-    NSEntityDescription *entitydesc = [NSEntityDescription entityForName:entity inManagedObjectContext:self.dataStore.managedObjectContext];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entitydesc];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"courseName like %@",self.courseSavedToCoreData.courseName];
-    [request setPredicate:predicate];
-    NSError *error;
-    NSArray *matchingData = [self.dataStore.managedObjectContext executeFetchRequest:request error:&error];
-    NSLog(@"self.courseSavedToCoreData.coursename is:%@",self.courseSavedToCoreData.courseName);
-    NSLog(@"# in matchingData %lu",[matchingData count]);
-    LOTRecord *recordForThisClass = matchingData[0];
-
-    
-    recordForThisClass.courseName = self.courseSavedToCoreData.courseName;
-    [recordForThisClass addCoursesObject:self.courseSavedToCoreData];
-
-    
-    
-    
-    
-}
 
 @end
 

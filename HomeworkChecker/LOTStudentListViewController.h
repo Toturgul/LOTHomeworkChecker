@@ -25,8 +25,6 @@
 
 -(void)createDuplicateCourseWithStudentsForRecord;
 
--(void)findSpecificCourseInCoreData:(NSString*)entity matchingString:(NSString*)matchingString;
--(void)findSpecificRecordInCoreData:(NSString*)entity matchingString:(NSString*)matchingString;
 
 @end
 

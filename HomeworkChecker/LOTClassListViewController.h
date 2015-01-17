@@ -10,7 +10,7 @@
 #import "LOTDataStore.h"
 
 
-@interface LOTClassListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate>
+@interface LOTClassListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate>
 @property (strong, nonatomic) LOTDataStore *dataStore;
 
 

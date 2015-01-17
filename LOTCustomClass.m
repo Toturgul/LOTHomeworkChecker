@@ -7,22 +7,26 @@
 //
 
 #import "LOTCustomClass.h"
+#import "LOTDataStore.h"
 
 @implementation LOTCustomClass
 
-+(void)findSpecificEntity:(NSString *)entity byMatchingThisAttribute:(NSString *)attribute withThisTerm:(NSString *)term{
+-(NSArray *)findSpecificEntity:(NSString *)entity byMatchingThisAttribute:(NSString *)attribute withThisTerm:(NSString *)term{
 
+    self.dataStore = [LOTDataStore sharedHomeworkDataStore];
+    [self.dataStore fetchData];
 
-//
-//    //This will find and fetch a specific object in core data
-//    NSEntityDescription *entitydesc = [NSEntityDescription entityForName:entity inManagedObjectContext:self.dataStore.managedObjectContext];
-//    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-//    [request setEntity:entitydesc];
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"assignment like %@",matchingString];
-//    [request setPredicate:predicate];
-//    NSError *error;
-//    NSArray *matchingData = [self.dataStore.managedObjectContext executeFetchRequest:request error:&error];
-//
+    //This will find and fetch a specific object in core data
+    NSEntityDescription *entDescription = [NSEntityDescription entityForName:entity inManagedObjectContext:self.dataStore.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entDescription];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", attribute, term];
+    [request setPredicate:predicate];
+    NSError *error;
+    NSArray *matchingData = [self.dataStore.managedObjectContext executeFetchRequest:request error:&error];
+    NSLog(@"matchingData has %lu objects",[matchingData count]);
+    return matchingData;
+
 //    self.courseSavedToCoreData = matchingData[0];
 //    NSLog(@"courseSavedToCoreDate name: %@",self.courseSavedToCoreData.courseName);
 //    NSLog(@"# in matchingData %lu",[matchingData count]);

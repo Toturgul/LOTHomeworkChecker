@@ -47,6 +47,10 @@
 
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self.studentListTableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     

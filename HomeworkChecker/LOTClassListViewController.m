@@ -48,7 +48,7 @@
 
 
 - (void) viewWillAppear:(BOOL)animated{
-    [self.dataStore fetchData];//may need shareHomeworkDataStore?
+    [self.dataStore fetchData];
     [self.classListTableView reloadData];
     
     

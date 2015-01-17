@@ -100,11 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LOTNewCourseViewController.m"
-            timestampString = "443044227.643409"
+            timestampString = "443229833.584921"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "-tableView:numberOfRowsInSection:"
             landmarkType = "5">
          </BreakpointContent>
@@ -116,11 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LOTNewCourseViewController.m"
-            timestampString = "443127557.460856"
+            timestampString = "443229833.584921"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -153,7 +153,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
             endingLineNumber = "16"
-            landmarkName = "+findSpecificEntity:byMatchingThisAttribute:withThisTerm:"
+            landmarkName = "-findSpecificEntity:byMatchingThisAttribute:withThisTerm:"
             landmarkType = "4">
          </BreakpointContent>
       </BreakpointProxy>

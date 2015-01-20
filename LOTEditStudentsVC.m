@@ -18,6 +18,7 @@
 - (IBAction)addButton:(id)sender;
 - (IBAction)rearrangeButton:(id)sender;
 - (IBAction)doneButton:(id)sender;
+- (IBAction)respellButton:(id)sender;
 
 
 
@@ -138,6 +139,9 @@
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
+}
+
+- (IBAction)respellButton:(id)sender {
 }
 
 

@@ -27,8 +27,7 @@
     [self.dataStore fetchRecord];
     
     
-    
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,14 +54,15 @@
      
      LOTRecord *cellFiller = self.dataStore.coursesForRecordArray[indexPath.row];
      cell.textLabel.text = cellFiller.courseName;
+ //    cell.textLabel.textColor = [UIColor redColor];
+     cell.textLabel.shadowColor = [UIColor redColor];
+     cell.textLabel.shadowOffset = CGSizeMake(1.0f, 2.0f);
+
+     
  
  return cell;
  }
  
-
-
-
-
 
 
 

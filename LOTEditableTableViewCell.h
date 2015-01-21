@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-@class LOTStudent;
+#import "LOTCustomTextField.h"
+
 @interface LOTEditableTableViewCell : UITableViewCell <UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
+
+@property (weak, nonatomic) IBOutlet LOTCustomTextField *firstNameTextField;
+@property (weak, nonatomic) IBOutlet LOTCustomTextField *lastNameTextField;
 
 
 @end

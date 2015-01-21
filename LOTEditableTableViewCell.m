@@ -7,14 +7,13 @@
 //
 
 #import "LOTEditableTableViewCell.h"
-#import "LOTStudent.h"
+
 @implementation LOTEditableTableViewCell
 
 
 
 - (void)awakeFromNib {
-//    self.firstNameTextField.delegate = self;
-//    self.lastNameTextField.delegate = self;
+
     
     // Initialization code
 }

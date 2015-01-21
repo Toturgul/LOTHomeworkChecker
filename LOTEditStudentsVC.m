@@ -9,13 +9,12 @@
 #import "LOTEditStudentsVC.h"
 #import "LOTStudent.h"
 #import "LOTEditableTableViewCell.h"
-
+#import "LOTCustomTextField.h"
 @interface LOTEditStudentsVC ()
 @property (nonatomic) NSInteger editNumber;
 @property (weak, nonatomic) IBOutlet UITableView *studentTableView;
+@property (strong, nonatomic) NSString *identifyEditedTextField;
 
-////probably won't work right, might need to erase
-//@property (strong, nonatomic) LOTEditableTableViewCell *editedStudent;
 
 
 - (IBAction)deleteButton:(id)sender;
@@ -37,8 +36,6 @@
     [super viewDidLoad];
     self.studentTableView.delegate = self;
     self.studentTableView.dataSource = self;
-
-    
     
 }
 
@@ -58,12 +55,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"studentCell" forIndexPath:indexPath];
-//    LOTStudent *studentOnList = self.namesForListArray[indexPath.row];
-//    
-//    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",studentOnList.firstName, studentOnList.lastName];
     
-    LOTEditableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"studentCell" forIndexPath:indexPath];
+    
+    LOTEditableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"editingCell" forIndexPath:indexPath];
     
     LOTStudent *studentOnList = self.namesForListArray[indexPath.row];
     
@@ -72,10 +66,11 @@
     
     
     cell.firstNameTextField.text = studentOnList.firstName;
-    cell.firstNameTextField.placeholder = [NSString stringWithFormat:@"%lu",indexPath.row];
+    cell.firstNameTextField.order = indexPath.row;
     cell.lastNameTextField.text = studentOnList.lastName;
-    cell.lastNameTextField.placeholder = [NSString stringWithFormat:@"%lu",indexPath.row];
-    return cell;
+    cell.lastNameTextField.order = indexPath.row;
+        return cell;
+    
 }
 
 
@@ -90,7 +85,7 @@
         self.editing = NO;
         self.editNumber++;
     }
-    
+//    [self.studentTableView reloadData];
 }
 
 //Puts view controller in edit mode
@@ -161,18 +156,27 @@
 }
 
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    self.identifyEditedTextField = textField.text;
+}
 
 
-//-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+-(BOOL)textFieldShouldReturn:(LOTCustomTextField *)textField{
 
-//    LOTStudent *editedStudent = self.namesForListArray[currentIndexPath.row];
-//    
-//    textField.superview
-//    
-//    [textField endEditing:YES];
-//    NSLog(@"done editing, selected row # %lu",currentIndexPath.row);
-//    return YES;
-//}
+
+    LOTStudent *editedStudent = self.namesForListArray[textField.order];
+
+    if ([self.identifyEditedTextField isEqualToString: editedStudent.firstName]) {
+        editedStudent.firstName = textField.text;
+    }
+    if ([self.identifyEditedTextField isEqualToString: editedStudent.lastName]) {
+    editedStudent.lastName = textField.text;
+    }
+    [self.namesForListArray replaceObjectAtIndex:textField.order withObject:editedStudent];
+    [textField endEditing:YES];
+    [self.studentTableView reloadData];
+    return YES;
+}
 
 
 

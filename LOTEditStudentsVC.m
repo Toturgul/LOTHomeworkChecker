@@ -8,17 +8,23 @@
 
 #import "LOTEditStudentsVC.h"
 #import "LOTStudent.h"
+#import "LOTEditableTableViewCell.h"
 
 @interface LOTEditStudentsVC ()
 @property (nonatomic) NSInteger editNumber;
 @property (weak, nonatomic) IBOutlet UITableView *studentTableView;
+
+////probably won't work right, might need to erase
+//@property (strong, nonatomic) LOTEditableTableViewCell *editedStudent;
+
+
 - (IBAction)deleteButton:(id)sender;
 - (IBAction)aZButton:(id)sender;
 - (IBAction)zAButton:(id)sender;
 - (IBAction)addButton:(id)sender;
 - (IBAction)rearrangeButton:(id)sender;
 - (IBAction)doneButton:(id)sender;
-- (IBAction)respellButton:(id)sender;
+
 
 
 
@@ -31,6 +37,7 @@
     [super viewDidLoad];
     self.studentTableView.delegate = self;
     self.studentTableView.dataSource = self;
+
     
     
 }
@@ -51,15 +58,25 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"studentCell" forIndexPath:indexPath];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"studentCell" forIndexPath:indexPath];
+//    LOTStudent *studentOnList = self.namesForListArray[indexPath.row];
+//    
+//    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",studentOnList.firstName, studentOnList.lastName];
+    
+    LOTEditableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"studentCell" forIndexPath:indexPath];
+    
     LOTStudent *studentOnList = self.namesForListArray[indexPath.row];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",studentOnList.firstName, studentOnList.lastName];
+    cell.firstNameTextField.delegate = self;
+    cell.lastNameTextField.delegate = self;
     
     
+    cell.firstNameTextField.text = studentOnList.firstName;
+    cell.firstNameTextField.placeholder = [NSString stringWithFormat:@"%lu",indexPath.row];
+    cell.lastNameTextField.text = studentOnList.lastName;
+    cell.lastNameTextField.placeholder = [NSString stringWithFormat:@"%lu",indexPath.row];
     return cell;
 }
-
 
 
 
@@ -127,9 +144,11 @@
 }
 
 - (IBAction)addButton:(id)sender {
+    NSLog(@"addButton Pressed");
 }
 
 - (IBAction)rearrangeButton:(id)sender {
+
 }
 
 - (IBAction)doneButton:(id)sender {
@@ -141,11 +160,19 @@
     }];
 }
 
-- (IBAction)respellButton:(id)sender {
-}
 
 
 
+//-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+
+//    LOTStudent *editedStudent = self.namesForListArray[currentIndexPath.row];
+//    
+//    textField.superview
+//    
+//    [textField endEditing:YES];
+//    NSLog(@"done editing, selected row # %lu",currentIndexPath.row);
+//    return YES;
+//}
 
 
 

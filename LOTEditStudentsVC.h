@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LOTEditStudentsVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface LOTEditStudentsVC : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) NSMutableArray * namesForListArray;
+
+
 
 @end

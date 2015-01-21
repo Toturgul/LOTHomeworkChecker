@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface LOTEditableTableViewCell : UITableViewCell
+@class LOTStudent;
+@interface LOTEditableTableViewCell : UITableViewCell <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
+
 
 @end

@@ -25,9 +25,17 @@
     self.dataStore = [LOTDataStore sharedHomeworkDataStore];
     [self.dataStore fetchData];
     NSLog(@"viewDidLoad");
+
+    
+    
+    
+    
+    
+    
     self.view.backgroundColor = [UIColor grayColor];
     self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
     self.classListTableView.backgroundColor = [UIColor whiteColor];
+    
     
 //This will keep the view controllers from being dismissed when you swipe from left to right on the screen.
 // This also required uinavigationcontrollerdelegate in the h file

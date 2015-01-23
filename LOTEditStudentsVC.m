@@ -36,6 +36,8 @@
     [super viewDidLoad];
     self.studentTableView.delegate = self;
     self.studentTableView.dataSource = self;
+    self.studentTableView.rowHeight = 44;
+    
     
 }
 

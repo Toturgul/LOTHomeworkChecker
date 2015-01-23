@@ -44,6 +44,8 @@
     self.dateTextField.text = [NSString stringWithFormat:@"%@",[NSDate date]];
     [self createDuplicateCourseWithStudentsForRecord];
     
+    self.studentTableView.rowHeight = 78;
+
     
     
     NSSortDescriptor *numberOrder = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
@@ -88,7 +90,7 @@
      cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",currentStudent.firstName, currentStudent.lastName];
      cell.detailTextLabel.text = @"Detail text";
      cell.delegate = self;
-     cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"👍" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor greenColor]]];
+     cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"YES" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor greenColor]]];
      
      cell.leftExpansion.buttonIndex = 1;
      cell.leftExpansion.fillOnTrigger = YES;
@@ -96,7 +98,7 @@
      
     
      
-     cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"👎" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor redColor]]];
+     cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"NO" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor redColor]]];
      
      cell.rightExpansion.buttonIndex = 1;
      cell.rightExpansion.fillOnTrigger = YES;

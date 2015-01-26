@@ -154,7 +154,7 @@
     
     for (LOTStudent *temp in self.listOfStudents) {
         temp.assignment = self.assignmentTextField.text;
-        temp.date = [NSDate date];
+        temp.date = [NSDate dateWithTimeIntervalSinceReferenceDate:162000];
         [self.courseSavedToCoreData addStudentsObject:temp];
     }
     

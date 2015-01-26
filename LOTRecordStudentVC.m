@@ -26,9 +26,26 @@
     NSLog(@"self.studentsArray : %@", self.studentsArray);
     NSLog(@"self.chosenAssignment.students : %@", self.chosenAssignment.students);
 
-    
+    UIBarButtonItem *myButton = [[UIBarButtonItem alloc]init];
+    myButton.action = @selector(doTheThing);
+    myButton.title = @"👈Back";
+    myButton.target = self;
+    self.navigationItem.leftBarButtonItem = myButton;
+
+
     
 }
+
+- (void) doTheThing {
+    [self.dataStore save];
+    [self.navigationController popViewControllerAnimated:YES];
+    NSLog(@"Doing the thing");
+    
+}
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

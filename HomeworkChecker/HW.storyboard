@@ -90,7 +90,7 @@
             </objects>
             <point key="canvasLocation" x="410.5" y="-561.5"/>
         </scene>
-        <!--Edit StudentsVC-->
+        <!--Edit-->
         <scene sceneID="mVy-Yi-qAV">
             <objects>
                 <viewController id="jpQ-cF-IgP" customClass="LOTEditStudentsVC" sceneMemberID="viewController">
@@ -195,6 +195,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Edit" image="wrench" id="ALF-NA-6pq"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="studentTableView" destination="F2Q-bD-EPH" id="qol-Ky-n8v"/>
@@ -296,7 +297,7 @@
             </objects>
             <point key="canvasLocation" x="1483.5" y="-561.5"/>
         </scene>
-        <!--Class List View Controller-->
+        <!-- HW✓-->
         <scene sceneID="ZYE-wq-1a8">
             <objects>
                 <viewController id="Ikk-p5-7p7" customClass="LOTClassListViewController" sceneMemberID="viewController">
@@ -369,6 +370,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title=" HW✓" image="clipboard" id="wTt-Sa-bDg"/>
                     <navigationItem key="navigationItem" id="igY-Gt-eZQ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="aUW-yk-xhf">
                             <connections>
@@ -386,7 +388,7 @@
             </objects>
             <point key="canvasLocation" x="918.5" y="205.5"/>
         </scene>
-        <!--Record CourseVC-->
+        <!--Gradebook-->
         <scene sceneID="AYo-hd-jXn">
             <objects>
                 <viewController id="NYb-o4-8nD" customClass="LOTRecordCourseVC" sceneMemberID="viewController">
@@ -417,6 +419,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Gradebook" image="gradebook" id="h6J-Ae-0A9"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="recordTableView" destination="SMU-Em-VN2" id="Zim-hH-Gru"/>
@@ -566,13 +569,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i7B-0h-aez">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
-                                <items>
-                                    <barButtonItem title="Item" width="143" id="lEL-De-vnz"/>
-                                    <barButtonItem title="Item" width="144" id="raH-TU-v8Z"/>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -601,10 +597,33 @@
             </objects>
             <point key="canvasLocation" x="1488.5" y="199.5"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="iy7-aP-3UO">
+            <objects>
+                <tabBarController id="XjI-LR-LGl" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="yVx-1H-L76"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="YzT-Rl-Dci">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Ikk-p5-7p7" kind="relationship" relationship="viewControllers" id="LBU-Fy-1MB"/>
+                        <segue destination="NYb-o4-8nD" kind="relationship" relationship="viewControllers" id="QVV-qs-PVm"/>
+                        <segue destination="jpQ-cF-IgP" kind="relationship" relationship="viewControllers" id="x51-0c-70Y"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z1g-XU-qO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="410.5" y="884.5"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dwu-DB-Kvr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dJN-tD-h2g" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="downloads" id="7i4-ZA-nLB"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yD0-Hw-9mj">
@@ -613,20 +632,27 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Ikk-p5-7p7" kind="relationship" relationship="rootViewController" id="d05-ar-L1a"/>
+                        <segue destination="XjI-LR-LGl" kind="relationship" relationship="rootViewController" id="YCA-Kj-0eb"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wk2-82-eri" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423" y="200"/>
+            <point key="canvasLocation" x="102.5" y="205.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="backdrop-72250_1280.jpg" width="1280" height="853"/>
         <image name="badge-150755_1280.png" width="1280" height="1280"/>
         <image name="chalkboard-152414_1280.png" width="1280" height="877"/>
+        <image name="clipboard" width="32" height="32"/>
         <image name="clipboard-34693_1280.png" width="874" height="1280"/>
+        <image name="gradebook" width="32" height="32"/>
         <image name="journal-152157_1280.png" width="1107" height="1280"/>
         <image name="note-34687_1280.png" width="1280" height="912"/>
+        <image name="wrench" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="QVV-qs-PVm"/>
+        <segue reference="x51-0c-70Y"/>
+    </inferredMetricsTieBreakers>
 </document>

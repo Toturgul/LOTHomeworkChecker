@@ -46,10 +46,19 @@
     
     self.studentTableView.rowHeight = 78;
 
-    
-    
     NSSortDescriptor *numberOrder = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
     [self.listOfStudents sortUsingDescriptors:@[numberOrder]];
+    
+    
+    UIToolbar *Toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    [Toolbar sizeToFit];
+    Toolbar.barTintColor = [UIColor blueColor];
+    
+    
+    
+    
+    
+    
     
 }
 

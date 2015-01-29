@@ -13,5 +13,5 @@
 @interface LOTRecordAssignmentVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) LOTDataStore *dataStore;
 @property (strong, nonatomic) LOTRecord *chosenRecord;
-@property (strong, nonatomic) NSArray *assignmentArray;
+@property (strong, nonatomic) NSMutableArray *assignmentArray;
 @end

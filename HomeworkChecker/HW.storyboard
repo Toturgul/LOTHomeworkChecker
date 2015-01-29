@@ -569,6 +569,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zXN-Wg-rdP">
+                                <rect key="frame" x="48" y="64" width="278" height="29"/>
+                                <segments>
+                                    <segment title="Last HW"/>
+                                    <segment title="Current HW"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentAction:" destination="F7i-xs-aHZ" eventType="valueChanged" id="lTn-3f-NfA"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -590,6 +600,7 @@
                     <connections>
                         <outlet property="assignmentTextField" destination="8nY-Pk-cSH" id="PlF-Ty-wUO"/>
                         <outlet property="dateTextField" destination="nyi-fV-Mft" id="Jut-Se-Poj"/>
+                        <outlet property="segmentOutlet" destination="zXN-Wg-rdP" id="ag2-ju-u7G"/>
                         <outlet property="studentTableView" destination="5Cy-Jj-pdS" id="flP-33-qwJ"/>
                     </connections>
                 </viewController>
@@ -652,7 +663,7 @@
         <image name="wrench" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QVV-qs-PVm"/>
         <segue reference="x51-0c-70Y"/>
+        <segue reference="fFT-0o-UI9"/>
     </inferredMetricsTieBreakers>
 </document>

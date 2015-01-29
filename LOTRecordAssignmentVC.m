@@ -25,8 +25,10 @@
     self.dataStore = [LOTDataStore sharedHomeworkDataStore];
     [self.dataStore fetchRecord];
     
-    self.assignmentArray = [self.chosenRecord.courses allObjects];
+    self.assignmentArray = [[NSMutableArray alloc] initWithArray:[self.chosenRecord.courses allObjects]];
     
+    NSSortDescriptor *dateSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+    [self.assignmentArray sortUsingDescriptors:@[dateSortDescriptor]];
     
 }
 

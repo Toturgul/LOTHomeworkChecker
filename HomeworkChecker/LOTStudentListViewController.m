@@ -21,8 +21,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *dateTextField;
 - (IBAction)doneButton:(id)sender;
 - (IBAction)cancelButton:(id)sender;
-
-
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentOutlet;
+- (IBAction)segmentAction:(id)sender;
+@property (strong, nonatomic) LOTCustomClass *customClass;
 
 
 
@@ -41,27 +42,18 @@
     self.dateTextField.delegate = self;
     self.dataStore = [LOTDataStore sharedHomeworkDataStore];
     [self.dataStore fetchData];
-    self.dateTextField.text = [NSString stringWithFormat:@"%@",[NSDate date]];
     [self createDuplicateCourseWithStudentsForRecord];
-    
+    self.customClass = [[LOTCustomClass alloc]init];
+    self.dateTextField.text = [self.customClass todaysDateAsString];
     self.studentTableView.rowHeight = 78;
 
     NSSortDescriptor *numberOrder = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
     [self.listOfStudents sortUsingDescriptors:@[numberOrder]];
     
-    
-    UIToolbar *Toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    [Toolbar sizeToFit];
-    Toolbar.barTintColor = [UIColor blueColor];
-    
-    
-    
-    
-    
+
     
     
 }
-
 
 
 - (void)didReceiveMemoryWarning {
@@ -99,11 +91,13 @@
      cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",currentStudent.firstName, currentStudent.lastName];
      cell.detailTextLabel.text = @"Detail text";
      cell.delegate = self;
-     cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"YES" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor greenColor]]];
+     cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"YES" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor greenColor]],
+                           [MGSwipeButton buttonWithTitle:@"Absent" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor blueColor]]];
+                          
      
      cell.leftExpansion.buttonIndex = 1;
      cell.leftExpansion.fillOnTrigger = YES;
-     cell.leftSwipeSettings.transition = MGSwipeTransition3D;
+     cell.leftSwipeSettings.transition = MGSwipeTransitionDrag;
      
     
      
@@ -138,6 +132,11 @@
     
 }
 
+-(BOOL) swipeTableCell:(MGSwipeTableCell*) cell tappedButtonAtIndex:(NSInteger) index direction:(MGSwipeDirection)direction fromExpansion:(BOOL) fromExpansion{
+    NSLog(@"button tapped indexpath ");
+    
+    return NO;
+}
 
 
  #pragma mark - Navigation
@@ -153,13 +152,14 @@
 - (IBAction)doneButton:(id)sender {
 
     
-    LOTCustomClass *matchingData = [[LOTCustomClass alloc] init];
-    self.courseSavedToCoreData = [[matchingData findSpecificEntity:@"LOTCourse"
+  //  LOTCustomClass *matchingData = [[LOTCustomClass alloc] init];
+    self.courseSavedToCoreData = [[self.customClass findSpecificEntity:@"LOTCourse"
                                            byMatchingThisAttribute:@"assignment"
                                                       withThisTerm:@"id"] lastObject];
     
     self.courseSavedToCoreData.assignment = self.assignmentTextField.text;
-    self.courseSavedToCoreData.date = [NSDate date]; //date won't reflect what people put in
+    self.courseSavedToCoreData.date = [NSDate date];
+    NSLog(@"date: %@",self.courseSavedToCoreData.date);
     
     for (LOTStudent *temp in self.listOfStudents) {
         temp.assignment = self.assignmentTextField.text;
@@ -167,7 +167,7 @@
         [self.courseSavedToCoreData addStudentsObject:temp];
     }
     
-    LOTRecord *recordForThisClass = [[matchingData findSpecificEntity:@"LOTRecord"
+    LOTRecord *recordForThisClass = [[self.customClass findSpecificEntity:@"LOTRecord"
                                               byMatchingThisAttribute:@"courseName"
                                                          withThisTerm:self.courseSavedToCoreData.courseName] lastObject];
     
@@ -182,8 +182,8 @@
 - (IBAction)cancelButton:(id)sender {
     
     //retrieves LOTCourse created upon ViewDidLoad and erases it
-    LOTCustomClass *matchingData = [[LOTCustomClass alloc] init];
-    for (LOTCourse *courseToDelete in [matchingData findSpecificEntity:@"LOTCourse"
+  //  LOTCustomClass *matchingData = [[LOTCustomClass alloc] init];
+    for (LOTCourse *courseToDelete in [self.customClass findSpecificEntity:@"LOTCourse"
                                                byMatchingThisAttribute:@"assignment"
                                                           withThisTerm:@"id"]) {
         [self.dataStore.managedObjectContext deleteObject:courseToDelete];
@@ -218,7 +218,10 @@
 }
 
 
-
-
+- (IBAction)segmentAction:(id)sender {
+    
+    [self.studentTableView reloadData];
+    
+}
 @end
 

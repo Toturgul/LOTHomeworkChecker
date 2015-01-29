@@ -27,6 +27,7 @@
     NSLog(@"matchingData has %lu objects",[matchingData count]);
     return matchingData;
 
+
 //    self.courseSavedToCoreData = matchingData[0];
 //    NSLog(@"courseSavedToCoreDate name: %@",self.courseSavedToCoreData.courseName);
 //    NSLog(@"# in matchingData %lu",[matchingData count]);
@@ -44,5 +45,17 @@
 //
 //}
 }
+
+-(NSString *)todaysDateAsString{
+
+    NSDate *today = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSDateFormatter *format = [[NSDateFormatter alloc]init];
+    [format setDateStyle:NSDateFormatterMediumStyle];
+    NSString *date = [format stringFromDate:today];
+    return date;
+    
+}
+
+
 
 @end

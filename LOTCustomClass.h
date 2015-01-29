@@ -15,5 +15,10 @@
 
 -(NSArray *)findSpecificEntity:(NSString *)entity byMatchingThisAttribute:(NSString *)attribute withThisTerm:(NSString *)term;
 
+-(NSString *)todaysDateAsString;
+
+
+
+
 
 @end

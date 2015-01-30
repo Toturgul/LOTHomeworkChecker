@@ -56,6 +56,10 @@
     
 }
 
+-(void)segmentControlTouched{
+
+    
+}
 
 
 @end

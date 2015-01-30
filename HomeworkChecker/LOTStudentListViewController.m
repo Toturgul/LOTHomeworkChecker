@@ -41,7 +41,7 @@
     self.assignmentTextField.delegate = self;
     self.dateTextField.delegate = self;
     self.dataStore = [LOTDataStore sharedHomeworkDataStore];
-    [self.dataStore fetchData];
+    [self.dataStore fetchRecord];
     [self createDuplicateCourseWithStudentsForRecord];
     self.customClass = [[LOTCustomClass alloc]init];
     self.dateTextField.text = [self.customClass todaysDateAsString];
@@ -89,7 +89,19 @@
      
      LOTStudent *currentStudent = self.listOfStudents[indexPath.row];
      cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",currentStudent.firstName, currentStudent.lastName];
-     cell.detailTextLabel.text = @"Detail text";
+     
+     if ([currentStudent.hwCompletion isEqual: @"no"]) {
+         cell.backgroundColor = [UIColor redColor];
+         cell.detailTextLabel.text = currentStudent.hwCompletion;
+     }
+     if ([currentStudent.hwCompletion isEqual:@"yes"]) {
+         cell.backgroundColor = [UIColor greenColor];
+         cell.detailTextLabel.text = currentStudent.hwCompletion;
+     }
+     
+     
+     NSLog(@"reloaded");
+    // cell.detailTextLabel.text = @"Detail text";
      cell.delegate = self;
      cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"YES" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor greenColor]],
                            [MGSwipeButton buttonWithTitle:@"Absent" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor blueColor]]];
@@ -220,8 +232,56 @@
 
 - (IBAction)segmentAction:(id)sender {
     
-    [self.studentTableView reloadData];
+    if (self.segmentOutlet.selectedSegmentIndex == 0) {
+    //    NSLog(@"assignment name: %@",[self segmentedControlCourse:@"last"]);
+        LOTCourse *tempCourse = [self segmentedControlCourse:@"last"];
+        self.listOfStudents = [[NSMutableArray alloc]initWithArray:[tempCourse.students allObjects]];
+        [self.studentTableView reloadData];
+        
+        
+    }
+    if (self.segmentOutlet.selectedSegmentIndex == 1) {
+      //  NSLog(@"assignment name: %@",[self segmentedControlCourse:@"current"]);
+        LOTCourse *tempCourse = [self segmentedControlCourse:@"current"];
+        self.listOfStudents = [[NSMutableArray alloc]initWithArray:[tempCourse.students allObjects]];
+        [self.studentTableView reloadData];
+
+    }
     
+    //[self.customClass segmentControlTouched];
+
 }
+
+-(LOTCourse *)segmentedControlCourse:(NSString *)currentOrLast{
+    
+    NSMutableArray *arrayOfCourses = [[NSMutableArray alloc]initWithArray:
+                                      [self.customClass findSpecificEntity:@"LOTCourse"
+                                                   byMatchingThisAttribute:@"courseName"
+                                                              withThisTerm:[NSString stringWithFormat:@"%@",self.chosenCourse.courseName]]];
+    
+    
+    NSSortDescriptor *dateDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+    [arrayOfCourses sortUsingDescriptors:@[dateDescriptor]];
+    if ([currentOrLast isEqualToString:@"last"]) {
+        LOTCourse *hwCourse = [arrayOfCourses objectAtIndex:[arrayOfCourses count]-2];
+        return hwCourse;
+    }
+    if ([currentOrLast isEqualToString:@"current"]) {
+        LOTCourse *hwCourse = [arrayOfCourses lastObject];
+        return hwCourse;
+    }
+    NSLog(@"Neither last or current assinment were retrieved");
+    return nil;
+}
+
+
+
+
+
+
+
+
+
+
 @end
 

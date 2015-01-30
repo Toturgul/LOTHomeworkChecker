@@ -17,6 +17,7 @@
 
 -(NSString *)todaysDateAsString;
 
+-(void)segmentControlTouched;
 
 
 

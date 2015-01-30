@@ -67,7 +67,7 @@
 
 
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
- //MGSwipeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"recordStudent" forIndexPath:indexPath];
+
  
      //Load with HW Results from memory
      static NSString * reuseIdentifier = @"recordCell";
@@ -90,7 +90,7 @@
      
      
      //set up properties of each cell, it will come into play if the user swipes a cell.
-     cell.detailTextLabel.text = @"Detail text";
+  //   cell.detailTextLabel.text = @"Detail text";
      cell.delegate = self;
      cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"YES" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor greenColor]]];
      

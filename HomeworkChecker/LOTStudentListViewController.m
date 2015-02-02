@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentOutlet;
 - (IBAction)segmentAction:(id)sender;
 @property (strong, nonatomic) LOTCustomClass *customClass;
+@property (nonatomic) NSInteger segmentedControlTouched;
 
 
 
@@ -46,9 +47,12 @@
     self.customClass = [[LOTCustomClass alloc]init];
     self.dateTextField.text = [self.customClass todaysDateAsString];
     self.studentTableView.rowHeight = 78;
+    self.segmentedControlTouched = 1;
+    
+    
+    
 
-    NSSortDescriptor *numberOrder = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
-    [self.listOfStudents sortUsingDescriptors:@[numberOrder]];
+
     
 
     
@@ -79,7 +83,8 @@
 
 
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+     NSSortDescriptor *numberOrder = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
+     [self.listOfStudents sortUsingDescriptors:@[numberOrder]];
      
     static NSString * reuseIdentifier = @"studentCell";
      MGSwipeTableCell * cell = [self.studentTableView dequeueReusableCellWithIdentifier:reuseIdentifier];
@@ -87,6 +92,7 @@
          cell = [[MGSwipeTableCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
      }
      
+     cell.backgroundColor = [UIColor clearColor];
      LOTStudent *currentStudent = self.listOfStudents[indexPath.row];
      cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",currentStudent.firstName, currentStudent.lastName];
      
@@ -103,13 +109,14 @@
      NSLog(@"reloaded");
     // cell.detailTextLabel.text = @"Detail text";
      cell.delegate = self;
-     cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"YES" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor greenColor]],
-                           [MGSwipeButton buttonWithTitle:@"Absent" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor blueColor]]];
+     cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"YES" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor greenColor]]];
+                         //  [MGSwipeButton buttonWithTitle:@"Absent" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor blueColor]]];
                           
      
      cell.leftExpansion.buttonIndex = 1;
      cell.leftExpansion.fillOnTrigger = YES;
      cell.leftSwipeSettings.transition = MGSwipeTransitionDrag;
+     cell.leftExpansion.threshold = 1;
      
     
      
@@ -163,30 +170,11 @@
 
 - (IBAction)doneButton:(id)sender {
 
-    
-  //  LOTCustomClass *matchingData = [[LOTCustomClass alloc] init];
-    self.courseSavedToCoreData = [[self.customClass findSpecificEntity:@"LOTCourse"
-                                           byMatchingThisAttribute:@"assignment"
-                                                      withThisTerm:@"id"] lastObject];
-    
-    self.courseSavedToCoreData.assignment = self.assignmentTextField.text;
-    self.courseSavedToCoreData.date = [NSDate date];
-    NSLog(@"date: %@",self.courseSavedToCoreData.date);
-    
-    for (LOTStudent *temp in self.listOfStudents) {
-        temp.assignment = self.assignmentTextField.text;
-        temp.date = [NSDate dateWithTimeIntervalSinceReferenceDate:162000];
-        [self.courseSavedToCoreData addStudentsObject:temp];
+    if (self.segmentedControlTouched == 1) {
+        [self saveResults];
+    }   else {
+        [self.dataStore save];
     }
-    
-    LOTRecord *recordForThisClass = [[self.customClass findSpecificEntity:@"LOTRecord"
-                                              byMatchingThisAttribute:@"courseName"
-                                                         withThisTerm:self.courseSavedToCoreData.courseName] lastObject];
-    
-    recordForThisClass.courseName = self.courseSavedToCoreData.courseName;
-    [recordForThisClass addCoursesObject:self.courseSavedToCoreData];
-
-    [self.dataStore save];
     [self.navigationController popViewControllerAnimated:YES];
     
 }
@@ -232,8 +220,15 @@
 
 - (IBAction)segmentAction:(id)sender {
     
+    if (self.segmentedControlTouched == 1) {
+        [self saveResults];
+    } else {
+        [self.dataStore save];
+    }
+    
+    self.segmentedControlTouched++;
     if (self.segmentOutlet.selectedSegmentIndex == 0) {
-    //    NSLog(@"assignment name: %@",[self segmentedControlCourse:@"last"]);
+        NSLog(@"assignment name: %@",[self segmentedControlCourse:@"last"]);
         LOTCourse *tempCourse = [self segmentedControlCourse:@"last"];
         self.listOfStudents = [[NSMutableArray alloc]initWithArray:[tempCourse.students allObjects]];
         [self.studentTableView reloadData];
@@ -241,7 +236,7 @@
         
     }
     if (self.segmentOutlet.selectedSegmentIndex == 1) {
-      //  NSLog(@"assignment name: %@",[self segmentedControlCourse:@"current"]);
+        NSLog(@"assignment name: %@",[self segmentedControlCourse:@"current"]);
         LOTCourse *tempCourse = [self segmentedControlCourse:@"current"];
         self.listOfStudents = [[NSMutableArray alloc]initWithArray:[tempCourse.students allObjects]];
         [self.studentTableView reloadData];
@@ -275,7 +270,31 @@
 }
 
 
-
+-(void)saveResults{
+    
+    self.courseSavedToCoreData = [[self.customClass findSpecificEntity:@"LOTCourse"
+                                               byMatchingThisAttribute:@"assignment"
+                                                          withThisTerm:@"id"] lastObject];
+    
+    self.courseSavedToCoreData.assignment = self.assignmentTextField.text;
+    self.courseSavedToCoreData.date = [NSDate date];
+    NSLog(@"date: %@",self.courseSavedToCoreData.date);
+    
+    for (LOTStudent *temp in self.listOfStudents) {
+        temp.assignment = self.assignmentTextField.text;
+        temp.date = [NSDate dateWithTimeIntervalSinceReferenceDate:162000];
+        [self.courseSavedToCoreData addStudentsObject:temp];
+    }
+    
+    LOTRecord *recordForThisClass = [[self.customClass findSpecificEntity:@"LOTRecord"
+                                                  byMatchingThisAttribute:@"courseName"
+                                                             withThisTerm:self.courseSavedToCoreData.courseName] lastObject];
+    
+    recordForThisClass.courseName = self.courseSavedToCoreData.courseName;
+    [recordForThisClass addCoursesObject:self.courseSavedToCoreData];
+    
+    [self.dataStore save];
+}
 
 
 

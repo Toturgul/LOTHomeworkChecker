@@ -12,10 +12,11 @@
 #import "LOTDataStore.h"
 @class LOTCourse;
 @interface LOTQuickRecordTVC : UITableViewController <MGSwipeTableCellDelegate>
-@property (strong, nonatomic) LOTDataStore *dataStore;
-@property (strong, nonatomic) NSMutableArray *studentsArray;
-@property (strong, nonatomic) LOTCourse *chosenAssignment;
+//@property (strong, nonatomic) LOTDataStore *dataStore;
+//@property (strong, nonatomic) NSMutableArray *studentsArray;
+//@property (strong, nonatomic) LOTCourse *chosenAssignment;
 
+@property (strong, nonatomic) NSMutableArray *nameArray;
 
 
 @end

@@ -16,12 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.nameArray = [[NSMutableArray alloc]init];
+    [self.nameArray addObjectsFromArray:@[@"Joe", @"Amy", @"Tina", @"Bruce", @"Frank", @"Homer", @"Marge", @"Howard",@"Robin", @"Gary"]];
+    //[self.nameArray addObject:@[@"Joe", @"Amy", @"Tina"]];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,24 +33,90 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.nameArray count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"studentCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    NSString *cellFiller = self.nameArray[indexPath.row];
+    cell.textLabel.text = cellFiller;
+    
+    
+    UITapGestureRecognizer* doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
+    doubleTap.numberOfTapsRequired = 2;
+    doubleTap.numberOfTouchesRequired = 1;
+    [self.tableView addGestureRecognizer:doubleTap];
+    
+    UITapGestureRecognizer* singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
+    singleTap.numberOfTapsRequired = 1;
+    singleTap.numberOfTouchesRequired = 1;
+    [singleTap requireGestureRecognizerToFail:doubleTap];
+    [self.tableView addGestureRecognizer:singleTap];
+    
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight)];
+    swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.tableView addGestureRecognizer:swipeRight];
+    
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeft)];
+    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.tableView addGestureRecognizer:swipeLeft];
+    
+    
     
     return cell;
 }
-*/
+
+
+-(void)swipeRight:(UISwipeGestureRecognizer *)swipe{
+    if (UIGestureRecognizerStateEnded == swipe.state) {
+        
+        CGPoint p = [swipe locationInView:swipe.view];
+        NSIndexPath* indexPath = [self.tableView indexPathForRowAtPoint:p];
+        UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        NSLog(@"swipe right");
+        cell.backgroundColor = [UIColor purpleColor];
+    }
+    
+}
+
+
+
+
+
+-(void)singleTap:(UISwipeGestureRecognizer*)tap
+{
+    if (UIGestureRecognizerStateEnded == tap.state)
+    {
+        CGPoint p = [tap locationInView:tap.view];
+        NSIndexPath* indexPath = [self.tableView indexPathForRowAtPoint:p];
+        UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        NSLog(@"Single Tap");
+        cell.backgroundColor = [UIColor redColor];
+        
+    }
+}
+
+-(void)doubleTap:(UISwipeGestureRecognizer*)tap
+{
+    if (UIGestureRecognizerStateEnded == tap.state)
+    {
+        CGPoint p = [tap locationInView:tap.view];
+        NSIndexPath* indexPath = [self.tableView indexPathForRowAtPoint:p];
+        UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        NSLog(@"Double Tap");
+        cell.backgroundColor = [UIColor greenColor];
+        
+    }
+}
+
 
 /*
 // Override to support conditional editing of the table view.

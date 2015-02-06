@@ -20,7 +20,9 @@
 		D4592C871A38D10600C2EDDD /* LOTRecordCourseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D4592C861A38D10600C2EDDD /* LOTRecordCourseVC.m */; };
 		D4592C8A1A38D12700C2EDDD /* LOTRecordAssignmentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D4592C891A38D12700C2EDDD /* LOTRecordAssignmentVC.m */; };
 		D4592C8D1A38D14900C2EDDD /* LOTRecordStudentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D4592C8C1A38D14900C2EDDD /* LOTRecordStudentVC.m */; };
+		D46BEC431A814FD4009784DF /* LOTGestureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D46BEC421A814FD4009784DF /* LOTGestureTableViewCell.m */; };
 		D47397E31A798147001DDB23 /* LOTQuickRecordTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D47397E21A798147001DDB23 /* LOTQuickRecordTVC.m */; };
+		D47AD6541A83C92300B8927E /* LOTDatePickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D47AD6531A83C92300B8927E /* LOTDatePickerVC.m */; };
 		D4821D521A680B7200007A09 /* LOTStudent.m in Sources */ = {isa = PBXBuildFile; fileRef = D4821D511A680B7200007A09 /* LOTStudent.m */; };
 		D4821D561A69AE2E00007A09 /* LOTCustomClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D4821D551A69AE2E00007A09 /* LOTCustomClass.m */; };
 		D4821D591A6DEEDB00007A09 /* LOTEditableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4821D581A6DEEDB00007A09 /* LOTEditableTableViewCell.m */; };
@@ -85,8 +87,12 @@
 		D4592C891A38D12700C2EDDD /* LOTRecordAssignmentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTRecordAssignmentVC.m; sourceTree = "<group>"; };
 		D4592C8B1A38D14900C2EDDD /* LOTRecordStudentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTRecordStudentVC.h; sourceTree = "<group>"; };
 		D4592C8C1A38D14900C2EDDD /* LOTRecordStudentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTRecordStudentVC.m; sourceTree = "<group>"; };
+		D46BEC411A814FD4009784DF /* LOTGestureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTGestureTableViewCell.h; sourceTree = "<group>"; };
+		D46BEC421A814FD4009784DF /* LOTGestureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTGestureTableViewCell.m; sourceTree = "<group>"; };
 		D47397E11A798147001DDB23 /* LOTQuickRecordTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTQuickRecordTVC.h; sourceTree = "<group>"; };
 		D47397E21A798147001DDB23 /* LOTQuickRecordTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTQuickRecordTVC.m; sourceTree = "<group>"; };
+		D47AD6521A83C92300B8927E /* LOTDatePickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTDatePickerVC.h; sourceTree = "<group>"; };
+		D47AD6531A83C92300B8927E /* LOTDatePickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTDatePickerVC.m; sourceTree = "<group>"; };
 		D4821D501A680B7200007A09 /* LOTStudent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTStudent.h; sourceTree = "<group>"; };
 		D4821D511A680B7200007A09 /* LOTStudent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTStudent.m; sourceTree = "<group>"; };
 		D4821D541A69AE2E00007A09 /* LOTCustomClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTCustomClass.h; sourceTree = "<group>"; };
@@ -239,6 +245,8 @@
 		D44AE7011A63491D000C2105 /* EditViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D47AD6521A83C92300B8927E /* LOTDatePickerVC.h */,
+				D47AD6531A83C92300B8927E /* LOTDatePickerVC.m */,
 				D44AE7021A6349BF000C2105 /* LOTEditStudentsVC.h */,
 				D44AE7031A6349BF000C2105 /* LOTEditStudentsVC.m */,
 			);
@@ -267,6 +275,8 @@
 				D4821D581A6DEEDB00007A09 /* LOTEditableTableViewCell.m */,
 				D4821D5D1A70297400007A09 /* LOTCustomTextField.h */,
 				D4821D5E1A70297400007A09 /* LOTCustomTextField.m */,
+				D46BEC411A814FD4009784DF /* LOTGestureTableViewCell.h */,
+				D46BEC421A814FD4009784DF /* LOTGestureTableViewCell.m */,
 			);
 			name = CustomClasses;
 			sourceTree = "<group>";
@@ -461,6 +471,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D47AD6541A83C92300B8927E /* LOTDatePickerVC.m in Sources */,
 				D44A9CB41A1CF2810031BD1C /* ViewController.m in Sources */,
 				D44A9CB11A1CF2810031BD1C /* AppDelegate.m in Sources */,
 				D4C8552C1A2A655300A4B435 /* LOTStudentListViewController.m in Sources */,
@@ -472,6 +483,7 @@
 				D4B63FDB1A3525650008190D /* LOTClassListViewController.m in Sources */,
 				D4D298121A3511A400BA237B /* LOTNewClassViewController.m in Sources */,
 				D47397E31A798147001DDB23 /* LOTQuickRecordTVC.m in Sources */,
+				D46BEC431A814FD4009784DF /* LOTGestureTableViewCell.m in Sources */,
 				D4821D5F1A70297400007A09 /* LOTCustomTextField.m in Sources */,
 				D4592C871A38D10600C2EDDD /* LOTRecordCourseVC.m in Sources */,
 				D44AE70A1A6454B8000C2105 /* LOTCourse.m in Sources */,

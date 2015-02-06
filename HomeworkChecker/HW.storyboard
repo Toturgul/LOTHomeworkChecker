@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="enD-Fk-Shy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dJN-tD-h2g">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
     </dependencies>
@@ -366,12 +366,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clipboard-34693_1280.png" translatesAutoresizingMaskIntoConstraints="NO" id="K7H-BZ-RSc">
                                 <rect key="frame" x="16" y="267" width="343" height="400"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="note-34687_1280.png" translatesAutoresizingMaskIntoConstraints="NO" id="T3u-Y2-Orr">
-                                <rect key="frame" x="40" y="93" width="114" height="85"/>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0g-hK-wkV">
+                                <rect key="frame" x="232" y="71" width="100" height="30"/>
+                                <state key="normal" title="Add Course">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="WD9-bm-6hK" kind="presentation" id="biB-ay-WF8"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIB-hd-NWD">
-                                <rect key="frame" x="199" y="109" width="151" height="141"/>
-                                <state key="normal" title="Record" image="journal-152157_1280.png">
+                                <rect key="frame" x="42" y="75" width="102" height="22"/>
+                                <state key="normal" title="Record">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -379,35 +385,12 @@
                                     <segue destination="NYb-o4-8nD" kind="show" identifier="goToRecord" id="fFT-0o-UI9"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Record" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBL-tN-VMt">
-                                <rect key="frame" x="255" y="158" width="66" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0g-hK-wkV">
-                                <rect key="frame" x="286" y="71" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="WD9-bm-6hK" kind="presentation" id="biB-ay-WF8"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title=" HW✓" image="clipboard" id="wTt-Sa-bDg"/>
-                    <navigationItem key="navigationItem" id="igY-Gt-eZQ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="aUW-yk-xhf">
-                            <connections>
-                                <segue destination="5hs-t6-hLv" kind="presentation" identifier="addClass" id="W0a-GQ-2FC"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="addNewClassButton" destination="aUW-yk-xhf" id="7Ac-fu-gTR"/>
                         <outlet property="classListTableView" destination="3UD-4W-hJ7" id="7an-9O-JLX"/>
                     </connections>
                 </viewController>
@@ -595,6 +578,10 @@
                                 <rect key="frame" x="237" y="143" width="122" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="dateAction:" destination="F7i-xs-aHZ" eventType="touchDown" id="jap-Ax-0oI"/>
+                                    <segue destination="t7n-lS-YbU" kind="presentation" id="ugF-DX-5sA"/>
+                                </connections>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="zXN-Wg-rdP">
                                 <rect key="frame" x="48" y="64" width="278" height="29"/>
@@ -634,6 +621,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XUs-Pc-83s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1488.5" y="199.5"/>
+        </scene>
+        <!--Date PickerVC-->
+        <scene sceneID="wY6-8S-RaL">
+            <objects>
+                <viewController storyboardIdentifier="datePicker" id="t7n-lS-YbU" customClass="LOTDatePickerVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kYr-Dd-LbO"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qtk-38-CQ1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fWb-q0-fDs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="4au-jN-fXF">
+                                <rect key="frame" x="0.0" y="293" width="375" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="444844124.60506201">
+                                    <!--2015-02-05 15:48:44 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRn-eM-10T">
+                                <rect key="frame" x="248" y="537" width="34" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButton:" destination="t7n-lS-YbU" eventType="touchUpInside" id="q4Y-F2-OTe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0M-9c-84l">
+                                <rect key="frame" x="67" y="537" width="48" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="t7n-lS-YbU" eventType="touchUpInside" id="YXD-EO-xsu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="myDatePicker" destination="4au-jN-fXF" id="1t8-5T-eU1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bhu-1A-mgC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1986.5" y="199.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="iy7-aP-3UO">
@@ -685,8 +720,6 @@
         <image name="clipboard" width="32" height="32"/>
         <image name="clipboard-34693_1280.png" width="874" height="1280"/>
         <image name="gradebook" width="32" height="32"/>
-        <image name="journal-152157_1280.png" width="1107" height="1280"/>
-        <image name="note-34687_1280.png" width="1280" height="912"/>
         <image name="wrench" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>

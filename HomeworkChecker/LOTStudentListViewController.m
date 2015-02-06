@@ -14,6 +14,7 @@
 #import "LOTRecord.h"
 #import "LOTCourse.h"
 #import "LOTCustomClass.h"
+#import "LOTDatePickerVC.h"
 
 @interface LOTStudentListViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *studentTableView;
@@ -25,6 +26,8 @@
 - (IBAction)segmentAction:(id)sender;
 @property (strong, nonatomic) LOTCustomClass *customClass;
 @property (nonatomic) NSInteger segmentedControlTouched;
+- (IBAction)dateAction:(id)sender;
+
 
 
 
@@ -48,17 +51,18 @@
     self.dateTextField.text = [self.customClass todaysDateAsString];
     self.studentTableView.rowHeight = 78;
     self.segmentedControlTouched = 1;
-    
-    
-    
-
 
     
 
     
     
 }
+//might have to get rid of this, i put it there when workng with datepickerVC. Check to see if it is necessary
+-(void)viewDidAppear:(BOOL)animated{
+    NSLog(@"date: %@",self.dateTextField.text);
 
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -160,11 +164,12 @@
 
  #pragma mark - Navigation
  
-/*
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//
+// - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//     
+//     
+// }
 
- }
-*/
 
 
 
@@ -299,8 +304,42 @@
 
 
 
+- (IBAction)dateAction:(id)sender {
+    
+//    LOTDatePickerVC *datePicker = [[LOTDatePickerVC alloc]init];
+    
+    LOTDatePickerVC *datePicker = [self.storyboard instantiateViewControllerWithIdentifier:@"datePicker"];
+    [self presentViewController:datePicker animated:YES completion:^{}];
 
+    
+    
+//    UIAlertController *datePickerAlert = [[UIAlertController alloc]init];
+//    datePickerAlert = [UIAlertController alertControllerWithTitle:@"Pick Date" message:@"You Pick the date!" preferredStyle:UIAlertControllerStyleAlert];
+//    NSLog(@"date touched");
+//    [self presentViewController:datePickerAlert animated:YES completion:nil];
+    
+}
 
+//-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+//    if (textField == self.dateTextField) {
+////        UIViewController *datePicker = [self.storyboard instantiateViewControllerWithIdentifier:@"datePicker"];
+////        [self presentViewController:datePicker animated:YES completion:^{}];
+//        return NO;
+//    }
+//    return YES;
+//}
+
+//-(void)textFieldDidBeginEditing:(UITextField *)textField{
+//    UIViewController *datePicker = [self.storyboard instantiateViewControllerWithIdentifier:@"datePicker"];
+//    [self presentViewController:datePicker animated:YES completion:^{}];
+//    
+//    
+//}
+
+//-(void)textFieldDidEndEditing:(UITextField *)textField{
+//    UIViewController *datePicker = [self.storyboard instantiateViewControllerWithIdentifier:@"datePicker"];
+//    [self presentViewController:datePicker animated:YES completion:^{}];
+//}
 
 @end
 

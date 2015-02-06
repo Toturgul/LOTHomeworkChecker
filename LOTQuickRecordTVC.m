@@ -31,14 +31,12 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
+
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
+
     return [self.nameArray count];
 }
 
@@ -61,11 +59,11 @@
     [singleTap requireGestureRecognizerToFail:doubleTap];
     [self.tableView addGestureRecognizer:singleTap];
     
-    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight)];
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight:)];
     swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
     [self.tableView addGestureRecognizer:swipeRight];
     
-    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeft)];
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeLeft:)];
     swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.tableView addGestureRecognizer:swipeLeft];
     
@@ -84,14 +82,24 @@
         NSLog(@"swipe right");
         cell.backgroundColor = [UIColor purpleColor];
     }
+
+}
+
+
+-(void)swipeLeft:(UISwipeGestureRecognizer *)swipe{
+    if (UIGestureRecognizerStateEnded == swipe.state) {
+        
+        CGPoint p = [swipe locationInView:swipe.view];
+        NSIndexPath* indexPath = [self.tableView indexPathForRowAtPoint:p];
+        UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        NSLog(@"swipe left");
+        cell.backgroundColor = [UIColor yellowColor];
+    }
     
 }
 
 
-
-
-
--(void)singleTap:(UISwipeGestureRecognizer*)tap
+-(void)singleTap:(UITapGestureRecognizer *)tap
 {
     if (UIGestureRecognizerStateEnded == tap.state)
     {
@@ -104,7 +112,7 @@
     }
 }
 
--(void)doubleTap:(UISwipeGestureRecognizer*)tap
+-(void)doubleTap:(UITapGestureRecognizer *)tap
 {
     if (UIGestureRecognizerStateEnded == tap.state)
     {

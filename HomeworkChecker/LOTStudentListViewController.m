@@ -28,6 +28,7 @@
 @property (nonatomic) NSInteger segmentedControlTouched;
 - (IBAction)dateAction:(id)sender;
 
+@property (weak, nonatomic) LOTDatePickerVC* editDate;
 
 
 
@@ -60,6 +61,10 @@
 //might have to get rid of this, i put it there when workng with datepickerVC. Check to see if it is necessary
 -(void)viewDidAppear:(BOOL)animated{
     NSLog(@"date: %@",self.dateTextField.text);
+    
+    [self.editDate changeDate:^(id newDate) {
+        NSLog(@"Brought back by block %@",(NSDate*)newDate);
+    }];
 
     
 }
@@ -306,13 +311,16 @@
 
 - (IBAction)dateAction:(id)sender {
     
-//    LOTDatePickerVC *datePicker = [[LOTDatePickerVC alloc]init];
-    
     LOTDatePickerVC *datePicker = [self.storyboard instantiateViewControllerWithIdentifier:@"datePicker"];
     [self presentViewController:datePicker animated:YES completion:^{}];
 
     
     
+    
+    
+    
+    
+
 //    UIAlertController *datePickerAlert = [[UIAlertController alloc]init];
 //    datePickerAlert = [UIAlertController alertControllerWithTitle:@"Pick Date" message:@"You Pick the date!" preferredStyle:UIAlertControllerStyleAlert];
 //    NSLog(@"date touched");

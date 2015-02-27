@@ -13,4 +13,6 @@
 
 @interface LOTDatePickerVC : UIViewController <UITextFieldDelegate>
 
+-(void)changeDate:(void (^)(id newDate))dateBlock;
+
 @end

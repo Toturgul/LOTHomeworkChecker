@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.dateTextField.delegate = self;
+  //  self.dateTextField.delegate = self;
     
 }
 
@@ -39,13 +39,26 @@
 */
 
 - (IBAction)cancelButton:(id)sender {
+    
+    
+    
+    
     NSLog(@"Date: %@",self.myDatePicker.date);
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)saveButton:(id)sender {
-    self.pickerDate = self.myDatePicker.date;
-    self.dateTextField.text = [NSString stringWithFormat:@"%@",self.myDatePicker.date];
+//    self.pickerDate = self.myDatePicker.date;
+//    self.dateTextField.text = [NSString stringWithFormat:@"%@",self.myDatePicker.date];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+-(void)changeDate:(void (^)(id newDate))dateBlock{
+    dateBlock(self.myDatePicker.date);
+
+    
+}
+
+
 @end

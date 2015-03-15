@@ -11,7 +11,8 @@
 #import "LOTCourse.h"
 #import "LOTRecordStudentVC.h"
 @interface LOTRecordAssignmentVC ()
-@property (weak, nonatomic) IBOutlet UITableView *recordTableView;
+@property (weak, nonatomic) IBOutlet UITableView* recordTableView;
+@property (weak, nonatomic) LOTCourse* cellFiller;
 
 @end
 
@@ -27,7 +28,7 @@
     
     self.assignmentArray = [[NSMutableArray alloc] initWithArray:[self.chosenRecord.courses allObjects]];
     
-    NSSortDescriptor *dateSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+    NSSortDescriptor *dateSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
     [self.assignmentArray sortUsingDescriptors:@[dateSortDescriptor]];
     
 }
@@ -52,9 +53,9 @@
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"recordAssignment" forIndexPath:indexPath];
  
-     LOTCourse *cellFiller = self.assignmentArray[indexPath.row];
-     cell.textLabel.text = cellFiller.assignment;
-     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",cellFiller.date];
+     self.cellFiller = self.assignmentArray[indexPath.row];
+     cell.textLabel.text = self.cellFiller.assignment;
+     cell.detailTextLabel.text = [self dateAsString];
      
      
  
@@ -80,4 +81,13 @@
     
 
 }
+
+-(NSString *)dateAsString{
+    NSDateFormatter *format = [[NSDateFormatter alloc]init];
+    [format setDateStyle:NSDateFormatterMediumStyle];
+    NSString *date = [format stringFromDate:self.cellFiller.date];
+    return date;
+}
+
+
 @end

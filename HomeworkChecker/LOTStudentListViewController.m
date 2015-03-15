@@ -325,7 +325,7 @@
 
 -(NSString*)dateAsString{
     
-  //  NSDate *today = [NSDate dateWithTimeIntervalSinceNow:0];
+
     NSDateFormatter *format = [[NSDateFormatter alloc]init];
     [format setDateStyle:NSDateFormatterMediumStyle];
     NSString *date = [format stringFromDate:self.courseSavedToCoreData.date];

@@ -14,4 +14,7 @@
 @property (strong, nonatomic) LOTDataStore *dataStore;
 @property (strong, nonatomic) LOTRecord *chosenRecord;
 @property (strong, nonatomic) NSMutableArray *assignmentArray;
+
+-(NSString*)dateAsString;
+
 @end

@@ -14,7 +14,7 @@
 #import "LOTRecord.h"
 #import "LOTCourse.h"
 #import "LOTCustomClass.h"
-#import "LOTDatePickerVC.h"
+#import "LOTDatePickerVC.h" //might not need to import this anymore
 
 @interface LOTStudentListViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *studentTableView;
@@ -30,10 +30,9 @@
 
 @property (weak, nonatomic) LOTDatePickerVC* editDate;
 
-
-
-
 @end
+
+
 
 
 @implementation LOTStudentListViewController
@@ -54,17 +53,19 @@
     self.segmentedControlTouched = 1;
 
     
-
-    
-    
 }
-//might have to get rid of this, i put it there when workng with datepickerVC. Check to see if it is necessary
+
 -(void)viewDidAppear:(BOOL)animated{
-    NSLog(@"date: %@",self.dateTextField.text);
     
-    [self.editDate changeDate:^(id newDate) {
-        NSLog(@"Brought back by block %@",(NSDate*)newDate);
-    }];
+    
+    self.courseSavedToCoreData = [[self.customClass findSpecificEntity:@"LOTCourse"
+                                               byMatchingThisAttribute:@"assignment"
+                                                          withThisTerm:@"id"] lastObject];
+    
+    if (!(self.courseSavedToCoreData.date == nil)) {
+        self.dateTextField.text = [self dateAsString];
+    }
+    
 
     
 }
@@ -116,7 +117,7 @@
      
      
      NSLog(@"reloaded");
-    // cell.detailTextLabel.text = @"Detail text";
+
      cell.delegate = self;
      cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"YES" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor greenColor]],
                            [MGSwipeButton buttonWithTitle:@"Absent" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor blueColor]]];
@@ -196,6 +197,7 @@
     for (LOTCourse *courseToDelete in [self.customClass findSpecificEntity:@"LOTCourse"
                                                byMatchingThisAttribute:@"assignment"
                                                           withThisTerm:@"id"]) {
+        NSLog(@"cancel button: New Date %@", courseToDelete.date);
         [self.dataStore.managedObjectContext deleteObject:courseToDelete];
     }
     [self.navigationController popViewControllerAnimated:YES];
@@ -224,6 +226,7 @@
     
     self.listOfStudents = [[NSMutableArray alloc] init];
     [self.listOfStudents addObjectsFromArray:[dupCourse.students allObjects]];
+
 
 }
 
@@ -287,12 +290,16 @@
                                                           withThisTerm:@"id"] lastObject];
     
     self.courseSavedToCoreData.assignment = self.assignmentTextField.text;
-    self.courseSavedToCoreData.date = [NSDate date];
+    if (self.courseSavedToCoreData.date == nil) {
+        self.courseSavedToCoreData.date = [NSDate date];
+    }
+
     NSLog(@"date: %@",self.courseSavedToCoreData.date);
     
     for (LOTStudent *temp in self.listOfStudents) {
         temp.assignment = self.assignmentTextField.text;
-        temp.date = [NSDate dateWithTimeIntervalSinceReferenceDate:162000];
+        temp.date = self.courseSavedToCoreData.date;
+        NSLog(@"student date %@",temp);
         [self.courseSavedToCoreData addStudentsObject:temp];
     }
     
@@ -313,18 +320,16 @@
     
     LOTDatePickerVC *datePicker = [self.storyboard instantiateViewControllerWithIdentifier:@"datePicker"];
     [self presentViewController:datePicker animated:YES completion:^{}];
+}
 
-    
-    
-    
-    
-    
-    
 
-//    UIAlertController *datePickerAlert = [[UIAlertController alloc]init];
-//    datePickerAlert = [UIAlertController alertControllerWithTitle:@"Pick Date" message:@"You Pick the date!" preferredStyle:UIAlertControllerStyleAlert];
-//    NSLog(@"date touched");
-//    [self presentViewController:datePickerAlert animated:YES completion:nil];
+-(NSString*)dateAsString{
+    
+  //  NSDate *today = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSDateFormatter *format = [[NSDateFormatter alloc]init];
+    [format setDateStyle:NSDateFormatterMediumStyle];
+    NSString *date = [format stringFromDate:self.courseSavedToCoreData.date];
+    return date;
     
 }
 

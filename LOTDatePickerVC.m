@@ -13,19 +13,31 @@
 - (IBAction)saveButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIDatePicker *myDatePicker;
 
+@property (strong, nonatomic) LOTCustomClass *customClass;
+@property (strong, nonatomic) LOTCourse *currentCourse;
 @end
 
 @implementation LOTDatePickerVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  //  self.dateTextField.delegate = self;
+    self.customClass = [[LOTCustomClass alloc]init];
+    self.dataStore = [LOTDataStore sharedHomeworkDataStore];
+    [self.dataStore fetchRecord];
+
+    self.currentCourse = [[self.customClass findSpecificEntity:@"LOTCourse"
+                                             byMatchingThisAttribute:@"assignment"
+                                                        withThisTerm:@"id"] lastObject];
+    
+    
+    NSLog(@"current course %@",self.currentCourse);
+    
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 /*
@@ -48,17 +60,15 @@
 }
 
 - (IBAction)saveButton:(id)sender {
-//    self.pickerDate = self.myDatePicker.date;
-//    self.dateTextField.text = [NSString stringWithFormat:@"%@",self.myDatePicker.date];
+
+    self.currentCourse.date = self.myDatePicker.date;
+    
+    NSLog(@"Date: %@",self.myDatePicker.date);
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
--(void)changeDate:(void (^)(id newDate))dateBlock{
-    dateBlock(self.myDatePicker.date);
 
-    
-}
 
 
 @end

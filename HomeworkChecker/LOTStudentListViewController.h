@@ -26,7 +26,7 @@
 -(void)createDuplicateCourseWithStudentsForRecord;
 -(LOTCourse *)segmentedControlCourse:(NSString *)currentOrLast;
 -(void)saveResults;
-
+-(NSString *)dateAsString;
 
 
 

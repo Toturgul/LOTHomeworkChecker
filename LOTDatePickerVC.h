@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
-
+#import "LOTDataStore.h"
+#import "LOTCustomClass.h"
+#import "LOTCourse.h"
 
 
 @interface LOTDatePickerVC : UIViewController <UITextFieldDelegate>
 
--(void)changeDate:(void (^)(id newDate))dateBlock;
+@property (strong, nonatomic) LOTDataStore *dataStore;
+
+
 
 @end

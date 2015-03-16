@@ -106,21 +106,27 @@
      LOTStudent *currentStudent = self.listOfStudents[indexPath.row];
      cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",currentStudent.firstName, currentStudent.lastName];
      
-     if ([currentStudent.hwCompletion isEqual: @"no"]) {
+     if ([currentStudent.hwCompletion isEqual: @"No"]) {
          cell.backgroundColor = [UIColor redColor];
          cell.detailTextLabel.text = currentStudent.hwCompletion;
      }
-     if ([currentStudent.hwCompletion isEqual:@"yes"]) {
+     if ([currentStudent.hwCompletion isEqual:@"Yes"]) {
          cell.backgroundColor = [UIColor greenColor];
          cell.detailTextLabel.text = currentStudent.hwCompletion;
      }
-     
+     if ([currentStudent.hwCompletion isEqual: @"Absent"]) {
+         cell.backgroundColor = [UIColor blueColor];
+         cell.detailTextLabel.text = currentStudent.hwCompletion;
+     }
+     if ([currentStudent.hwCompletion isEqual:@"PC"]) {
+         cell.backgroundColor = [UIColor purpleColor];
+         cell.detailTextLabel.text = currentStudent.hwCompletion;
+     }
      
      NSLog(@"reloaded");
 
      cell.delegate = self;
-     cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"YES" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor greenColor]],
-                           [MGSwipeButton buttonWithTitle:@"Absent" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor blueColor]]];
+     cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"Yes" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor greenColor]]];
                           
      
      cell.leftExpansion.buttonIndex = 1;
@@ -130,12 +136,14 @@
      
     
      
-     cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"NO" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor redColor]]];
+     cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"No" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor redColor]],
+                           [MGSwipeButton buttonWithTitle:@"Absent" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor blueColor]],
+                           [MGSwipeButton buttonWithTitle:@"PC" icon:[UIImage imageNamed:@"check.png"] backgroundColor:[UIColor purpleColor]]];
      
      cell.rightExpansion.buttonIndex = 1;
      cell.rightExpansion.fillOnTrigger = YES;
      cell.rightSwipeSettings.transition = MGSwipeTransitionDrag;
-     
+     cell.leftExpansion.threshold = 1;
      return cell;
  }
 
@@ -146,25 +154,58 @@
     if (cell.swipeState == 1) {
         NSIndexPath *swipedCell = [self.studentTableView indexPathForCell:cell];
         LOTStudent *tempStudent = self.listOfStudents[swipedCell.row];
-        tempStudent.hwCompletion = @"yes";
+        tempStudent.hwCompletion = @"Yes";
         [self.listOfStudents replaceObjectAtIndex:swipedCell.row withObject:tempStudent];
     cell.backgroundColor = [UIColor greenColor];
     }
-    else if (cell.swipeState == 2) {
-        NSIndexPath *swipedCell = [self.studentTableView indexPathForCell:cell];
-        LOTStudent *tempStudent = self.listOfStudents[swipedCell.row];
-        tempStudent.hwCompletion = @"no";
-        [self.listOfStudents replaceObjectAtIndex:swipedCell.row withObject:tempStudent];
-        cell.backgroundColor = [UIColor redColor];
-    }
+//    else if (cell.swipeState == 2) {
+//        NSIndexPath *swipedCell = [self.studentTableView indexPathForCell:cell];
+//        LOTStudent *tempStudent = self.listOfStudents[swipedCell.row];
+//        tempStudent.hwCompletion = @"no";
+//        [self.listOfStudents replaceObjectAtIndex:swipedCell.row withObject:tempStudent];
+//        cell.backgroundColor = [UIColor redColor];
+//    }
     
     
 }
 
 -(BOOL) swipeTableCell:(MGSwipeTableCell*) cell tappedButtonAtIndex:(NSInteger) index direction:(MGSwipeDirection)direction fromExpansion:(BOOL) fromExpansion{
     NSLog(@"button tapped indexpath ");
-    
-    return NO;
+
+    if (direction == 0 && index == 0){
+        NSLog(@"tapped 1");
+        NSIndexPath *swipedCell = [self.studentTableView indexPathForCell:cell];
+        LOTStudent *tempStudent = self.listOfStudents[swipedCell.row];
+        tempStudent.hwCompletion = @"Yes";
+        [self.listOfStudents replaceObjectAtIndex:swipedCell.row withObject:tempStudent];
+        cell.backgroundColor = [UIColor greenColor];
+    }
+    if (direction == 1 && index == 0){
+        NSLog(@"tapped 0");
+        NSIndexPath *swipedCell = [self.studentTableView indexPathForCell:cell];
+        LOTStudent *tempStudent = self.listOfStudents[swipedCell.row];
+        tempStudent.hwCompletion = @"No";
+        [self.listOfStudents replaceObjectAtIndex:swipedCell.row withObject:tempStudent];
+        cell.backgroundColor = [UIColor redColor];
+    }
+    if (direction == 1 && index == 1){
+        NSLog(@"tapped 1");
+        NSIndexPath *swipedCell = [self.studentTableView indexPathForCell:cell];
+        LOTStudent *tempStudent = self.listOfStudents[swipedCell.row];
+        tempStudent.hwCompletion = @"Absent";
+        [self.listOfStudents replaceObjectAtIndex:swipedCell.row withObject:tempStudent];
+        cell.backgroundColor = [UIColor blueColor];
+    }
+    if (direction == 1 && index == 2){
+        NSLog(@"tapped 2");
+        NSIndexPath *swipedCell = [self.studentTableView indexPathForCell:cell];
+        LOTStudent *tempStudent = self.listOfStudents[swipedCell.row];
+        tempStudent.hwCompletion = @"PC";
+        [self.listOfStudents replaceObjectAtIndex:swipedCell.row withObject:tempStudent];
+        cell.backgroundColor = [UIColor purpleColor];
+    }
+
+    return YES;
 }
 
 
@@ -243,6 +284,7 @@
     if (self.segmentOutlet.selectedSegmentIndex == 0) {
         NSLog(@"assignment name: %@",[self segmentedControlCourse:@"last"]);
         LOTCourse *tempCourse = [self segmentedControlCourse:@"last"];
+        self.assignmentTextField.text = tempCourse.assignment;
         self.listOfStudents = [[NSMutableArray alloc]initWithArray:[tempCourse.students allObjects]];
         [self.studentTableView reloadData];
         
@@ -333,6 +375,7 @@
     
 }
 
+@end
 //-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
 //    if (textField == self.dateTextField) {
 ////        UIViewController *datePicker = [self.storyboard instantiateViewControllerWithIdentifier:@"datePicker"];
@@ -354,5 +397,5 @@
 //    [self presentViewController:datePicker animated:YES completion:^{}];
 //}
 
-@end
+
 

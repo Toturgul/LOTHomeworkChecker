@@ -79,15 +79,22 @@
      LOTStudent *cellFiller = self.studentsArray[indexPath.row];
      cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",cellFiller.firstName, cellFiller.lastName];
      
-     if ([cellFiller.hwCompletion isEqual: @"no"]) {
+     if ([cellFiller.hwCompletion isEqual: @"No"]) {
          cell.backgroundColor = [UIColor redColor];
          cell.detailTextLabel.text = cellFiller.hwCompletion;
      }
-     if ([cellFiller.hwCompletion isEqual:@"yes"]) {
+     if ([cellFiller.hwCompletion isEqual:@"Yes"]) {
          cell.backgroundColor = [UIColor greenColor];
          cell.detailTextLabel.text = cellFiller.hwCompletion;
      }
-     
+     if ([cellFiller.hwCompletion isEqual: @"Absent"]) {
+         cell.backgroundColor = [UIColor blueColor];
+         cell.detailTextLabel.text = cellFiller.hwCompletion;
+     }
+     if ([cellFiller.hwCompletion isEqual:@"PC"]) {
+         cell.backgroundColor = [UIColor purpleColor];
+         cell.detailTextLabel.text = cellFiller.hwCompletion;
+     }
      
      //set up properties of each cell, it will come into play if the user swipes a cell.
   //   cell.detailTextLabel.text = @"Detail text";

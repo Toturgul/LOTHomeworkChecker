@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HomeworkChecker/LOTStudentListViewController.m"
-            timestampString = "448140511.425922"
+            timestampString = "448217617.264308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
             landmarkName = "-segmentAction:"
             landmarkType = "5">
          </BreakpointContent>

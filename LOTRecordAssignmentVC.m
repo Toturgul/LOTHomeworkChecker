@@ -31,6 +31,51 @@
     NSSortDescriptor *dateSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
     [self.assignmentArray sortUsingDescriptors:@[dateSortDescriptor]];
     
+    
+    
+//    NSLayoutConstraint *tableviewHeight =
+//    [NSLayoutConstraint constraintWithItem:self.recordTableView
+//                                 attribute:NSLayoutAttributeHeight
+//                                 relatedBy:NSLayoutRelationEqual
+//                                    toItem:self.view
+//                                 attribute:NSLayoutAttributeHeight
+//                                multiplier:1.0
+//                                  constant:0];
+//    
+//    [self.view addConstraint:tableviewHeight];
+//    
+//    NSLayoutConstraint *tableviewWidth =
+//    [NSLayoutConstraint constraintWithItem:self.recordTableView
+//                                 attribute:NSLayoutAttributeWidth
+//                                 relatedBy:NSLayoutRelationEqual
+//                                    toItem:self.view
+//                                 attribute:NSLayoutAttributeWidth
+//                                multiplier:1.0
+//                                  constant:0];
+//    
+//    [self.view addConstraint:tableviewWidth];
+//    
+//    NSLayoutConstraint *tableviewX =
+//    [NSLayoutConstraint constraintWithItem:self.recordTableView
+//                                 attribute:NSLayoutAttributeLeft
+//                                 relatedBy:NSLayoutRelationEqual
+//                                    toItem:self.view
+//                                 attribute:NSLayoutAttributeLeft
+//                                multiplier:1.0
+//                                  constant:0];
+//    
+//    [self.view addConstraint:tableviewX];
+//    
+//    NSLayoutConstraint *tableviewY =
+//    [NSLayoutConstraint constraintWithItem:self.recordTableView
+//                                 attribute:NSLayoutAttributeTop
+//                                 relatedBy:NSLayoutRelationEqual
+//                                    toItem:self.view
+//                                 attribute:NSLayoutAttributeTop
+//                                multiplier:1.0
+//                                  constant:0];
+//    
+//    [self.view addConstraint:tableviewY];
 }
 
 - (void)didReceiveMemoryWarning {

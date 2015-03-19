@@ -30,7 +30,6 @@
 		D4B5711D1A373C15009F7C64 /* HW.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4B5711C1A373C15009F7C64 /* HW.storyboard */; };
 		D4B63FDB1A3525650008190D /* LOTClassListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B63FDA1A3525650008190D /* LOTClassListViewController.m */; };
 		D4C8552C1A2A655300A4B435 /* LOTStudentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C8552B1A2A655300A4B435 /* LOTStudentListViewController.m */; };
-		D4D298121A3511A400BA237B /* LOTNewClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D298111A3511A400BA237B /* LOTNewClassViewController.m */; };
 		D4D2F20F1A5C621E002F3729 /* LOTNewCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D2F20E1A5C621E002F3729 /* LOTNewCourseViewController.m */; };
 		D4F0D29D1A3E01120093FAD7 /* backdrop-72250_1280.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D4F0D29C1A3E01120093FAD7 /* backdrop-72250_1280.jpg */; };
 		D4F0D29F1A3E012E0093FAD7 /* clipboard-34693_1280.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F0D29E1A3E012E0093FAD7 /* clipboard-34693_1280.png */; };
@@ -106,8 +105,6 @@
 		D4B63FDA1A3525650008190D /* LOTClassListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LOTClassListViewController.m; path = HomeworkChecker/LOTClassListViewController.m; sourceTree = "<group>"; };
 		D4C8552A1A2A655300A4B435 /* LOTStudentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LOTStudentListViewController.h; path = HomeworkChecker/LOTStudentListViewController.h; sourceTree = "<group>"; };
 		D4C8552B1A2A655300A4B435 /* LOTStudentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LOTStudentListViewController.m; path = HomeworkChecker/LOTStudentListViewController.m; sourceTree = "<group>"; };
-		D4D298101A3511A400BA237B /* LOTNewClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LOTNewClassViewController.h; path = HomeworkChecker/LOTNewClassViewController.h; sourceTree = "<group>"; };
-		D4D298111A3511A400BA237B /* LOTNewClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LOTNewClassViewController.m; path = HomeworkChecker/LOTNewClassViewController.m; sourceTree = "<group>"; };
 		D4D2F20D1A5C621E002F3729 /* LOTNewCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTNewCourseViewController.h; sourceTree = "<group>"; };
 		D4D2F20E1A5C621E002F3729 /* LOTNewCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTNewCourseViewController.m; sourceTree = "<group>"; };
 		D4F0D29C1A3E01120093FAD7 /* backdrop-72250_1280.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "backdrop-72250_1280.jpg"; path = "../HWchecker Images/backdrop-72250_1280.jpg"; sourceTree = "<group>"; };
@@ -310,8 +307,6 @@
 		D4FA23AB1A363B76004C3BE1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D4D298101A3511A400BA237B /* LOTNewClassViewController.h */,
-				D4D298111A3511A400BA237B /* LOTNewClassViewController.m */,
 				D4B63FD91A3525650008190D /* LOTClassListViewController.h */,
 				D4B63FDA1A3525650008190D /* LOTClassListViewController.m */,
 				D4C8552A1A2A655300A4B435 /* LOTStudentListViewController.h */,
@@ -482,7 +477,6 @@
 				D44AE7041A6349BF000C2105 /* LOTEditStudentsVC.m in Sources */,
 				D4821D591A6DEEDB00007A09 /* LOTEditableTableViewCell.m in Sources */,
 				D4B63FDB1A3525650008190D /* LOTClassListViewController.m in Sources */,
-				D4D298121A3511A400BA237B /* LOTNewClassViewController.m in Sources */,
 				D47397E31A798147001DDB23 /* LOTQuickRecordTVC.m in Sources */,
 				D46BEC431A814FD4009784DF /* LOTGestureTableViewCell.m in Sources */,
 				D4821D5F1A70297400007A09 /* LOTCustomTextField.m in Sources */,

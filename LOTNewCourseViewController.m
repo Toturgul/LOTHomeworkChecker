@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *subjectTextField;
-- (IBAction)doneNamesButton:(id)sender;
+
 - (IBAction)allDoneButton:(id)sender;
 - (IBAction)editButton:(id)sender;
 - (IBAction)editVCButton:(id)sender;
@@ -114,11 +114,7 @@
 }
 
 
-- (IBAction)doneNamesButton:(id)sender {
-    [self.view endEditing:YES];
 
-    
-}
 
 - (IBAction)allDoneButton:(id)sender {
     [self completeNewCourse];

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dJN-tD-h2g">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dJN-tD-h2g">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--Quick RecordTVC-->
@@ -166,8 +166,8 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaI-gR-U9J">
-                                <rect key="frame" x="23" y="72" width="46" height="30"/>
-                                <state key="normal" title="Delete">
+                                <rect key="frame" x="23" y="72" width="137" height="29"/>
+                                <state key="normal" title="Delete or Reorder">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -175,7 +175,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUv-4C-YkE">
-                                <rect key="frame" x="96" y="72" width="46" height="30"/>
+                                <rect key="frame" x="239" y="72" width="46" height="30"/>
                                 <state key="normal" title="A...Z">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -184,7 +184,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q49-ga-boY">
-                                <rect key="frame" x="164" y="72" width="46" height="30"/>
+                                <rect key="frame" x="239" y="125" width="46" height="30"/>
                                 <state key="normal" title="Z...A">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -192,26 +192,8 @@
                                     <action selector="zAButton:" destination="jpQ-cF-IgP" eventType="touchUpInside" id="Gb1-72-1Nw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVi-Of-5N6">
-                                <rect key="frame" x="23" y="124" width="46" height="30"/>
-                                <state key="normal" title="Add">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addButton:" destination="jpQ-cF-IgP" eventType="touchUpInside" id="FVx-Ma-GTa"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neg-pS-ViV">
-                                <rect key="frame" x="255" y="72" width="74" height="30"/>
-                                <state key="normal" title="Rearrange">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="rearrangeButton:" destination="jpQ-cF-IgP" eventType="touchUpInside" id="8yx-eS-kyu"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p81-KZ-LJk">
-                                <rect key="frame" x="113" y="124" width="46" height="30"/>
+                                <rect key="frame" x="61" y="125" width="46" height="30"/>
                                 <state key="normal" title="Done">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -274,7 +256,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWr-jQ-n9H">
                                 <rect key="frame" x="43" y="90" width="84" height="30"/>
-                                <state key="normal" title="Done All">
+                                <state key="normal" title="All Done">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -282,26 +264,17 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euA-xp-29k">
-                                <rect key="frame" x="62" y="35" width="46" height="30"/>
-                                <state key="normal" title="Edit">
+                                <rect key="frame" x="34" y="28" width="112" height="38"/>
+                                <state key="normal" title="Remove Name">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="editButton:" destination="WD9-bm-6hK" eventType="touchUpInside" id="bC4-0K-6pw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzz-Ns-ZXc">
-                                <rect key="frame" x="212" y="72" width="104" height="65"/>
-                                <state key="normal" title="Done Entering Names">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="doneNamesButton:" destination="WD9-bm-6hK" eventType="touchUpInside" id="Gaa-mP-8dx"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kg-GS-0Oo">
-                                <rect key="frame" x="223" y="43" width="48" height="30"/>
-                                <state key="normal" title="EditVC">
+                                <rect key="frame" x="180" y="36" width="142" height="40"/>
+                                <state key="normal" title="More Edit Options">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -723,7 +696,7 @@
         <image name="wrench" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="x51-0c-70Y"/>
         <segue reference="fFT-0o-UI9"/>
+        <segue reference="5Kf-JF-Lgp"/>
     </inferredMetricsTieBreakers>
 </document>

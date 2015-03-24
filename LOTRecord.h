@@ -14,11 +14,6 @@
 @interface LOTRecord : NSManagedObject
 
 @property (nonatomic, retain) NSString * courseName;
-@property (nonatomic, retain) NSNumber * extraBoolean;
-@property (nonatomic, retain) NSNumber * extraFloat;
-@property (nonatomic, retain) NSString * extraString1;
-@property (nonatomic, retain) NSString * extraString2;
-@property (nonatomic, retain) NSNumber * extraInteger;
 @property (nonatomic, retain) NSSet *courses;
 @end
 

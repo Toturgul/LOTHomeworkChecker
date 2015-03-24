@@ -48,13 +48,18 @@
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"HomeworkCheck.sqlite"];
     
+    NSDictionary *options = @{
+                              NSMigratePersistentStoresAutomaticallyOption:[NSNumber numberWithBool:YES],
+                              NSInferMappingModelAutomaticallyOption:[NSNumber numberWithBool:YES],
+                              };
+    
     NSError *error = nil;
     
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"HomeworkCheck" withExtension:@"momd"];
     NSManagedObjectModel *managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];
     
-    [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
+    [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error];
     if (coordinator != nil) {
         _managedObjectContext = [[NSManagedObjectContext alloc] init];
         [_managedObjectContext setPersistentStoreCoordinator:coordinator];

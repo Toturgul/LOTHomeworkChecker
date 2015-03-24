@@ -16,11 +16,6 @@
 @property (nonatomic, retain) NSString * assignment;
 @property (nonatomic, retain) NSString * courseName;
 @property (nonatomic, retain) NSDate * date;
-@property (nonatomic, retain) NSNumber * extraBoolean;
-@property (nonatomic, retain) NSNumber * extraFloat;
-@property (nonatomic, retain) NSString * extraString1;
-@property (nonatomic, retain) NSString * extraString2;
-@property (nonatomic, retain) NSNumber * extraInteger;
 @property (nonatomic, retain) LOTRecord *record;
 @property (nonatomic, retain) NSSet *students;
 @end

@@ -13,11 +13,6 @@
 @implementation LOTRecord
 
 @dynamic courseName;
-@dynamic extraBoolean;
-@dynamic extraFloat;
-@dynamic extraString1;
-@dynamic extraString2;
-@dynamic extraInteger;
 @dynamic courses;
 
 @end

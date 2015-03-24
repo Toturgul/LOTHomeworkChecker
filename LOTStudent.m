@@ -14,11 +14,6 @@
 
 @dynamic assignment;
 @dynamic date;
-@dynamic extraBoolean;
-@dynamic extraFloat;
-@dynamic extraInteger;
-@dynamic extraString1;
-@dynamic extraString2;
 @dynamic firstName;
 @dynamic hwCompletion;
 @dynamic lastName;

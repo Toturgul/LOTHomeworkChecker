@@ -7,15 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LOTDataStore.h"
+
 @interface LOTNewCourseViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 
 @property (strong, nonatomic) NSMutableArray *namesForListArray;
-
-
 @property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) LOTDataStore *dataStore;
+
 
 
 -(void)createAndSaveStudent;

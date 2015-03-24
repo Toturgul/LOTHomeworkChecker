@@ -9,9 +9,10 @@
 #import "LOTRecordStudentVC.h"
 #import "LOTCourse.h"
 #import "LOTStudent.h"
+#import "LOTDataStore.h"
 @interface LOTRecordStudentVC ()
 @property (weak, nonatomic) IBOutlet UITableView *recordTableView;
-
+@property (strong, nonatomic) LOTDataStore *dataStore;
 @end
 
 @implementation LOTRecordStudentVC

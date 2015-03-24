@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LOTDataStore.h"
+
 @interface LOTRecordCourseVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
-@property (strong, nonatomic) LOTDataStore *dataStore;
+
 
 @end
 

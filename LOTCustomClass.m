@@ -9,6 +9,12 @@
 #import "LOTCustomClass.h"
 #import "LOTDataStore.h"
 
+@interface LOTCustomClass ()
+@property (strong, nonatomic) LOTDataStore *dataStore;
+
+@end
+
+
 @implementation LOTCustomClass
 
 -(NSArray *)findSpecificEntity:(NSString *)entity byMatchingThisAttribute:(NSString *)attribute withThisTerm:(NSString *)term{
@@ -56,10 +62,7 @@
     
 }
 
--(void)segmentControlTouched{
 
-    
-}
 
 
 @end

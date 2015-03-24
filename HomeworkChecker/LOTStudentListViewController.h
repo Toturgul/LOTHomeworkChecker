@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MGSwipeTableCell.h>
 #import <MGSwipeButton.h>
-#import "LOTDataStore.h"
+
 @class LOTCourse;
 
 
@@ -17,7 +17,6 @@
 
 @property (strong, nonatomic) NSMutableArray * listOfStudents;
 @property (strong, nonatomic) LOTCourse *chosenCourse;
-@property (strong, nonatomic) LOTDataStore *dataStore;
 @property (strong, nonatomic) LOTCourse *courseSavedToCoreData;
 
 

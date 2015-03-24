@@ -7,12 +7,16 @@
 //
 
 #import "LOTDatePickerVC.h"
+#import "LOTDataStore.h"
+#import "LOTCustomClass.h"
+#import "LOTCourse.h"
 
 @interface LOTDatePickerVC ()
+
 - (IBAction)cancelButton:(id)sender;
 - (IBAction)saveButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIDatePicker *myDatePicker;
-
+@property (strong, nonatomic) LOTDataStore *dataStore;
 @property (strong, nonatomic) LOTCustomClass *customClass;
 @property (strong, nonatomic) LOTCourse *currentCourse;
 @end

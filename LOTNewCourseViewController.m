@@ -11,8 +11,10 @@
 #import "LOTRecord.h"
 #import "LOTStudent.h"
 #import "LOTEditStudentsVC.h"
+#import "LOTDataStore.h"
 
 @interface LOTNewCourseViewController ()
+@property (strong, nonatomic) LOTDataStore *dataStore;
 @property (nonatomic) NSInteger editNumber;
 @property (weak, nonatomic) IBOutlet UITableView *studentListTableView;
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;

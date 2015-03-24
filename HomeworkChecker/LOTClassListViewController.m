@@ -9,10 +9,11 @@
 #import "LOTClassListViewController.h"
 #import "LOTCourse.h"
 #import "LOTStudentListViewController.h"
+#import "LOTDataStore.h"
 @interface LOTClassListViewController () 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *addNewClassButton;
-@property (weak, nonatomic) IBOutlet UITableView *classListTableView;
 
+@property (weak, nonatomic) IBOutlet UITableView *classListTableView;
+@property (strong, nonatomic) LOTDataStore *dataStore;
 @end
 
 @implementation LOTClassListViewController

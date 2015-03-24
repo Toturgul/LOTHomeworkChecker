@@ -7,14 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LOTDataStore.h"
 @class LOTRecord;
 
 @interface LOTRecordAssignmentVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
-@property (strong, nonatomic) LOTDataStore *dataStore;
-@property (strong, nonatomic) LOTRecord *chosenRecord;
-@property (strong, nonatomic) NSMutableArray *assignmentArray;
 
+
+@property (strong, nonatomic) NSMutableArray *assignmentArray;
+@property (strong, nonatomic) LOTRecord *chosenRecord;
 -(NSString*)dateAsString;
 
 @end

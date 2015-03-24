@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LOTDataStore.h"
-#import "LOTCustomClass.h"
-#import "LOTCourse.h"
+
 
 
 @interface LOTDatePickerVC : UIViewController <UITextFieldDelegate>
 
-@property (strong, nonatomic) LOTDataStore *dataStore;
+
 
 
 

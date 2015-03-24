@@ -14,9 +14,11 @@
 #import "LOTRecord.h"
 #import "LOTCourse.h"
 #import "LOTCustomClass.h"
+#import "LOTDataStore.h"
 #import "LOTDatePickerVC.h" //might not need to import this anymore
 
 @interface LOTStudentListViewController () <UITextFieldDelegate>
+@property (strong, nonatomic) LOTDataStore *dataStore;
 @property (weak, nonatomic) IBOutlet UITableView *studentTableView;
 @property (weak, nonatomic) IBOutlet UITextField *assignmentTextField;
 @property (weak, nonatomic) IBOutlet UITextField *dateTextField;

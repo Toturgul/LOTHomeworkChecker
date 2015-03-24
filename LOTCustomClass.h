@@ -7,17 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-@class LOTDataStore;
+
 
 @interface LOTCustomClass : NSObject
 
-@property (strong, nonatomic) LOTDataStore *dataStore;
+
 
 -(NSArray *)findSpecificEntity:(NSString *)entity byMatchingThisAttribute:(NSString *)attribute withThisTerm:(NSString *)term;
 
 -(NSString *)todaysDateAsString;
 
--(void)segmentControlTouched;
+
 
 
 

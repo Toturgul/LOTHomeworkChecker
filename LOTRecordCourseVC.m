@@ -10,7 +10,9 @@
 #import "LOTCourse.h"
 #import "LOTRecordAssignmentVC.h"
 #import "LOTRecord.h"
+#import "LOTDataStore.h"
 @interface LOTRecordCourseVC ()
+@property (strong, nonatomic) LOTDataStore *dataStore;
 @property (weak, nonatomic) IBOutlet UITableView *recordTableView;
 
 @end
